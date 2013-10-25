@@ -1,0 +1,121 @@
+% Beamer Theme UPB
+% Copyright 2011 (c) Kshitij Kulshreshtha
+% Based on the images provided for making Scheine
+% and the look of the powerpoint presentations 
+% on the UPB Corporate Design site
+
+\mode<presentation>
+
+\usecolortheme{default}
+\definecolor{upbgray}{rgb}{0.807843137255, 0.811764705882, 0.796078431373}
+\definecolor{upbblue}{rgb}{0, 0.149019607843, 0.392156862745}
+\setbeamercolor{author in head/foot}{parent=palette tertiary}
+\setbeamercolor{title in head/foot}{parent=palette tertiary}
+\setbeamercolor{date in head/foot}{parent=palette tertiary}
+\setbeamercolor{page number in head/foot}{parent=palette primary,fg=black}
+\setbeamercolor{section in head/foot}{parent=palette secondary,bg=upbgray}
+\setbeamercolor{subsection in head/foot}{parent=palette tertiary}
+\usetheme[headheight=8ex,footheight=2.5ex]{boxes}
+\pgfdeclareimage[width=\paperwidth]{upbhead}{headimage}
+\pgfdeclareimage[width=\paperwidth]{upbfoot}{footimage}
+
+\def\@itf{\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}}
+\newcommand\noframenumbers{\def\@itf{}}
+\newcommand\framenumbers[1][0]{\def\@itf{\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}}\setcounter{framenumber}{#1}}
+
+\usesectionheadtemplate{\hfill\insertsectionhead}{\hfill\color{fg!50!bg}\insertsectionhead}
+
+\def\beamer@template@headline@empty{}
+\def\beamer@template@headline@secheader{%
+\pgftext[at=\pgfpoint{0.515\paperwidth}{4ex},left,base]{%
+    \begin{beamercolorbox}[wd=.292\paperwidth,ht=0ex,center]{section in head/foot}%
+      \vbox to 3ex{\vfil\usebeamerfont{section in head/foot}\insertsectionhead\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.193\paperwidth,ht=0ex,center]{subsection in head/foot}%
+      \vtop to 4.5ex{\vfil\usebeamerfont{subsection in head/foot}\insertsubsectionhead\vfil}%
+    \end{beamercolorbox}%
+}%
+}
+\def\beamer@template@headline@structure{%
+\ifnum\beamer@sectionmax>\beamer@subsectionmax
+  \let\maxnum=\beamer@sectionmax
+\else
+  \let\maxnum=\beamer@subsectionmax
+\fi
+\ifnum\maxnum>3
+\typeout{Theme UPB: too many sections/subsections ( > 3) for headline=structure}
+\typeout{ using headline=secheader instead}
+\beamer@template@headline@secheader
+\else
+\pgftext[at=\pgfpoint{0.4\paperwidth}{7ex},left,base]{%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.125ex%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.3\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.3\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+  \fi%
+}%
+\fi
+}
+
+\def\beamer@template@footline@empty{}
+\def\beamer@template@footline@infoline{%
+\pgftext[at=\pgfpoint{0pt}{0.7ex},left,base]{%
+\begin{beamercolorbox}[wd=0.07\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}
+\vfil
+\end{beamercolorbox}
+\begin{beamercolorbox}[wd=.28\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}% 
+\begin{beamercolorbox}[wd=.125\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\@itf%
+  \end{beamercolorbox}% 
+  \begin{beamercolorbox}[wd=.305\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.21\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}%
+  \end{beamercolorbox}%
+}%
+}
+
+
+\def\beamer@theme@headline@UPB#1{%
+\setbeamertemplate{headline}{\leavevmode%
+\begin{pgfpicture}%
+\pgftext[at=\pgfpoint{0pt}{2pt},left,base]{%
+\pgfuseimage{upbhead}}%
+\csname beamer@template@headline@#1\endcsname%
+\end{pgfpicture}%
+}%
+}
+
+\def\beamer@theme@footline@UPB#1{%
+\setbeamertemplate{footline}{%
+\leavevmode%
+\begin{pgfpicture}%
+\pgftext[at=\pgfpoint{0pt}{0pt},left,base]{%
+\pgfuseimage{upbfoot}}%
+\csname beamer@template@footline@#1\endcsname%
+\end{pgfpicture}%
+}%
+}
+
+\beamer@theme@headline@UPB{empty}
+\beamer@theme@footline@UPB{empty}
+
+\DeclareOptionBeamer{footline}{\beamer@theme@footline@UPB{#1}}
+\DeclareOptionBeamer{headline}{\beamer@theme@headline@UPB{#1}}
+\ProcessOptionsBeamer
+
+\mode<all>
+\usepackage[scale=0.8]{helvet}

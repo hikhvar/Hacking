@@ -93,6 +93,7 @@ Bei diesem Rechner wird es sich laut der verwendeten OpenSSH Serverversion um ei
 	\item[flg0607547c0d12497a21ab8a0b53dd5bed] Auf dem Rechner \texttt{192.26.175.35} läuft auch ein HTTP-Server. Beim Aufrufen der URL \texttt{http://192.26.175.35} fanden wir im HTML-Quelltext der angezeigten Website dieses Flag. Es war im Webbrowser nicht zu sehen, da es auskommentiert wurde im HTML Quellcode.
 	\item[flgd0d1741e939d8fc51e0dae50ff39bed4] Beim Scannen des Rechners \texttt{192.26.175.35} mit dem nmap Kommando \texttt{nmap -T4 -A -v 192.26.175.35} viel als UFT8 Servername im Dienst Netatalk dieses Flag auf.
 	\item[flg9fa80db0f34a75d1f474f29e8ed8f1ac] In der SMB Freigabe \texttt{smb://arch/dontlookhere/} fanden wir das Bild \texttt{SMBFLAG.png}. Der Inhalt des Bildes enthielt die oben genannte Flag.
+	\item[flgc905381d9e34b1efd02594423806e1d7] Beim Beobachten des Netzwerkverkehrs in Wireshark viel uns ein Packet von \texttt{192.26.175.38} nach \texttt{192.26.175.63} auf in dem stand \texttt{bernd@192.26.175.37} gefolgt von zwei Packeten die einen RSA Private Key enthielten. Nachdem wir uns mit dem Private Key per \texttt{ssh bernd@192.26.175.37} einloggten, erschien der Key auf der Kommandozeile.
 \end{description}
 
 \end{document}

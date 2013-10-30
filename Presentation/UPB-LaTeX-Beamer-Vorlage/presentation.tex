@@ -13,7 +13,7 @@
 \begin{frame}
 \maketitle
 \end{frame}
-\section{Start}
+\section{Attacken gegen WEP}
 \begin{frame}
 \frametitle{Testing the beamer style}
 \begin{itemize}
@@ -21,25 +21,40 @@
 	\item test2
 \end{itemize}
 \end{frame}
-\subsection{In the begining}
+
+\section{Attacken gegen WPA/WPA2}
+
+\section{Andere Attacken}
+\subsection{WPS}
 \begin{frame}
-\frametitle{Testing the beamer style}
+\frametitle{WPS (Wi-Fi Protected Setup)}
+Drei Endnutzerfreundliche WLAN Konfigurationsmodi:
+\begin{description}
+	\item[Push-Button-Connect (“PBC”)] Benutzer drückt physischen oder virtuellen Knopf.
+	\item[PIN - Internal Registrar] Benutzer gibt WPS Pin seines Endgerätes in Webmaske des AP ein.
+	\item[PIN - External Registrar] Benutzer bekommt Pin vom Betreiber des APs mitgeteilt.
+\end{description}
+
 \end{frame}
-\subsubsection{There was nothing}
 \begin{frame}
-\frametitle{Testing the beamer style}
+\frametitle{Angriff auf WPS, PIN - External Registrar\footnote{http://sviehb.files.wordpress.com/2011/12/viehboeck\_wps.pdf}}
+\begin{itemize}
+	\item PIN ist 8 Ziffern lang.
+	\item Protokoll erlaubt es zu erkennen ob die ersten 4 Zeichen oder 4 Zeichen falsch waren.
+	\item 8. Ziffern Checksumme der ersten 7 Ziffern.
+	\item Zu testende Kombinationen: $10^4+10^3 = 11.000$
+	\item WPS Standard schreibt kein Lockdown vor. Daher selten Implementiert.
+	\item Authentification benötigt im Schnitt 1,3 Sekunden.
+\end{itemize}
 \end{frame}
-\section{Then}
-\subsection{There was}
+
+\section{Häufige Absicherungsempfehlungen}
 \begin{frame}
-\frametitle{Testing the beamer style}
+\begin{description}
+	\item[MAC-Filter] Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übertragen wird.
+	\item[SSID Verstecken] AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
+\end{description}
 \end{frame}
-\subsubsection{Something}
-\begin{frame}
-\frametitle{Testing the beamer style}
-\end{frame}
-\subsubsection{Or the other}
-\begin{frame}
-\frametitle{Testing the beamer style}
-\end{frame}
+
+
 \end{document}

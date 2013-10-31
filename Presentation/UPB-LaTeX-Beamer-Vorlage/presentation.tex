@@ -23,6 +23,7 @@
 	\item test
 	\item test2
 \end{itemize}
+
 \end{frame}
 
 
@@ -132,7 +133,11 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 \subsection{User Tracking}
 \begin{frame}
 \begin{itemize}
-	\item WLAN Tonnen in London erfassten Fussgänger anhand ihrer Handies.
+	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London.\footnote{\url{http://renewlondon.com/2013/06/renew-launches-renew-orb-technology-press-release/}}
+	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID
+	\begin{itemize}
+		\item Schlechte Implementationnen broadcasten auch den Namen der unversteckten SSIDs
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -150,19 +155,30 @@ Wörterbuchattacken gegen PBKDF2 nicht mehr so einfach.
 \end{block}
 \end{frame}
 
+\section{Tools}
+\begin{frame}
+\begin{block}{Aircrack-ng Suite (siehe \cite{aircrack})}
+	\begin{description}
+		\item[aircrack-ng] WEP, WPA, WPA2-PSK Key Cracker
+		\item[aireplay-ng] Erzeugt WLAN Traffic
+		\item[airdrop-ng] Regelbasiertes Deauth Tool
+		\item[airodump-ng] Zeichnet WLAN Rohdaten auf
+		\item[airdecap-ng] Entschlüsselt aufgezeichnete WEP, WPA, WPA2 Streams
+		\item[...]
+	\end{description}
+\end{block}
+\begin{block}{FakeAP (siehe \cite{fakeap})}
+Simulieren falscher WLANs
+\end{block}
+\begin{block}{Kismet (siehe \cite{kismet})/NetStumbler (siehe \cite{netstumbler})}
+WLANs aufspüren und kartografieren
+\end{block}
+\end{frame}
+
 \section{References}
 \begin{frame}
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{references}
 \end{frame}
-
-\section{Tools}
-\begin{frame}
-\begin{itemize}
-	\item Aircrack-ng
-\end{itemize}
-\end{frame}
-
-
 \end{document}

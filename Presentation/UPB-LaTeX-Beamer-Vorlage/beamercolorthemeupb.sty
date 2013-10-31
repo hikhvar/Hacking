@@ -1,0 +1,40 @@
+% UPB Beamer theme by Michael Knopf <jimknopf[at]mail[dot]upb[dot].de>
+% June 2012, version 0.2
+%
+% Based on the LaTeX-Beamer package:
+% Copyright 2007 by Till Tantau <tantau[at]users[dot]sourceforge[dot]net>
+%
+% This program can be redistributed and/or modified under the terms of the
+% GNU Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0).
+
+% Defining three new colors. UPB Blue is the official color of the UPB logo.
+% UPB Red and UPB Green have a comparable saturation.
+\definecolor{upbblue}{rgb}{0,0.145,0.282}
+\definecolor{upbred}{rgb}{0.46, 0.00, 0.00}
+\definecolor{upbgreen}{rgb}{0.00, 0.46, 0.00}
+
+% Standard color definitions:
+\mode<presentation>
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{alerted text}{fg=upbred}
+\setbeamercolor*{example text}{fg=upbgreen}
+\setbeamercolor*{structure}{fg=upbblue}
+
+% Color for section names in the navigaion bar on top.
+\setbeamercolor*{section in head/foot}{fg=upbblue}
+
+% Block title colors:
+\setbeamercolor*{block title}{fg=black,bg=upbblue!30}
+\setbeamercolor*{block title alerted}{fg=upbred,bg=upbred!30}
+\setbeamercolor*{block title example}{fg=upbgreen,bg=upbgreen!30}
+
+% Block colors:
+\setbeamercolor*{block body}{fg=black,bg=upbblue!15}
+\setbeamercolor*{block body alerted}{fg=black,bg=upbred!15}
+\setbeamercolor*{block body example}{fg=black,bg=upbgreen!15}
+
+% No seperation lines:
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+\mode
+<all>

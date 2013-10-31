@@ -1,10 +1,12 @@
 \documentclass{beamer}
-\usetheme[footline=infoline,headline=secheader]{UPB}
+%\usetheme[footline=infoline,headline=secheader]{UPB}
 %\usetheme[footline=infoline,headline=structure]{UPB}
 %\usetheme[headline=secheader]{UPB}
 %\usetheme[headline=structure]{UPB}
 %\usetheme[footline=infoline]{UPB}
 %\usetheme{UPB} % defaults are footline=empty,headline=empty
+%\usetheme{Antibes}
+\usetheme{upb}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \author[C.Robbert, P. Stilow]{Christoph Robbert, Peter Stilow}
@@ -44,6 +46,15 @@
 \end{itemize}
 \end{block}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Authentifizierung mit 802.1X in 802.11i}
+	\begin{itemize}
+		\item Verwendung port-basierter Authentifizierung wie im Kabelgebundenen Layer-2
+		\item[$\Rightarrow$] Unterstützung für u.a. Zertifikat- und Smartcard-basierter Authentifizierung.
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{TKIP (Temporal Key Integrity Protocol)}
@@ -103,7 +114,7 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 	\item Protokoll erlaubt es zu erkennen ob die ersten 4 Zeichen oder 4 Zeichen falsch waren.
 	\item 8. Ziffern Checksumme der ersten 7 Ziffern.
 	\item Zu testende Kombinationen: $10^4+10^3 = 11.000$
-	\item WPS Standard schreibt kein Lockdown vor. Daher selten Implementiert.
+	\item WPS Standard schreibt kein Lockdown vor. Daher selten implementiert.
 	\item Authentification benötigt im Schnitt 1,3 Sekunden.
 \end{itemize}
 \end{frame}

@@ -26,16 +26,22 @@
 
 \section{Andere Attacken}
 \subsection{WPS}
+
 \begin{frame}
 \frametitle{WPS (Wi-Fi Protected Setup)}
 Drei Endnutzerfreundliche WLAN Konfigurationsmodi:
-\begin{description}
-	\item[Push-Button-Connect (“PBC”)] Benutzer drückt physischen oder virtuellen Knopf.
-	\item[PIN - Internal Registrar] Benutzer gibt WPS Pin seines Endgerätes in Webmaske des AP ein.
-	\item[PIN - External Registrar] Benutzer bekommt Pin vom Betreiber des APs mitgeteilt.
-\end{description}
-
+\begin{block}{Push-Button-Connect (“PBC”)}
+Benutzer drückt physischen oder virtuellen Knopf.
+\end{block}
+\begin{block}{PIN - Internal Registrar}
+Benutzer gibt mitgelieferten WPS Pin seines Endgerätes in Webmaske des AP ein.
+\end{block}
+\begin{block}{PIN - External Registrar}
+Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endgerät ein.
+\end{block}
 \end{frame}
+
+
 \begin{frame}
 \frametitle{Angriff auf WPS, PIN - External Registrar\footnote{http://sviehb.files.wordpress.com/2011/12/viehboeck\_wps.pdf}}
 \begin{itemize}
@@ -50,10 +56,13 @@ Drei Endnutzerfreundliche WLAN Konfigurationsmodi:
 
 \section{Häufige Absicherungsempfehlungen}
 \begin{frame}
-\begin{description}
-	\item[MAC-Filter] Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übertragen wird.
-	\item[SSID Verstecken] AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
-\end{description}
+
+\begin{block}{MAC-Filter}
+Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übertragen wird.
+\end{block}
+\begin{block}{SSID Verstecken}
+AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
+\end{block}
 \end{frame}
 
 

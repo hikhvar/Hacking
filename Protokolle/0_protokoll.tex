@@ -27,7 +27,7 @@ Außerdem zeigte ein anschließender Portscan( \texttt{nmap -sT -sV} die folgend
 443/tcp open  ssl/http Cisco IOS administrative httpd
 Service Info: OS: IOS
 \end{verbatim}
-Aus den Angaben des Portscan lässt sich schließen, dass es sich um einen Cisco Router handelt bei diesem Host. Da die Automatische Dienstanalyse von \texttt{nmap} sowohl bei den Diensten Cisco Dienste identifiziert alsauch bei der Service Info das Routerbetriebssystem IOS. 
+Aus den Angaben des Portscan lässt sich schließen, dass es sich um einen Cisco Router handelt bei diesem Host. Da die Automatische Dienstanalyse von \texttt{nmap} sowohl bei den Diensten Cisco Dienste identifiziert als auch bei der Service Info das Routerbetriebssystem IOS. 
 \item 192.26.175.10
 \begin{verbatim}
 22/tcp  open  ssh     OpenSSH 5.9p1 Debian 5ubuntu1 (protocol 2.0)
@@ -69,18 +69,141 @@ Da hier der netbios Dienst läuft, schließen wir, dass es sich um einen Windows
 22/tcp open  ssh     OpenSSH 5.8p2_hpn13v11 (FreeBSD 20110503; protocol 2.0)
 25/tcp open  smtp
 \end{verbatim}
-Bei diesem Rechner wird es sich laut der verwendeten OpenSSH Serverversion um einen FreeBSD Rechner handeln. Neben dem OpenSSH Server läuft auch ein smtp Server(E-Mailannehmender Server). 
+Bei diesem Rechner wird es sich laut der verwendeten OpenSSH Serverversion um einen FreeBSD Rechner handeln. Neben dem OpenSSH Server läuft auch ein smtp Server(E-Mail annehmender Server). 
+
 \item 192.26.175.33
+\begin{verbatim}
+13/tcp   open     daytime
+22/tcp   open     ssh     OpenSSH 5.9 (protocol 2.0)
+37/tcp   open     time    (32 bits)
+113/tcp  open     ident
+6000/tcp filtered X11
+6001/tcp filtered X11:1
+6002/tcp filtered X11:2
+6003/tcp filtered X11:3
+6004/tcp filtered X11:4
+6005/tcp filtered X11:5
+6006/tcp filtered X11:6
+6007/tcp filtered X11:7
+6009/tcp filtered X11:9
+Service Info: OS: Unix
+\end{verbatim}
+Dieser Rechner besitzt auch ein Unix System, scheinbar aber nicht um die Ubuntu version 12.04,
+da hier OpenSSH anders ist. Außerdem gibt es hier auch andere offene Ports, z.B. für daytime und time.
+
 \item 192.26.175.34
+\begin{verbatim}
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds Microsoft Windows XP microsoft-ds
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+\end{verbatim}
+Auf diesem PC läuft Windows XP, wie man an microsoft-ds erkennen kann.
+
 \item 192.26.175.35
+\begin{verbatim}
+21/tcp   open  ftp     ProFTPD 1.3.4a
+22/tcp   open  ssh     OpenSSH 5.9p1 Debian 4 (protocol 2.0)
+80/tcp   open  http    Apache httpd 2.2.22 ((Debian))
+111/tcp  open  rpcbind 2-4 (RPC #100000)
+548/tcp  open  afp     Netatalk 2.2.2 (name: flgd0d1741e939d8fc51e0dae50ff39; protocol 3.3)
+3306/tcp open  mysql   MySQL 5.1.61-2
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+\end{verbatim}
+Bei diesem Rechner handelt es sich wieder um eine Ubuntu Installation. Zusätzlich zu den vorherigen laufen auf diesem hier allerdings ein ftp- sowie ein MySQL-Server. Der Name dieses Rechners (als UTF-8) ist zusätzlich ein flag aus der nächsten Aufgabe.
+
 \item 192.26.175.36
+\begin{verbatim}
+1/tcp     open  tcpwrapped
+22/tcp    open  ssh        OpenSSH 5.9p1 Debian 4 (protocol 2.0)
+79/tcp    open  tcpwrapped
+111/tcp   open  rpcbind    2-4 (RPC #100000)
+119/tcp   open  tcpwrapped
+143/tcp   open  tcpwrapped
+1080/tcp  open  tcpwrapped
+1524/tcp  open  tcpwrapped
+2000/tcp  open  tcpwrapped
+6667/tcp  open  tcpwrapped
+12345/tcp open  tcpwrapped
+31337/tcp open  tcpwrapped
+32771/tcp open  tcpwrapped
+32772/tcp open  tcpwrapped
+32773/tcp open  tcpwrapped
+32774/tcp open  tcpwrapped
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+\end{verbatim}
+Auch dieser PC besitzt wieder die gleiche Ubuntu Version und besitzt wieder den ssh Zugang. Zusätzlich besitzt der Computer scheinbar eine Firewall, die die meisten offenen Ports vor Unbefugten zugriffen schützt.
+
 \item 192.26.175.37
+\begin{verbatim}
+22/tcp open  ssh     OpenSSH 6.3 (protocol 2.0)
+\end{verbatim}
+Über diesen Computer gibt es nicht viele Informationen, außer, dass es einen ssh Zugang gibt.
+
 \item 192.26.175.38
+\begin{verbatim}
+21/tcp  open  ftp         vsftpd 3.0.2
+22/tcp  open  ssh         OpenSSH 6.3 (protocol 2.0)
+139/tcp open  netbios-ssn Samba smbd 3.X (workgroup: ARCH)
+445/tcp open  netbios-ssn Samba smbd 3.X (workgroup: ARCH)
+Service Info: OS: Unix
+\end{verbatim}
+Auf diesem Rechner befindet sich ein Unix System (Arch-Linux?), der sowohl einen ssh Zugang bietet, als auch einen ftp Server, sowie eine Windows-Netzwerk Umgebung durch den Samba Service.
+
 \item 192.26.175.47
-\item 192.26.175.49
+\begin{verbatim}
+22/tcp open  ssh     Dropbear sshd 0.53.1 (protocol 2.0)
+53/tcp open  domain  dnsmasq 2.55
+80/tcp open  http    LuCI Lua http config
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+\end{verbatim}
+Auch auf diesem Rechner läuft ein Unix System, welches zusätzlich zum ssh Zugang auch einen http Server bereit stellt.
+
+\item 192.26.175.52
+Zu diesem Computer gibt es keinerlei Info, da alle Ports geschlossen sind.
+
 \item 192.26.175.54
+Zu diesem Computer gibt es keinerlei Info, da alle Ports geschlossen sind.
+
 \item 192.26.175.55
+\begin{verbatim}
+7/tcp    open  echo
+9/tcp    open  discard?
+13/tcp   open  daytime       Microsoft Windows USA daytime
+17/tcp   open  qotd          Windows qotd (English)
+19/tcp   open  chargen
+21/tcp   open  ftp           Microsoft ftpd
+25/tcp   open  smtp          Microsoft ESMTP 6.0.3790.3959
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds  Microsoft Windows 2003 or 2008 microsoft-ds
+548/tcp  open  afp?
+1025/tcp open  msrpc         Microsoft Windows RPC
+1028/tcp open  msrpc         Microsoft Windows RPC
+1029/tcp open  msrpc         Microsoft Windows RPC
+1030/tcp open  msrpc         Microsoft Windows RPC
+3389/tcp open  ms-wbt-server Microsoft Terminal Service
+8099/tcp open  http          Microsoft IIS httpd 6.0
+Service Info: Host: w2k3; OS: Windows; CPE: cpe:/o:microsoft:windows
+\end{verbatim}
+Auf diesem Computer läuft das MS Windows 2003 Betriebssystem. Er besitzt sowohl einen ftp- und einen http-Server und bietet den normalen Windows Netzwerk Dienst.
+
 \item 192.26.175.56
+\begin{verbatim}
+22/tcp  open  ssh        Dropbear sshd 0.53.1 (protocol 2.0)
+53/tcp  open  domain     dnsmasq 2.55
+80/tcp  open  http?
+443/tcp open  ssl/https?
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+\end{verbatim}
+Auf diesem Rechner läuft wieder ein Linux, ähnlich zu dem 192.26.175.47. Zusätzlich zum http Server gibt es hier auch einen https Server.
+
+\item 192.26.175.56
+Zu diesem Computer gibt es keinerlei Info, da alle Ports geschlossen sind.
+
+\item 192.26.175.56
+Zu diesem Computer gibt es keinerlei Info, da alle Ports geschlossen sind.
+
 \end{itemize}
 
 \section{Aufgabe 2}

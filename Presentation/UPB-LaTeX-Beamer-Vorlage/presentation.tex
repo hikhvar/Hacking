@@ -23,6 +23,12 @@
 \end{frame}
 
 \section{Attacken gegen WPA/WPA2}
+\begin{frame}
+\frametitle{Attacken gegen WPA/WPA2}
+\begin{itemize}
+	\item Wahl bzw. Geheimhaltung des Preshared Keys falls nicht 802.1X eingesetzt wird.
+\end{itemize}
+\end{frame}
 
 \section{Andere Attacken}
 \subsection{WPS}
@@ -34,8 +40,9 @@ Drei Endnutzerfreundliche WLAN Konfigurationsmodi:
 	\item[PIN - Internal Registrar] Benutzer gibt WPS Pin seines Endgerätes in Webmaske des AP ein.
 	\item[PIN - External Registrar] Benutzer bekommt Pin vom Betreiber des APs mitgeteilt.
 \end{description}
-
 \end{frame}
+
+
 \begin{frame}
 \frametitle{Angriff auf WPS, PIN - External Registrar\footnote{http://sviehb.files.wordpress.com/2011/12/viehboeck\_wps.pdf}}
 \begin{itemize}
@@ -48,12 +55,27 @@ Drei Endnutzerfreundliche WLAN Konfigurationsmodi:
 \end{itemize}
 \end{frame}
 
+\subsection{User Tracking}
+\begin{frame}
+\begin{itemize}
+	\item WLAN Tonnen in London erfassten Fussgänger anhand ihrer Handies.
+\end{itemize}
+\end{frame}
+
 \section{Häufige Absicherungsempfehlungen}
 \begin{frame}
+\frametitle{Häufige Absicherungsempfehlungen}
 \begin{description}
 	\item[MAC-Filter] Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übertragen wird.
 	\item[SSID Verstecken] AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
 \end{description}
+\end{frame}
+
+\section{Tools}
+\begin{frame}
+\begin{itemize}
+	\item Aircrack-ng
+\end{itemize}
 \end{frame}
 
 

@@ -6,6 +6,7 @@
 %\usetheme[footline=infoline]{UPB}
 %\usetheme{UPB} % defaults are footline=empty,headline=empty
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
 \author[C.Robbert, P. Stilow]{Christoph Robbert, Peter Stilow}
 \institute[Uni Paderborn]{Universität Paderborn}
 \title[WLAN Security]{WLAN Security}
@@ -69,6 +70,11 @@
 \frametitle{Schwachstellen von TKIP}
 \begin{itemize}
 	\item Michael hat Schwachstellen (Brute-Force, DoS Angriffe, etc.)
+	\item Wörterbuchangriff auf PBKDF2 langsam(4096 Runden HMAC-SHA1)
+	\begin{itemize}
+		\item Beschleunigung durch Rainbow Tables\footnote{\url{http://www.renderlab.net/projects/WPA-tables/}} (SSID + Passphrases)
+		\item Berechnung in der Cloud\footnote{\url{https://www.cloudcracker.com/}}: 20 Minuten, 17\$, 300.000.000 Wörter
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -111,6 +117,16 @@ Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übe
 \begin{block}{SSID Verstecken}
 AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
 \end{block} 
+\begin{block}{Zufällige SSID}
+Wörterbuchattacken gegen PBKDF2 nicht mehr so einfach.
+\end{block}
+\end{frame}
+
+\section{References}
+\begin{frame}
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{references}
 \end{frame}
 
 

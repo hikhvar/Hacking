@@ -22,7 +22,55 @@
 \end{itemize}
 \end{frame}
 
-\section{Attacken gegen WPA/WPA2}
+\section{WPA/WPA2(802.11i)}
+\begin{frame}
+\begin{itemize}
+	\item Keines der Schutzziele von WEP (Authentizität, Vertraulichkeit, Integrität) wird erfüllt
+	\item[$\Rightarrow$] Entwicklung von 802.11i (WPA/WPA2)
+\end{itemize}
+\begin{block}{802.11i}
+\begin{itemize}
+	\item Schlüsselverwaltung:
+	\begin{itemize}
+		\item Personal/ Pre-Shared Key (PSK)
+		\item Enterprise (802.1X)
+	\end{itemize}
+	\item Sicherheitsprotokolle:
+	\begin{itemize}
+		\item TKIP(WPA, optional WPA2)
+		\item AES-CCMP(optional WPA, WPA2)
+	\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{TKIP (Temporal Key Integrity Protocol)}
+\begin{itemize}
+	\item AES sollte in 802.11i integriert werden.
+	\item AES Berechnungen aufwendig und erforderten neue Hardware
+\end{itemize}
+\begin{block}{Übergangslösung TKIP}
+	\begin{itemize}
+		\item Erweiterung von WEP
+		\item RC4 weiterhin als Basis
+		\item Dynamische statt statischer Schlüssel
+		\item Größere IVs:
+		\begin{itemize}
+			\item 48 bit statt 24 bit
+			\item Benutzt als TSC(TKIP Sequence Counter)
+		\end{itemize}
+		\item Michael (MIC) als verbesserte Intigritätsprüfung
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Schwachstellen von TKIP}
+\begin{itemize}
+
+\end{itemize}
+\end{frame}
 
 \section{Andere Attacken}
 \subsection{WPS}
@@ -62,7 +110,7 @@ Kein Nennenswerter Sicherheitsgewinn, da MAC Adresse immer unverschlüsselt übe
 \end{block}
 \begin{block}{SSID Verstecken}
 AP broadcastet die SSID zwar nicht, aber sobald ein bekannter Teilnehmer sich anmeldet, wird die SSID unverschlüsselt übertragen.
-\end{block}
+\end{block} 
 \end{frame}
 
 

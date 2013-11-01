@@ -95,11 +95,17 @@ Probleme:
 \end{frame}
 
 \begin{frame}
+\frametitle{4-Way-Handshake}
+\begin{figure}
+	\includegraphics[width=0.5\linewidth]{figures/4-way-handshake.pdf}
+	\caption{4-Way-Handshake nach \cite{ieee802.11}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
 \frametitle{Fehlendes:}
 \begin{itemize}
-	\item 4-Way Handshake
 	\item Schlüsselhierachie
-	\item Hole 196
 	\item AES-CCMP
 \end{itemize}
 \end{frame}
@@ -137,6 +143,18 @@ Probleme:
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Hole 196}
+\begin{itemize}
+	\item Nur der AP darf Packete mit dem GTK verschlüsseln und an alle Clients senden
+	\item Keine Überprüfung ob Packete wirklich vom AP kommen
+    \item "Böser" Client nutzt den GTK um Packete an anderen Clients zu senden
+	\item Kann nur von authorisierten Clienten ausgeführt werden
+	\item Angriff im Standart dokumentiert.
+\end{itemize}
+\end{frame}
+
 \section{Andere Attacken}
 \subsection{WPS}
 
@@ -169,6 +187,7 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 
 \subsection{User Tracking}
 \begin{frame}
+\frametitle{User Tracking}
 \begin{itemize}
 	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London \cite{mulltonnen}
 	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID

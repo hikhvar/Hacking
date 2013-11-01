@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="395.43372"
+   height="367.14389"
+   id="svg1872"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.3.1 r9886"
+   version="1.0"
+   sodipodi:docname="4-way-handshake.pdf">
+  <defs
+     id="defs1874">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path3912"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#ffffff"
+     borderopacity="0.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="0"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="261.41632"
+     inkscape:cy="287.31873"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1920"
+     inkscape:window-height="1153"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     showgrid="false"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata1877">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:title></dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1.2943153,-739.86898)">
+    <g
+       id="sta"
+       transform="matrix(1.3759476,0,0,0.99097648,-89.06823,460.88205)"
+       inkscape:label="STA box">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2799"
+         y="306.37292"
+         x="103.18213"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           y="306.37292"
+           x="103.18213"
+           id="tspan2801"
+           sodipodi:role="line" /></text>
+      <rect
+         y="283.36218"
+         x="71.174019"
+         height="36"
+         width="63"
+         id="rect2839"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="ap"
+       transform="matrix(1.7072795,0,0,0.98411794,-236.70036,432.4413)"
+       inkscape:label="AP box">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2809"
+         y="337.37292"
+         x="337.32129"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           y="337.37292"
+           x="337.32129"
+           id="tspan2811"
+           sodipodi:role="line" /></text>
+      <rect
+         y="314.36218"
+         x="305.5"
+         height="36"
+         width="63"
+         id="rect2841"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="STAcPTK"
+       transform="translate(-113.29416,411)"
+       inkscape:label="STA constructs the PTK">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2803"
+         y="424.37634"
+         x="165.45557"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           y="424.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3036">Berechnen des</tspan><tspan
+           y="438.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3040">PTK</tspan></text>
+      <rect
+         y="399.36218"
+         x="113"
+         height="54"
+         width="105"
+         id="rect2853"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="APcPTK"
+       transform="translate(-68.347171,555)"
+       inkscape:label="AP constructs the PTK">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2813"
+         y="390.29089"
+         x="407.28027"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           id="tspan2817"
+           y="390.29089"
+           x="407.28027"
+           sodipodi:role="line">Berechnen des</tspan><tspan
+           y="404.29089"
+           x="407.28027"
+           sodipodi:role="line"
+           id="tspan3044">PTK</tspan></text>
+      <rect
+         y="365.36218"
+         x="354.5"
+         height="54"
+         width="105"
+         id="rect2855"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 53.5,777.86218 0,31.5"
+       id="path2869"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2843"
+       inkscape:connection-end="#g2857"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end-point="d4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 339,777.86218 0,141.5"
+       id="path2871"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2848"
+       inkscape:connection-end="#g2863"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end-point="d4"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+       x="195.97618"
+       y="783.36218"
+       id="text2819"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan2821"
+         x="195.97618"
+         y="783.36218"
+         style="font-weight:bold">ANonce</tspan></text>
+    <g
+       id="g1921">
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 332.71875,790.8125 -271.28125,0.0937 0,2 271.28125,-0.0937 0,-2 z"
+         id="path3758"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 82.828234,800.77345 -24.039901,-8.83095 24.033992,-8.84703 c -3.838354,5.21982 -3.81384,12.35968 0.0059,17.67798 z"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path1927"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 53.5,865.36218 0,186.00002"
+       id="path3962"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2857"
+       inkscape:connection-start-point="d4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 339,975.36218 0,76.00002"
+       id="path3964"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2863"
+       inkscape:connection-start-point="d4"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+       x="195.97618"
+       y="882.6673"
+       id="text3968"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan3970"
+         x="195.97618"
+         y="882.6673"
+         style="font-weight:bold">SNonce + MIC</tspan></text>
+    <g
+       id="g1929">
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 59.78125,890.125 0,2 271.28125,0.0937 0,-2 -271.28125,-0.0937 z"
+         id="path3972"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 309.67771,882.33011 24.03399,8.84703 -24.0399,8.83095 c 3.84184,-5.21725 3.8221,-12.35712 0.006,-17.67798 z"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path1935"
+         inkscape:connector-curvature="0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+       x="195.97618"
+       y="979.6673"
+       id="text3984"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan3986"
+         x="195.97618"
+         y="979.6673"
+         style="font-weight:bold">GTK + MIC</tspan></text>
+    <g
+       id="g1937">
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 332.71875,987.125 -271.28125,0.0937 0,2 271.28125,-0.0937 0,-2 z"
+         id="path3988"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 82.828234,997.07855 -24.039901,-8.83095 24.033992,-8.84703 c -3.838354,5.21982 -3.81384,12.35968 0.0059,17.67798 z"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path1943"
+         inkscape:connector-curvature="0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+       x="195.97618"
+       y="1020.788"
+       id="text3992"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan3994"
+         x="195.97618"
+         y="1020.788"
+         style="font-weight:bold">Ack</tspan></text>
+    <g
+       id="g1945">
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 59.78125,1028.25 0,2 271.28125,0.094 0,-2 -271.28125,-0.094 z"
+         id="path3996"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 309.67771,1020.4508 24.03399,8.8471 -24.0399,8.8309 c 3.84184,-5.2172 3.8221,-12.3571 0.006,-17.678 z"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path1951"
+         inkscape:connector-curvature="0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="17.582548"
+       y="762.44861"
+       id="text3026"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3028"
+         x="17.582548"
+         y="762.44861">Supplicant</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="299.91309"
+       y="763.1557"
+       id="text3030"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3032"
+         x="299.91309"
+         y="763.1557">Accesspoint</tspan></text>
+    <g
+       id="STAcPTK-5"
+       transform="translate(-113.29416,652.63787)"
+       inkscape:label="STA constructs the PTK">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2803-1"
+         y="424.37634"
+         x="165.45557"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           y="424.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3040-8">Installation von</tspan><tspan
+           y="438.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3108">PTK und GTK</tspan></text>
+      <rect
+         y="399.36218"
+         x="113"
+         height="54"
+         width="105"
+         id="rect2853-4"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="STAcPTK-5-6"
+       transform="translate(173.15283,652.63787)"
+       inkscape:label="STA constructs the PTK">
+      <text
+         sodipodi:linespacing="100%"
+         id="text2803-1-2"
+         y="424.37634"
+         x="165.45557"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial"
+         xml:space="preserve"><tspan
+           y="424.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3040-8-6">Installation des</tspan><tspan
+           y="438.37634"
+           x="165.45557"
+           sodipodi:role="line"
+           id="tspan3112">GTK</tspan></text>
+      <rect
+         y="399.36218"
+         x="113"
+         height="54"
+         width="105"
+         id="rect2853-4-5"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+  </g>
+</svg>

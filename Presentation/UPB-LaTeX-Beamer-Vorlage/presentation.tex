@@ -66,10 +66,11 @@ Probleme:
 
 \section{Attacken gegen WEP}
 \begin{frame}
-\frametitle{Testing the beamer style}
+\frametitle{Probleme WEP}
 \begin{itemize}
-	\item test
-	\item test2
+	\item Shared key nur 40 bit, kein Schutz von innen
+	\item IV in RC4 benutzt, Kollisionen (24 bit) $\rightarrow$ Brute force angriff hat lineare Zeit
+	\item CRC ist linear
 \end{itemize}
 
 \end{frame}
@@ -103,9 +104,6 @@ Probleme:
 		\item Verwendung bekannter port-basierter Authentifizierung wie im kabelgebundenen Layer-2
 		\item[$\Rightarrow$] Unterstützung für u.a. Zertifikat- und Smartcard-basierter Authentifizierung.
 	\end{itemize}
-\begin{figure}
-\includegraphics[scale=0.7]{figures/ap_radius}
-\end{figure}
 \end{frame}
 
 \begin{frame}

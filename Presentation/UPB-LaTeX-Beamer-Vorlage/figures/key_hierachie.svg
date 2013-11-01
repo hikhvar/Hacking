@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Neues Dokument 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="275.26253"
+     inkscape:cy="951.96249"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1143"
+     inkscape:window-height="1079"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       id="rect2985"
+       width="213.7269"
+       height="41.161446"
+       x="40"
+       y="99.505043"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.75154287;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="47.771652"
+       y="123.39632"
+       id="text3755"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3757"
+         x="47.771652"
+         y="123.39632">Pairwise Master Key (PMK)<tspan
+   style="font-size:10px"
+   id="tspan3759"> 256 Bit</tspan></tspan></text>
+    <rect
+       id="rect2985-8"
+       width="228.34071"
+       height="41.161446"
+       x="43.136559"
+       y="174.6386"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.77681184;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="52.836212"
+       y="198.52986"
+       id="text3755-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3757-2"
+         x="52.836212"
+         y="198.52986">Pairwise Transient Key (PTK)<tspan
+   style="font-size:10px"
+   id="tspan3759-4"> 512 Bit</tspan></tspan></text>
+    <g
+       id="g3860"
+       transform="translate(0,2.1428604)">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.54561591;stroke-opacity:1"
+         y="232.49574"
+         x="41.315716"
+         height="41.161446"
+         width="112.6486"
+         id="rect2985-8-0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755-3-2"
+         y="248.88701"
+         x="45.406616"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:12px"
+           y="248.88701"
+           x="45.406616"
+           id="tspan3757-2-1"
+           sodipodi:role="line">Key Confirmation </tspan><tspan
+           style="font-size:12px"
+           id="tspan3815"
+           y="263.88702"
+           x="45.406616"
+           sodipodi:role="line">Key 128 Bit</tspan></text>
+    </g>
+    <g
+       id="g3854"
+       transform="translate(0,-2.1428604)">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.54561591;stroke-opacity:1"
+         y="236.78146"
+         x="160.81856"
+         height="41.161446"
+         width="112.6486"
+         id="rect2985-8-0-5" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755-3-2-2"
+         y="253.17273"
+         x="171.51883"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:12px"
+           y="253.17273"
+           x="171.51883"
+           id="tspan3757-2-1-3"
+           sodipodi:role="line">Key Encryption </tspan><tspan
+           style="font-size:12px"
+           id="tspan3815-3"
+           y="268.17273"
+           x="171.51883"
+           sodipodi:role="line">Key 128 Bit</tspan></text>
+    </g>
+    <rect
+       id="rect2985-8-0-5-4"
+       width="112.6486"
+       height="41.161446"
+       x="291.53284"
+       y="236.78146"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.54561591;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="302.23312"
+       y="253.17273"
+       id="text3755-3-2-2-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="302.23312"
+         y="253.17273"
+         id="tspan3815-3-9"
+         style="font-size:12px">Temporal Key</tspan></text>
+  </g>
+</svg>

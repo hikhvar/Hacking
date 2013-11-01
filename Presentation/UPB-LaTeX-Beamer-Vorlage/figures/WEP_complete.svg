@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="656.65625"
+   height="323.75"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="WEP_complete.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mstart"
+       style="overflow:visible">
+      <path
+         id="path4628"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6,0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path4610"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path3780"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         id="path3798"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3774"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="241.00925"
+     inkscape:cy="217.48263"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="21"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-58.84375,3.09375)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6168"
+       width="222.35825"
+       height="304.21387"
+       x="59.35611"
+       y="15.933606" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6150"
+       d="m 473.22457,254.70714 239.91123,0"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 3;stroke-dashoffset:0"
+       sodipodi:nodetypes="cc" />
+    <rect
+       y="15.933606"
+       x="471.42859"
+       height="304.21387"
+       width="243.57144"
+       id="rect3755"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="562.61084"
+       y="26.751694"
+       id="text3757"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3759"
+         x="562.61084"
+         y="26.751694"
+         style="font-style:italic;-inkscape-font-specification:Liberation Serif Italic">Access Point</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="155.41805"
+       y="27.609535"
+       id="text3761"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3763"
+         x="155.41805"
+         y="27.609535"
+         style="font-style:italic;-inkscape-font-specification:Liberation Serif Italic">Client</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 286.28572,53.076467 178.71428,0"
+       id="path3765"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="357.10663"
+       y="45.219322"
+       id="text4763"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4765"
+         x="357.10663"
+         y="45.219322">Request</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="333.39374"
+       y="74.618431"
+       id="text4775"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4777"
+         x="333.39374"
+         y="74.618431">Challenge: Nonce</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="288.62518"
+       y="137.80063"
+       id="text4779"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4781"
+         x="288.62518"
+         y="137.80063">Response: IV, RC4(key || IV, Nonce)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="361.10272"
+       y="168.21931"
+       id="text4783"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4785"
+         x="361.10272"
+         y="168.21931">Result</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="323.2785"
+       y="27.505037"
+       id="text4787"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4789"
+         x="323.2785"
+         y="27.505037"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Liberation Serif Bold">Authentifizierung</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="634.46515"
+       y="269.77625"
+       id="text4791"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4793"
+         x="634.46515"
+         y="269.77625"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Liberation Serif Bold">Integrität</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="330.90741"
+       y="200.37779"
+       id="text4795"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4797"
+         x="330.90741"
+         y="200.37779"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Liberation Serif Bold">Vertraulichkeit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="628.43402"
+       y="294.1026"
+       id="text4818"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4820"
+         x="628.43402"
+         y="294.1026">Linear CRC-32</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="72.028999"
+       y="50.258842"
+       id="text4822"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4824"
+         x="72.028999"
+         y="50.258842">IV: 24Bit, cleartext, free choosable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="627.71973"
+       y="310.53119"
+       id="text4826"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4828"
+         x="627.71973"
+         y="310.53119">RC4 auch linear</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+       x="364.11737"
+       y="225.79077"
+       id="text5438"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5440"
+         x="364.11737"
+         y="225.79077">IV, C</tspan></text>
+    <g
+       id="g6163"
+       transform="translate(-21.71828,3.0304576)">
+      <rect
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect5479"
+         width="60.714287"
+         height="15.714286"
+         x="500"
+         y="19.505051" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="501.81906"
+         y="30.230362"
+         id="text5475"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5477"
+           x="501.81906"
+           y="30.230362">Shared Key</tspan></text>
+    </g>
+    <g
+       id="g6394"
+       transform="translate(-68.966661,-3.4150891)">
+      <rect
+         ry="6.0735288"
+         y="108.98264"
+         x="173.18143"
+         height="16.187672"
+         width="29.846004"
+         id="rect5566"
+         style="fill:#d7d7d7;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5562"
+         y="120.99053"
+         x="177.0097"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="120.99053"
+           x="177.0097"
+           id="tspan5564"
+           sodipodi:role="line">RC4</tspan></text>
+    </g>
+    <g
+       id="g6426"
+       transform="translate(-21.465742,-2.0203051)">
+      <path
+         transform="translate(-72.93331,-152.7672)"
+         d="m 328.57142,252.36218 c 0,3.5504 -2.87817,6.42857 -6.42857,6.42857 -3.5504,0 -6.42857,-2.87817 -6.42857,-6.42857 0,-3.5504 2.87817,-6.42857 6.42857,-6.42857 3.5504,0 6.42857,2.87817 6.42857,6.42857 z"
+         sodipodi:ry="6.4285712"
+         sodipodi:rx="6.4285712"
+         sodipodi:cy="252.36218"
+         sodipodi:cx="322.14285"
+         id="path5807"
+         style="fill:#d7d7d7;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5809"
+         y="105.57155"
+         x="244.12508"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           style="font-size:18px"
+           y="105.57155"
+           x="244.12508"
+           id="tspan5811"
+           sodipodi:role="line">+</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5818"
+       d="m 146.7848,113.2884 10.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5862"
+       d="m 152.78936,222.94775 10.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5919"
+       d="m 218.54208,291.40279 10.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+    <g
+       id="g6418">
+      <path
+         sodipodi:type="arc"
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="path5923"
+         sodipodi:cx="322.14285"
+         sodipodi:cy="252.36218"
+         sodipodi:rx="6.4285712"
+         sodipodi:ry="6.4285712"
+         d="m 328.57142,252.36218 a 6.4285712,6.4285712 0 1 1 -12.85714,0 6.4285712,6.4285712 0 1 1 12.85714,0 z"
+         transform="translate(-113.59062,7.8845859)" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="203.46776"
+         y="266.22333"
+         id="text5925"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5927"
+           x="203.46776"
+           y="266.22333"
+           style="font-size:18px">+</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 570,209.50504 10.71428,0"
+       id="path5986"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g6458">
+      <path
+         sodipodi:type="arc"
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="path6008"
+         sodipodi:cx="322.14285"
+         sodipodi:cy="252.36218"
+         sodipodi:rx="6.4285712"
+         sodipodi:ry="6.4285712"
+         d="m 328.57142,252.36218 a 6.4285712,6.4285712 0 1 1 -12.85714,0 6.4285712,6.4285712 0 1 1 12.85714,0 z"
+         transform="translate(236.01815,-14.604179)" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="553.07654"
+         y="243.73457"
+         id="text6010"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6012"
+           x="553.07654"
+           y="243.73457"
+           style="font-size:18px">+</tspan></text>
+    </g>
+    <g
+       id="g6386">
+      <rect
+         y="301.96335"
+         x="560.22766"
+         height="14.999985"
+         width="44.38723"
+         id="rect6046"
+         style="fill:#73ffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6048"
+         y="312.34909"
+         x="561.08142"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="312.34909"
+           x="561.08142"
+           id="tspan6050"
+           sodipodi:role="line">CRC(M)</tspan></text>
+    </g>
+    <path
+       style="opacity:0.7;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0;marker-end:url(#Arrow2Mend)"
+       d="M 495,20.93361 C 412.23187,-13.067249 323.77741,-7.264394 260,19.505039"
+       id="path6068"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g6442">
+      <path
+         sodipodi:type="arc"
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="path3189"
+         sodipodi:cx="322.14285"
+         sodipodi:cy="252.36218"
+         sodipodi:rx="6.4285712"
+         sodipodi:ry="6.4285712"
+         d="m 328.57142,252.36218 a 6.4285712,6.4285712 0 1 1 -12.85714,0 6.4285712,6.4285712 0 1 1 12.85714,0 z"
+         transform="translate(339.31224,-150.68396)" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="656.37061"
+         y="107.65479"
+         id="text3191"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3193"
+           x="656.37061"
+           y="107.65479"
+           style="font-size:18px">+</tspan></text>
+    </g>
+    <g
+       id="g6503"
+       transform="translate(-4.4335937e-6,50.357143)">
+      <rect
+         style="fill:#ffff70;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4031"
+         width="103.46465"
+         height="15.714287"
+         x="175.52917"
+         y="55.683796" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5822"
+         y="66.174728"
+         x="201.19901"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="66.174728"
+           x="201.19901"
+           id="tspan5824"
+           sodipodi:role="line">Keystream</tspan></text>
+    </g>
+    <g
+       id="g6495"
+       transform="translate(108.21429,-18.18275)">
+      <rect
+         style="fill:#73ffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4038"
+         width="103.51952"
+         height="15.714279"
+         x="67.31488"
+         y="91.934021" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="103.45062"
+         y="103.66128"
+         id="text5854"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5856"
+           x="103.45062"
+           y="103.66128">Nonce</tspan></text>
+    </g>
+    <g
+       id="g6346">
+      <rect
+         y="77.64975"
+         x="643.22687"
+         height="15.714279"
+         width="35.965557"
+         id="rect4054"
+         style="fill:#73ffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4050"
+         y="89.376999"
+         x="645.58563"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="89.376999"
+           x="645.58563"
+           id="tspan4052"
+           sodipodi:role="line">Nonce</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 227.09834,123.46999 0,8.5863"
+       id="path4056"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g6218"
+       transform="translate(-1.2014204,-3.1582663)">
+      <rect
+         style="fill:#ffff70;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4434"
+         width="103.64577"
+         height="15.714279"
+         x="176.73059"
+         y="138.19798" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4430"
+         y="148.92328"
+         x="178.32983"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="148.92328"
+           x="178.32983"
+           id="tspan4432"
+           sodipodi:role="line">RC4(key||IV, Nonce)</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4481"
+       d="m 661.49608,129.61321 0,8.5863"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+    <g
+       id="g6274">
+      <rect
+         y="142.82489"
+         x="478.13919"
+         height="15.714279"
+         width="103.64577"
+         id="rect4489"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="479.73843"
+         y="153.55019"
+         id="text4485"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4487"
+           x="479.73843"
+           y="153.55019">RC4(key||IV, Nonce)</tspan></text>
+    </g>
+    <g
+       id="g6434">
+      <rect
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect4568"
+         width="29.846004"
+         height="16.187672"
+         x="584.8186"
+         y="110.78214"
+         ry="6.0735288" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="588.64685"
+         y="122.79003"
+         id="text4564"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4566"
+           x="588.64685"
+           y="122.79003">RC4</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4570"
+       d="m 571.26335,118.87597 10.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 617.26335,118.87597 10.71428,0"
+       id="path4572"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g6282">
+      <rect
+         y="111.01883"
+         x="539.2713"
+         height="15.714287"
+         width="30.914795"
+         id="rect4580"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4576"
+         y="122.71386"
+         x="548.24237"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="122.71386"
+           x="548.24237"
+           id="tspan4578"
+           sodipodi:role="line">IV</tspan></text>
+    </g>
+    <g
+       id="g6354">
+      <rect
+         y="111.01883"
+         x="634.02509"
+         height="15.714287"
+         width="53.643211"
+         id="rect4588"
+         style="fill:#73ffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="634.78424"
+         y="121.50977"
+         id="text4584"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4586"
+           x="634.78424"
+           y="121.50977">Keystream</tspan></text>
+    </g>
+    <g
+       id="g6362">
+      <rect
+         style="fill:#73ffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect4596"
+         width="103.64577"
+         height="15.714279"
+         x="603.9032"
+         y="142.82489" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4592"
+         y="153.55019"
+         x="605.50244"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="153.55019"
+           x="605.50244"
+           id="tspan4594"
+           sodipodi:role="line">RC4(key||IV, Nonce)</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow2Mstart);marker-end:url(#Arrow2Mend)"
+       d="m 547.50268,154.02169 16.16244,0"
+       id="path4598"
+       inkscape:connector-curvature="0"
+       transform="translate(37.34375,-3.09375)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 555.5839,161.09276 0,12.74874 -109.60155,0"
+       id="path5618"
+       inkscape:connector-curvature="0"
+       transform="translate(37.34375,-3.09375)"
+       sodipodi:nodetypes="ccc" />
+    <g
+       id="g6234">
+      <rect
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5810"
+         width="60.714287"
+         height="15.714286"
+         x="90.220406"
+         y="216.54572" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5540"
+         y="227.03665"
+         x="92.768951"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="227.03665"
+           x="92.768951"
+           id="tspan5542"
+           sodipodi:role="line">Message M</tspan></text>
+    </g>
+    <g
+       id="g6402">
+      <rect
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5823"
+         width="29.846004"
+         height="16.187672"
+         x="167.98853"
+         y="215.61465"
+         ry="6.0735288" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="170.97891"
+         y="227.62256"
+         id="text5586"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5588"
+           x="170.97891"
+           y="227.62256">CRC</tspan></text>
+    </g>
+    <g
+       id="g6250">
+      <rect
+         y="252.91121"
+         x="90.32193"
+         height="15.714286"
+         width="60.714287"
+         id="rect5844"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="92.870476"
+         y="263.40213"
+         id="text5840"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5842"
+           x="92.870476"
+           y="263.40213">Message M</tspan></text>
+    </g>
+    <g
+       id="g6242">
+      <rect
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5846"
+         width="46.067066"
+         height="15.714279"
+         x="151.94124"
+         y="252.91121" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5874"
+         y="263.65408"
+         x="153.63493"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="263.65408"
+           x="153.63493"
+           id="tspan5876"
+           sodipodi:role="line">CRC(M)</tspan></text>
+    </g>
+    <g
+       id="g6266">
+      <rect
+         y="252.72191"
+         x="220.83209"
+         height="15.714287"
+         width="53.643211"
+         id="rect5862"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="221.5912"
+         y="263.21283"
+         id="text5858"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5860"
+           x="221.5912"
+           y="263.21283">Keystream</tspan></text>
+    </g>
+    <g
+       id="g6226">
+      <rect
+         y="284.97421"
+         x="124.05796"
+         height="15.714287"
+         width="30.914795"
+         id="rect5870"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5866"
+         y="296.66925"
+         x="133.02904"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="296.66925"
+           x="133.02904"
+           id="tspan5868"
+           sodipodi:role="line">IV</tspan></text>
+    </g>
+    <g
+       id="g6413">
+      <rect
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5879"
+         width="29.846004"
+         height="16.187672"
+         x="231.72966"
+         y="283.79996"
+         ry="6.0735288" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="235.55794"
+         y="295.80783"
+         id="text5875"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5877"
+           x="235.55794"
+           y="295.80783">RC4</tspan></text>
+    </g>
+    <g
+       id="g6258">
+      <rect
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5881"
+         width="63.744736"
+         height="15.714279"
+         x="213.56055"
+         y="223.33505" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5933"
+         y="234.07794"
+         x="214.6917"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="234.07794"
+           x="214.6917"
+           id="tspan5935"
+           sodipodi:role="line">Ciphertext C</tspan></text>
+    </g>
+    <path
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 3;stroke-dashoffset:0"
+       d="m 61.082335,184.70714 652.053465,0"
+       id="path5892"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g6290">
+      <rect
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect5900"
+         width="30.914795"
+         height="15.714287"
+         x="474.62149"
+         y="202.36218" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="483.59256"
+         y="214.05722"
+         id="text5896"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5898"
+           x="483.59256"
+           y="214.05722">IV</tspan></text>
+    </g>
+    <g
+       id="g6450">
+      <rect
+         ry="6.0735288"
+         y="201.75677"
+         x="585.32367"
+         height="16.187672"
+         width="29.846004"
+         id="rect5908"
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5904"
+         y="213.76468"
+         x="589.15192"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="213.76468"
+           x="589.15192"
+           id="tspan5906"
+           sodipodi:role="line">RC4</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 598.98856,219.78075 0,8.5863"
+       id="path5910"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g6314">
+      <rect
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect6108"
+         width="60.714287"
+         height="15.714286"
+         x="499.4743"
+         y="265.11426" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6104"
+         y="275.60519"
+         x="502.02286"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="275.60519"
+           x="502.02286"
+           id="tspan6106"
+           sodipodi:role="line">Message M</tspan></text>
+    </g>
+    <g
+       id="g6309">
+      <rect
+         y="265.11426"
+         x="561.09363"
+         height="15.714279"
+         width="46.067066"
+         id="rect6116"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="562.78729"
+         y="275.85715"
+         id="text6112"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6114"
+           x="562.78729"
+           y="275.85715">CRC(M)</tspan></text>
+    </g>
+    <g
+       id="g6378">
+      <rect
+         style="fill:#73ffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+         id="rect6124"
+         width="53.643211"
+         height="15.714287"
+         x="572.40582"
+         y="230.60008" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6120"
+         y="241.09102"
+         x="573.16492"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="241.09102"
+           x="573.16492"
+           id="tspan6122"
+           sodipodi:role="line">Keystream</tspan></text>
+    </g>
+    <g
+       id="g6298">
+      <rect
+         y="231.01273"
+         x="481.29156"
+         height="15.714279"
+         width="63.744736"
+         id="rect6132"
+         style="fill:#ffff70;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="482.42273"
+         y="241.75562"
+         id="text6128"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6130"
+           x="482.42273"
+           y="241.75562">Ciphertext C</tspan></text>
+    </g>
+    <g
+       id="g6466">
+      <rect
+         ry="6.0735288"
+         y="301.51822"
+         x="512.08759"
+         height="16.187672"
+         width="29.846004"
+         id="rect6140"
+         style="fill:#d7d7d7;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6136"
+         y="313.52612"
+         x="515.078"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="313.52612"
+           x="515.078"
+           id="tspan6138"
+           sodipodi:role="line">CRC</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path6142"
+       d="m 558.07738,249.58025 0,8.5863"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 527.7728,284.41021 0,8.5863"
+       id="path6144"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6146"
+       d="m 545.25126,309.9543 10.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6148"
+       d="m 584.84643,282.87468 0,16.16244"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow2Mstart);marker-end:url(#Arrow2Mend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6152"
+       d="m 179.22958,235.84168 0,8.5863"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 118.11535,236.85183 0,8.5863"
+       id="path6154"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6156"
+       d="m 246.90979,250.80819 0,-8.5863"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 247.41487,280.60769 0,-8.5863"
+       id="path6158"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6175"
+       d="m 286.28572,145.07647 178.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 286.28572,231.07647 178.71428,0"
+       id="path6177"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6179"
+       d="m 465,81.076467 -178.71428,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 465,171.07647 -178.71428,0"
+       id="path6181"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g6186"
+       transform="translate(12.411752,-35.468066)">
+      <rect
+         style="fill:#ffff70;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4002"
+         width="30.914795"
+         height="15.714287"
+         x="127.63411"
+         y="109.21933" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="136.60518"
+         y="120.91436"
+         id="text5602"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5604"
+           x="136.60518"
+           y="120.91436">IV</tspan></text>
+    </g>
+    <g
+       id="g6474"
+       transform="translate(0.25253764,-44.039492)">
+      <rect
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect6201"
+         width="72.589279"
+         height="15.714287"
+         x="67.062347"
+         y="117.79076" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="74.818901"
+         y="128.51607"
+         id="text6203"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6205"
+           x="74.818901"
+           y="128.51607">Shared Key</tspan></text>
+    </g>
+    <g
+       transform="translate(-22.728433,91.418805)"
+       id="g6319">
+      <rect
+         y="19.505051"
+         x="500"
+         height="15.714286"
+         width="60.714287"
+         id="rect6321"
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6323"
+         y="30.230362"
+         x="501.81906"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="30.230362"
+           x="501.81906"
+           id="tspan6325"
+           sodipodi:role="line">Shared Key</tspan></text>
+    </g>
+    <g
+       transform="translate(-344.63363,265.48082)"
+       id="g6327">
+      <rect
+         y="19.505051"
+         x="500"
+         height="15.714286"
+         width="60.714287"
+         id="rect6329"
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6331"
+         y="30.230362"
+         x="501.81906"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="30.230362"
+           x="501.81906"
+           id="tspan6333"
+           sodipodi:role="line">Shared Key</tspan></text>
+    </g>
+    <g
+       id="g6335"
+       transform="translate(6.0609145,182.83761)">
+      <rect
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect6337"
+         width="60.714287"
+         height="15.714286"
+         x="500"
+         y="19.505051" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="501.81906"
+         y="30.230362"
+         id="text6339"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6341"
+           x="501.81906"
+           y="30.230362">Shared Key</tspan></text>
+    </g>
+    <g
+       id="g6479"
+       transform="translate(138.13836,-95.459416)">
+      <rect
+         y="117.79076"
+         x="67.062347"
+         height="15.714287"
+         width="72.589279"
+         id="rect6481"
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6483"
+         y="128.51607"
+         x="74.818901"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         xml:space="preserve"><tspan
+           y="128.51607"
+           x="74.818901"
+           id="tspan6485"
+           sodipodi:role="line">Shared Key</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path6490"
+       d="m 119.12816,91.581478 0,8.586302"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+  </g>
+</svg>

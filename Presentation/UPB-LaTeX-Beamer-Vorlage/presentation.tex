@@ -60,7 +60,9 @@ Probleme:
 	\item test
 	\item test2
 \end{itemize}
+
 \end{frame}
+
 
 \section{WPA/WPA2(802.11i)}
 \begin{frame}
@@ -92,6 +94,15 @@ Probleme:
 	\end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Fehlendes:}
+\begin{itemize}
+	\item 4-Way Handshake
+	\item Schlüsselhierachie
+	\item Hole 196
+	\item AES-CCMP
+\end{itemize}
+\end{frame}
 
 \begin{frame}
 \frametitle{TKIP (Temporal Key Integrity Protocol)}
@@ -120,8 +131,8 @@ Probleme:
 	\item Michael hat Schwachstellen (Brute-Force, DoS Angriffe, etc.)
 	\item Wörterbuchangriff auf PBKDF2 langsam(4096 Runden HMAC-SHA1)
 	\begin{itemize}
-		\item Beschleunigung durch Rainbow Tables\footnote{\url{http://www.renderlab.net/projects/WPA-tables/}} (SSID + Passphrases)
-		\item Berechnung in der Cloud\footnote{\url{https://www.cloudcracker.com/}}: 20 Minuten, 17\$, 300.000.000 Wörter
+		\item Beschleunigung durch Rainbow Tables \cite{renderlab} (SSID + Passphrases)
+		\item Berechnung in der Cloud \cite{cloudcracker}: 20 Minuten, 17\$, 300.000.000 Wörter
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -145,7 +156,7 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 
 
 \begin{frame}
-\frametitle{Angriff auf WPS, PIN - External Registrar\footnote{http://sviehb.files.wordpress.com/2011/12/viehboeck\_wps.pdf}}
+\frametitle{Angriff auf WPS, PIN - External Registrar \cite{wps_attack}}
 \begin{itemize}
 	\item PIN ist 8 Ziffern lang.
 	\item Protokoll erlaubt es zu erkennen ob die ersten 4 Zeichen oder 4 Zeichen falsch waren.
@@ -153,6 +164,17 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 	\item Zu testende Kombinationen: $10^4+10^3 = 11.000$
 	\item WPS Standard schreibt kein Lockdown vor. Daher selten implementiert.
 	\item Authentification benötigt im Schnitt 1,3 Sekunden.
+\end{itemize}
+\end{frame}
+
+\subsection{User Tracking}
+\begin{frame}
+\begin{itemize}
+	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London \cite{mulltonnen}
+	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID
+	\begin{itemize}
+		\item Schlechte Implementationnen broadcasten auch den Namen der unversteckten SSIDs
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -170,12 +192,32 @@ Wörterbuchattacken gegen PBKDF2 nicht mehr so einfach.
 \end{block}
 \end{frame}
 
-\section{References}
+\section{Tools}
 \begin{frame}
+\frametitle{Tools}
+\begin{block}{Aircrack-ng Suite (siehe \cite{aircrack})}
+	\begin{description}
+		\item[aircrack-ng] WEP, WPA, WPA2-PSK Key Cracker
+		\item[aireplay-ng] Erzeugt WLAN Traffic
+		\item[airdrop-ng] Regelbasiertes Deauth Tool
+		\item[airodump-ng] Zeichnet WLAN Rohdaten auf
+		\item[airdecap-ng] Entschlüsselt aufgezeichnete WEP, WPA, WPA2 Streams
+		\item[...]
+	\end{description}
+\end{block}
+\begin{block}{FakeAP (siehe \cite{fakeap})}
+Simulieren falscher WLANs
+\end{block}
+\begin{block}{Kismet (siehe \cite{kismet})/NetStumbler (siehe \cite{netstumbler})}
+WLANs aufspüren und kartografieren
+\end{block}
+\end{frame}
+
+\section{References}
+\begin{frame}[allowframebreaks]
+\frametitle{References}
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{references}
 \end{frame}
-
-
 \end{document}

@@ -207,11 +207,12 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 \frametitle{Angriff auf WPS, PIN - External Registrar \cite{wps_attack}}
 \begin{itemize}
 	\item PIN ist 8 Ziffern lang.
-	\item Protokoll erlaubt es zu erkennen ob die ersten 4 Zeichen oder 4 Zeichen falsch waren.
-	\item 8. Ziffern Checksumme der ersten 7 Ziffern.
+	\item Protokoll erlaubt es zu erkennen ob die ersten 4 Ziffern oder letzten 4 Ziffern falsch waren.
+	\item 8. Ziffer Checksumme der ersten 7 Ziffern.
 	\item Zu testende Kombinationen: $10^4+10^3 = 11.000$
+	\item Authentification benötigt im Schnitt 1,3 Sekunden. 
 	\item WPS Standard schreibt kein Lockdown vor. Daher selten implementiert.
-	\item Authentification benötigt im Schnitt 1,3 Sekunden.
+	\item[$\Rightarrow$] Brute Force gegen alle Kombinationen ohne Lockdown braucht circa 4 Stunden.
 \end{itemize}
 \end{frame}
 

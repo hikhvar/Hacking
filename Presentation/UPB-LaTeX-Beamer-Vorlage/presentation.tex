@@ -164,7 +164,12 @@ Probleme:
 \begin{frame}
 \frametitle{Schwachstellen von TKIP}
 \begin{itemize}
-	\item Michael hat Schwachstellen (Brute-Force, DoS Angriffe, etc.)
+	\item Michael hat Schwachstellen
+	\begin{itemize}
+		\item Brute Force Angriffe benötigen nur $2^{29}$ Packete
+		\item Einzige Abwehr: Gesamten WLAN Verkehr für einige Minuten Unterbrechen
+		\item[$\Rightarrow$] Ermöglicht wiederrum DoS
+	\end{itemize}
 	\item Wörterbuchangriff auf PBKDF2 langsam(4096 Runden HMAC-SHA1)
 	\begin{itemize}
 		\item Beschleunigung durch Rainbow Tables \cite{renderlab} (SSID + Passphrases)

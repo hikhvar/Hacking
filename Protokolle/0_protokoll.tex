@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{todo}
+\usepackage[ngerman]{babel}
 \usepackage[left=2cm]{geometry}
 \author{Christoph Robbert 6577945, Peter Stilow 6500440}
 \title{Protokoll 0}
@@ -13,12 +14,12 @@
  
 \section{Aufgabe 1}
 Nach einem Login auf den Rechner \texttt{cultofthedeadcow.seclab.uni-paderborn.de/192.26.175.11} sah man an der Ausgabe von \texttt{ifconfig}, dass sich dieser Rechner im Subnetz \texttt{192.26.175.0/26} befand.
-Ein Anschließender Pingscan mittels \texttt{nmap -sP 192.26.175.0/26} zeigte, dass die Hosts aus Figure \ref{0_netlayout} in diesem Subnetz erreichbar sind.
+Ein Anschließender Pingscan mittels \texttt{nmap -sP 192.26.175.0/26} zeigte, dass die Hosts aus Abbildung \ref{0_netlayout} in diesem Subnetz erreichbar sind.
 Außerdem zeigte ein anschließender Portscan( \texttt{nmap -sT -sV} die folgenden offenen Ports:
 \begin{figure}
 	\label{0_netlayout}
 	\includegraphics[scale=0.4]{figures/0_netlayout.pdf}
-	\caption{Struktur des Netzes im Security Lab.}
+	\caption{Struktur des Netzes im Security Lab. Localhost ist unser Laptop, der für die Scans benutzt wurde.}
 \end{figure}
 
 \begin{description}
@@ -79,7 +80,6 @@ Da hier der netbios Dienst läuft, schließen wir, dass es sich um einen Windows
 25/tcp open  smtp
 \end{verbatim}
 Bei diesem Rechner wird es sich laut der verwendeten OpenSSH Serverversion um einen FreeBSD Rechner handeln. Neben dem OpenSSH Server läuft auch ein smtp Server(E-Mail annehmender Server). 
-
 \item[192.26.175.33] Ergebnisse Portscan:
 \begin{verbatim}
 13/tcp   open     daytime

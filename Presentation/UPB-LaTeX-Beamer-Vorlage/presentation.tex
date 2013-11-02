@@ -29,7 +29,7 @@
 \end{itemize}
 Probleme:
 \begin{itemize}
-	\item Kann in einem gewissen Bereich empfangen werden ($\rightarrow$ abhören / Daten einspeisen)
+	\item Kann in einem gewissen Bereich empfangen werden \\($\rightarrow$ abhören / Daten einspeisen)
 	\item Kollisionen mit anderen WLANs (oder Störsender)
 	\item Auto-Connection zu offenen (gefälschten) Access Points
 \end{itemize}
@@ -70,7 +70,7 @@ Probleme:
 \frametitle{Probleme WEP}
 \begin{itemize}
 	\item Shared key nur 40 bit, kein Schutz von innen
-	\item IV in RC4 benutzt, Kollisionen (24 bit) $\rightarrow$ Brute force angriff hat lineare Zeit
+	\item IV in RC4 benutzt, Kollisionen (24 bit) $\rightarrow$ Brute Force Angriff hat lineare Zeit
 	\item CRC ist linear
 \end{itemize}
 
@@ -136,7 +136,7 @@ Probleme:
 		\item 128 Bit AES im Counter Mode (Blockchiffre)
 		\item CBC-MAC stellt gleichzeitig Integrität sicher.
 	\end{itemize}
-	\item Counter-Mode ist beweisbar sicher\cite{bellare}.
+	\item Counter-Mode ist beweisbar sicher \cite{bellare}.
 \end{itemize}
 \end{frame}
 
@@ -144,7 +144,7 @@ Probleme:
 \frametitle{TKIP (Temporal Key Integrity Protocol)}
 \begin{itemize}
 	\item AES sollte in 802.11i integriert werden.
-	\item AES Berechnungen aufwendig und erforderten neue Hardware
+	\item AES Berechnungen ist aufwendig und erforderten neue Hardware.
 \end{itemize}
 \begin{block}{Übergangslösung TKIP}
 	\begin{itemize}
@@ -221,9 +221,10 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 \frametitle{User Tracking}
 \begin{itemize}
 	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London \cite{mulltonnen}
+	\vspace{1,5cm}
 	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID
 	\begin{itemize}
-		\item Schlechte Implementationnen broadcasten auch den Namen der unversteckten SSIDs
+		\item Schlechte Implementierungen broadcasten auch den Namen der bekannten unversteckten SSIDs
 	\end{itemize}
 \end{itemize}
 \end{frame}

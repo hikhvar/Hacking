@@ -22,7 +22,7 @@
 \frametitle{WLAN Grundlagen}
 \begin{itemize}
 	\item Direkte Kommunikation (AdHoc)
-	\item Access Point
+	\item Access Point (im folgenden AP)
 	\item Frequenzen zwischen 2,4 und 5,2 GHz
 	\item Strahlt in alle Richtungen
 \end{itemize}
@@ -78,6 +78,7 @@ Probleme:
 
 \section{WPA/WPA2(802.11i)}
 \begin{frame}
+\frametitle{WPA/WPA2(802.11i)}
 \begin{itemize}
 	\item Keines der Schutzziele von WEP (Authentizität, Vertraulichkeit, Integrität) wird erfüllt
 	\item[$\Rightarrow$] Entwicklung von 802.11i (WPA/WPA2)
@@ -104,6 +105,9 @@ Probleme:
 		\item Verwendung bekannter port-basierter Authentifizierung wie im kabelgebundenen Layer-2
 		\item[$\Rightarrow$] Unterstützung für u.a. Zertifikat- und Smartcard-basierter Authentifizierung.
 	\end{itemize}
+	\begin{figure}
+		\includegraphics[scale=0.7]{figures/ap_radius.pdf}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -121,7 +125,12 @@ Probleme:
 \begin{frame}
 \frametitle{AES-CCMP}
 \begin{itemize}
-	\item AES-CCMP
+	\item AES-CCMP (Counter-Mode-CBC-MAC Protocol) 
+	\begin{itemize}
+		\item 128 Bit AES im Counter Mode (Blockchiffre)
+		\item CBC-MAC stellt gleichzeitig Integrität sicher.
+	\end{itemize}
+	\item Counter-Mode ist beweisbar sicher\cite{bellare}.
 \end{itemize}
 \end{frame}
 

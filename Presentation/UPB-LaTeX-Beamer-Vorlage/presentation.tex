@@ -21,23 +21,25 @@
 
 \section{Übersicht}
 \begin{frame}
-\frametitle{WLAN Grundlagen}
+\frametitle{WLAN}
+Grundlagen:
 \begin{itemize}
 	\item Direkte Kommunikation (AdHoc)
-	\item Access Point (im folgenden AP)
-	\item Frequenzen zwischen 2,4 und 5,2 GHz
-	\item Strahlt in alle Richtungen
+	\item Access Point (AP)
+	\item Frequenzen 2,4 - 2,4835 GHz und 5,15 - 5,725 GHz
+	\item Weiter Empfangsbereich
 \end{itemize}
 Probleme:
 \begin{itemize}
-	\item Kann in einem gewissen Bereich empfangen werden \\($\rightarrow$ abhören / Daten einspeisen)
+	\item Abhören / Daten einspeisen
 	\item Kollisionen mit anderen WLANs (oder Störsender)
-	\item Auto-Connection zu offenen (gefälschten) Access Points
+	\item (Automatische) Verbindung zu offenen (gefälschten) Access Points
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{WLAN Sicherheit}
+\frametitle{WLAN}
+Sicherheit
 \begin{itemize}
 	\item Offen (Keine Verschlüsselung)
 	\begin{itemize}
@@ -69,13 +71,48 @@ Probleme:
 \section{Attacken gegen WEP}
 \begin{frame}
 \frametitle{Probleme WEP}
+\begin{block}{Shared WEP Schlüssel}
 \begin{itemize}
-	\item Shared key nur 40 bit, kein Schutz von innen
-	\item IV in RC4 benutzt, Kollisionen (24 bit) $\rightarrow$ Brute Force Angriff hat lineare Zeit
-	\item CRC ist linear
+	\item manueller Austausch
+	\item kein Schutz von innen
+	\item 40bit
 \end{itemize}
-
+\end{block}
+\begin{block}{Algorithmen}
+\begin{itemize}
+	\item IV 24bit, start bei 0, kein Wechsel erzwungen
+	\begin{itemize}
+		\item WEPplus
+	\end{itemize}
+	\item Lineare Zeit zum knacken des Schlüssels
+	\item RC4/CRC linear
+\end{itemize}
+\end{block}
 \end{frame}
+
+\begin{frame}
+\frametitle{WEP Angriffe}
+\begin{figure}
+	\includegraphics[width=1.0\linewidth]{figures/WEP_complete_attacks.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{WEP Angriffe}
+\begin{block}{WEP key knacken (ARP Pakete)}
+\begin{itemize}
+	\item Fluhrer-Mantin-Shamir $\rightarrow$ KoreK $\rightarrow$ Pyshkin-Tews-Weinmann
+	\item Fragmentation Attack (pseudo random generation algorithm)
+	\item Hirte Attack (fake AP to client)
+\end{itemize}
+\end{block}
+\begin{block}{Nachricht entschlüsseln}
+\begin{itemize}
+	\item KoreK chopchop
+\end{itemize}
+\end{block}
+\end{frame}
+
 
 
 \section{WPA/WPA2(802.11i)}

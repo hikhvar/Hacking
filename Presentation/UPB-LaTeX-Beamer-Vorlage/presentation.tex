@@ -47,7 +47,7 @@ Sicherheit
 	\end{itemize}
 	\item Verschlüsselt
 	\begin{itemize}
-		\item WEP (802.11)
+		\item WEP
 		\begin{itemize}
 			\item shared key
 		\end{itemize}
@@ -228,8 +228,7 @@ Sicherheit
 \end{itemize}
 \end{frame}
 
-\section{Andere Attacken}
-\subsection{WPS}
+\section{WPS}
 
 \begin{frame}
 \frametitle{WPS (Wi-Fi Protected Setup)}
@@ -259,20 +258,9 @@ Benutzer bekommt Pin vom Betreiber des APs mitgeteilt und gibt ihn in sein Endge
 \end{itemize}
 \end{frame}
 
-\subsection{User Tracking}
-\begin{frame}
-\frametitle{User Tracking}
-\begin{itemize}
-	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London \cite{mulltonnen}
-	\vspace{1,5cm}
-	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID
-	\begin{itemize}
-		\item Schlechte Implementierungen broadcasten auch den Namen der bekannten unversteckten SSIDs
-	\end{itemize}
-\end{itemize}
-\end{frame}
 
-\section{Häufige Absicherungsempfehlungen}
+
+\section{Empfehlungen}
 \begin{frame}
 \frametitle{Häufige Absicherungsempfehlungen}
 \begin{block}{MAC-Filter}
@@ -306,11 +294,36 @@ WLANs aufspüren und kartografieren
 \end{block}
 \end{frame}
 
-\section{References}
+\section{Fazit}
+\begin{frame}
+\begin{itemize}
+\frametitle{Fazit}
+	\item WEP ist unsicher, jeder Schutzmechanismus ist geknackt
+	\item Viele Angriffe, nicht nur auf den Schlüssel
+	\item Für alle Angriffe guter Toolsupport
+	\item WPA/WPA2 relativ sicher
+\end{itemize}
+\end{frame}
+
+\section{Anhang}
+\subsection{Referenzen}
 \begin{frame}[allowframebreaks]
 \frametitle{References}
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{references}
+\end{frame}
+
+\subsection{User Tracking}
+\begin{frame}
+\frametitle{User Tracking}
+\begin{itemize}
+	\item Mülltonnen mit Werbebildschirmen und WLAN erfassten Fussgänger anhand ihrer Handies in London \cite{mulltonnen}
+	\vspace{1,5cm}
+	\item Endgeräte auf der Suche nach versteckten SSIDs broadcasten den Namen der versteckten SSID
+	\begin{itemize}
+		\item Schlechte Implementierungen broadcasten auch den Namen der bekannten unversteckten SSIDs
+	\end{itemize}
+\end{itemize}
 \end{frame}
 \end{document}

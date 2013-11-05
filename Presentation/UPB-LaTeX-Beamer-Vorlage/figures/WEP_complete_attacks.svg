@@ -96,8 +96,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="434.48322"
-     inkscape:cy="91.047363"
+     inkscape:cx="71.447509"
+     inkscape:cy="308.54737"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -195,13 +195,13 @@
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="155.41805"
+       x="149.52519"
        y="27.609535"
        id="text3761"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3763"
-         x="155.41805"
+         x="149.52519"
          y="27.609535"
          style="font-style:italic;-inkscape-font-specification:Liberation Serif Italic">Client</tspan></text>
     <path
@@ -334,28 +334,6 @@
          id="tspan5440"
          x="364.11737"
          y="225.79077">IV, C</tspan></text>
-    <g
-       id="g6163"
-       transform="translate(-21.71828,3.0304576)">
-      <rect
-         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         id="rect5479"
-         width="60.714287"
-         height="15.714286"
-         x="500"
-         y="19.505051" />
-      <text
-         xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-         x="501.81906"
-         y="30.230362"
-         id="text5475"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan5477"
-           x="501.81906"
-           y="30.230362">Shared Key</tspan></text>
-    </g>
     <g
        id="g6394"
        transform="translate(-68.966661,-3.1783966)">
@@ -1302,11 +1280,11 @@
        sodipodi:cy="74.817856"
        sodipodi:rx="24.285713"
        sodipodi:ry="12.142857"
-       d="m 382.14286,74.817856 a 24.285713,12.142857 0 1 1 -48.57143,0 24.285713,12.142857 0 1 1 48.57143,0 z"
+       d="m 382.14286,74.817856 c 0,6.706314 -10.87308,12.142856 -24.28571,12.142856 -13.41263,0 -24.28572,-5.436542 -24.28572,-12.142856 0,-6.706315 10.87309,-12.142857 24.28572,-12.142857 13.41263,0 24.28571,5.436542 24.28571,12.142857 z"
        transform="translate(47.070393,-3.8132303)" />
     <path
        transform="translate(-11.143892,58.865341)"
-       d="m 369.10715,74.817856 a 11.249999,8.3928566 0 1 1 -22.5,0 11.249999,8.3928566 0 1 1 22.5,0 z"
+       d="m 369.10715,74.817856 c 0,4.635247 -5.0368,8.392856 -11.25,8.392856 -6.21321,0 -11.25,-3.757609 -11.25,-8.392856 0,-4.635247 5.03679,-8.392857 11.25,-8.392857 6.2132,0 11.25,3.75761 11.25,8.392857 z"
        sodipodi:ry="8.3928566"
        sodipodi:rx="11.249999"
        sodipodi:cy="74.817856"
@@ -1322,7 +1300,7 @@
        sodipodi:cy="295.53214"
        sodipodi:rx="88.214287"
        sodipodi:ry="13.928572"
-       d="m 218.57143,295.53214 a 88.214287,13.928572 0 1 1 -176.42857,0 88.214287,13.928572 0 1 1 176.42857,0 z"
+       d="m 218.57143,295.53214 c 0,7.69253 -39.49488,13.92857 -88.21428,13.92857 -48.719408,0 -88.21429,-6.23604 -88.21429,-13.92857 0,-7.69254 39.494882,-13.92858 88.21429,-13.92858 48.7194,0 88.21428,6.23604 88.21428,13.92858 z"
        transform="translate(35.998964,-2.3846589)" />
     <path
        sodipodi:type="arc"
@@ -1332,7 +1310,29 @@
        sodipodi:cy="309.10358"
        sodipodi:rx="21.428572"
        sodipodi:ry="10"
-       d="m 489.28572,309.10358 a 21.428572,10 0 1 1 -42.85714,0 21.428572,10 0 1 1 42.85714,0 z"
+       d="m 489.28572,309.10358 c 0,5.52284 -9.5939,10 -21.42857,10 -11.83468,0 -21.42857,-4.47716 -21.42857,-10 0,-5.52285 9.59389,-10 21.42857,-10 11.83467,0 21.42857,4.47715 21.42857,10 z"
        transform="translate(47.070393,-3.0989446)" />
+    <g
+       transform="translate(410.13836,-95.459416)"
+       id="g3200">
+      <rect
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect3202"
+         width="72.589279"
+         height="15.714287"
+         x="67.062347"
+         y="117.79076" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="74.818901"
+         y="128.51607"
+         id="text3204"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3206"
+           x="74.818901"
+           y="128.51607">Shared Key</tspan></text>
+    </g>
   </g>
 </svg>

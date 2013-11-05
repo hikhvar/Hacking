@@ -95,9 +95,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="535.8845"
-     inkscape:cy="152.029"
+     inkscape:zoom="1.979899"
+     inkscape:cx="341.9279"
+     inkscape:cy="162.70831"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -120,7 +120,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -183,25 +183,25 @@
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="562.61084"
+       x="562.61078"
        y="26.751694"
        id="text3757"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3759"
-         x="562.61084"
+         x="562.61078"
          y="26.751694"
          style="font-style:italic;-inkscape-font-specification:Liberation Serif Italic">Access Point</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="155.41805"
+       x="149.52519"
        y="27.609535"
        id="text3761"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3763"
-         x="155.41805"
+         x="149.52519"
          y="27.609535"
          style="font-style:italic;-inkscape-font-specification:Liberation Serif Italic">Client</tspan></text>
     <path
@@ -293,39 +293,6 @@
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="628.43402"
-       y="294.1026"
-       id="text4818"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4820"
-         x="628.43402"
-         y="294.1026">Linear CRC-32</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="67.483315"
-       y="57.32991"
-       id="text4822"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4824"
-         x="67.483315"
-         y="57.32991">IV: 24Bit, cleartext, free choosable</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-       x="627.71973"
-       y="310.53119"
-       id="text4826"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4828"
-         x="627.71973"
-         y="310.53119">RC4 auch linear</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
        x="364.11737"
        y="225.79077"
        id="text5438"
@@ -334,28 +301,6 @@
          id="tspan5440"
          x="364.11737"
          y="225.79077">IV, C</tspan></text>
-    <g
-       id="g6163"
-       transform="translate(-21.71828,3.0304576)">
-      <rect
-         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         id="rect5479"
-         width="60.714287"
-         height="15.714286"
-         x="500"
-         y="19.505051" />
-      <text
-         xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
-         x="501.81906"
-         y="30.230362"
-         id="text5475"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan5477"
-           x="501.81906"
-           y="30.230362">Shared Key</tspan></text>
-    </g>
     <g
        id="g6394"
        transform="translate(-68.966661,-3.1783966)">
@@ -1294,5 +1239,27 @@
        inkscape:connector-curvature="0"
        transform="translate(47.070393,-3.0989446)"
        sodipodi:nodetypes="cccc" />
+    <g
+       transform="translate(410.13836,-95.459416)"
+       id="g3196">
+      <rect
+         style="fill:#a8ffa9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect3198"
+         width="72.589279"
+         height="15.714287"
+         x="67.062347"
+         y="117.79076" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Serif;-inkscape-font-specification:Liberation Serif"
+         x="74.818901"
+         y="128.51607"
+         id="text3200"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3202"
+           x="74.818901"
+           y="128.51607">Shared Key</tspan></text>
+    </g>
   </g>
 </svg>

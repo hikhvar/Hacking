@@ -257,17 +257,6 @@ Sicherheit
 \end{block}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{AES-CCMP}
-%\begin{itemize}
-%	\item AES-CCMP (Counter-Mode-CBC-MAC Protocol) 
-%	\begin{itemize}
-%		\item 128 Bit AES im Counter Mode (Blockchiffre)
-%		\item CBC-MAC stellt gleichzeitig Integrität sicher
-%	\end{itemize}
-%	\item Counter-Mode ist beweisbar sicher \cite{bellare}
-%\end{itemize}
-%\end{frame}
 
 \begin{frame}
 	\frametitle{Authentifizierung mit 802.1X in 802.11i}
@@ -329,7 +318,7 @@ Sicherheit
 
 
 \begin{frame}
-\frametitle{Hole 196}
+\frametitle{Hole 196 \cite{hole196}}
 \begin{itemize}
 	\item Nur der AP darf Pakete mit dem GTK verschlüsseln und an alle Clients senden
 	\item Keine Überprüfung ob Pakete wirklich vom AP kommen
@@ -423,6 +412,19 @@ WLANs aufspüren und kartografieren
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{references}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{AES-CCMP}
+\begin{itemize}
+	\item AES-CCMP (Counter-Mode-CBC-MAC Protocol) 
+	\begin{itemize}
+		\item 128 Bit AES im Counter Mode (Blockchiffre)
+		\item CBC-MAC stellt gleichzeitig Integrität sicher
+	\end{itemize}
+	\item Counter-Mode ist beweisbar sicher \cite{bellare}
+\end{itemize}
 \end{frame}
 
 \begin{frame}

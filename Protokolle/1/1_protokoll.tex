@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{todo}
 \usepackage[ngerman]{babel}
+\usepackage{hyperref}
 \usepackage[left=2cm]{geometry}
 \author{Christoph Robbert 6577945, Peter Stilow 6500440}
 \title{Protokoll 1 - WLAN}
@@ -82,4 +83,65 @@ aircrack-ng -b 64:70:02:1A:B1:81 output*.cap
 \end{tiny}
 Der verwendete WEP Key im Netzwerk Bernd lautet also: \texttt{q2VNKz1GsRqYA}.
 %http://www.aircrack-ng.org/doku.php?id=simple_wep_crack#step_1_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel
+
+\section{Aufgabe 2}
+
+\section{Aufgabe 3}
+
+\subsection{a)}
+Berechung laut \href{http://www.wotan.cc/?p=6}{http://www.wotan.cc/?p=6}:\\
+MAC: 00:15:BA:6D:9A:2E\\
+Letzten 2 Bytes als 10 stellige Dezimalzahl:\\
+C1 = DEZ(9A2E)\\
+ 
+S6 ist die 1. Stelle von C1, S7 ist die 2. Stelle usw.\\
+S6 = C1[0] = 3 \\
+S7 = C1[1] = 9 \\
+S8 = C1[2] = 4 \\
+S9 = C1[3] = 7 \\
+S10 = C1[4] = 0 \\
+ 
+M7 ist das 7 Zeichen der MAC-Adresse, M8 das 8. usw.\\
+M7 =  6 \\
+M8 =  D \\
+M9 =  9 \\
+M10 =  A \\
+M11 =  2 \\
+M12 =  E \\
+
+K1 = Letztes Nibble (Halb-Byte) von (S7 + S8 + M11 + M12)\\
+K1 =  D \\
+
+K2 = Letztes Nibble (Halb-Byte) von (M9 + M10 + S9 + S10)\\
+K2 =  A \\
+
+Variablen berechnen:\\
+X1 = K1  XOR S10 =  D \\
+X2 = K1  XOR S9  =  A \\
+X3 = K1  XOR S8  =  9 \\
+Y1 = K2  XOR M10 =  0 \\
+Y2 = K2  XOR M11 =  8 \\
+Y3 = K2  XOR M12 =  4 \\
+Z1 = M11 XOR S10 =  2 \\
+Z2 = M12 XOR S9  =  9 \\
+Z3 = K1  XOR K2  =  7 \\
+ 
+der Vollstaendige Key lautet dann:\\
+x1 y1 z1 x2 y2 z2 x3 y3 z3 = D02A89947 \\\\
+
+
+\subsection{b)}
+Berechung laut \href{https://xkyle.com/verizon-fios-wireless-key-calculator/}{https://xkyle.com/verizon-fios-wireless-key-calculator/}:
+Der Key wird aus zwei Quellen berechnet. Der MAC Adresse und der SSID. Die MAC Adresse bestimmt die erste Hälfte des Keys. Bei der Berechnung wird auf die zweite und dritte Stelle der MAC Adresse zugegriffen. Da der Hersteller vom Verizon FiOS für seine Geräte nur zwei Adressbereiche wählt, ergeben sich nur zwei Kombinationen: 1801 oder 1F90. 
+Die zweite Hälfte des Keys berechnet sich aus der SSID. Diese ist 5 Zeichen lang und stellt eine Zahl zur Basis 36 dar. Dabei ist zu beachten, dass man den String umdreht um an die Zahl zu gelangen.
+Am Beispiel Bernd lautet es wie folgt:\\
+\begin{align*}
+B*(36^0) = &11 * 1 = 11\\
+E*(36^1) = &14 * 36 = 504\\
+R*(36^2) = &27 * 1296 = 34992\\
+N*(36^3) = &23 * 46656 = 1073088\\
+D*(36^4) = &13 * 1679616 = 21835008\\
+Summe = &22943603 = 0x15E1773
+\end{align*}
+Daraus folgt die beiden möglichen Keys sind: 180115E1773 und 1F9015E1773
 \end{document}

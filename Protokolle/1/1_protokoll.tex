@@ -26,7 +26,7 @@ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
  64:70:02:1C:4F:3A  -26       62        0    0   1  54   OPN              OpenBernd                                                                                             
 ....(Die gleichen Daten für einige webauth und eduroam Access Points.)....
 \end{verbatim}
-Die MAC Adresse der benutzten WLAN Karte lautet ist \texttt{00:C0:CA:55:54:5F}.
+Die MAC Adresse der benutzten WLAN Karte lautet \texttt{00:C0:CA:55:54:5F}.
 Die Daten zeigen, dass SecureBernd im WPA2 Modus betrieben wird, Bernd mittels WEP gesichert ist und das Netzwerk OpenBernd nicht gesichert ist. Ein erster Verbindungsversuch zu OpenBernd scheitert. Anscheinend wird eine Zugangskontrolle mittels MAC Filter vorgenommen. Da uns kein Angriff auf WPA2 bekannt ist, konzentrieren wir uns auf die Netzwerke OpenBernd und Bernd.
 
 \subsection{Angriff auf OpenBernd}
@@ -88,7 +88,7 @@ Der verwendete WEP Key im Netzwerk Bernd lautet also: \texttt{q2VNKz1GsRqYA}.
 
 \section{Aufgabe 3}
 
-\subsection{a)}
+\subsection*{a)}
 Berechung laut \href{http://www.wotan.cc/?p=6}{http://www.wotan.cc/?p=6}:\\
 MAC: 00:15:BA:6D:9A:2E\\
 Letzten 2 Bytes als 10 stellige Dezimalzahl:\\
@@ -130,7 +130,7 @@ der Vollstaendige Key lautet dann:\\
 x1 y1 z1 x2 y2 z2 x3 y3 z3 = D02A89947 \\\\
 
 
-\subsection{b)}
+\subsection*{b)}
 Berechung laut \href{https://xkyle.com/verizon-fios-wireless-key-calculator/}{https://xkyle.com/verizon-fios-wireless-key-calculator/}:
 Der Key wird aus zwei Quellen berechnet. Der MAC Adresse und der SSID. Die MAC Adresse bestimmt die erste Hälfte des Keys. Bei der Berechnung wird auf die zweite und dritte Stelle der MAC Adresse zugegriffen. Da der Hersteller vom Verizon FiOS für seine Geräte nur zwei Adressbereiche wählt, ergeben sich nur zwei Kombinationen: 1801 oder 1F90. 
 Die zweite Hälfte des Keys berechnet sich aus der SSID. Diese ist 5 Zeichen lang und stellt eine Zahl zur Basis 36 dar. Dabei ist zu beachten, dass man den String umdreht um an die Zahl zu gelangen.

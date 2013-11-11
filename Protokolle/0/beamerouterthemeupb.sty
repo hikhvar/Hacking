@@ -1,0 +1,69 @@
+% UPB Beamer theme by Michael Knopf <jimknopf[at]mail[dot]upb[dot].de>
+% June 2012, version 0.2
+%
+% Based on the LaTeX-Beamer package:
+% Copyright 2007 by Till Tantau <tantau[at]users[dot]sourceforge[dot]net>
+%
+% This program can be redistributed and/or modified under the terms of the
+% GNU Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0).
+
+
+\pgfdeclareimage[height=25pt]{pgfupblogo}{upb_logo}
+
+\mode<presentation>
+
+\defbeamertemplate*{headline}{upb theme}
+{  
+	\leavevmode%
+	\begin{tikzpicture}
+		% use invisible rectangle as bounding box
+		\draw[draw=none, use as bounding box] (0.0, 0.0) rectangle (\paperwidth, 10pt);
+		% draw background box with a bleed difference of 5pt
+		\fill[color=upbblue!30] (-5pt, 15pt) rectangle (\paperwidth + 5pt, 0pt);
+		\fontsize{6pt}{6pt}\fontshape{it}\fontseries{bx}\selectfont
+		\draw (0pt, 5pt) node[anchor= west] {\color{upbblue}\insertsectionnavigationhorizontal{\paperwidth}{}{}};
+	\end{tikzpicture}
+}
+
+
+\defbeamertemplate*{footline}{upb theme}
+{
+	\leavevmode%
+	\begin{tikzpicture}
+		% use invisible rectangle as bounding box
+		\draw[draw=none, use as bounding box] (0.0, 0.0) rectangle (\paperwidth, 15pt);
+		% draw university logo
+		\draw (4.5pt, 17.15pt) node[anchor=west] {\pgfuseimage{pgfupblogo}};
+		% draw background boxes with a bleed difference of 5pt
+		\fill[color=upbblue!30] (0.3 \paperwidth, -5pt) rectangle (\paperwidth + 5pt, 15pt);
+		\fill[color=upbblue] (0.3 \paperwidth, -5pt) rectangle (\paperwidth + 5pt, 5pt);
+		\begin{scope}
+			% use invisible rectangle as clipping box for text		
+			% \draw[draw=none, clip] (0.3 \paperwidth, 5pt) rectangle (\paperwidth, 15pt);
+			% select default bold family with default italic shape
+			\fontshape{\itdefault}
+			\fontseries{\bfdefault}
+			% draw small title text
+			\fontsize{6pt}{6pt}
+			\selectfont
+			\draw (0.3 \paperwidth, 10pt) node[anchor=west] {\color{upbblue}\insertshorttitle};
+			% draw large framenumber
+			\fontsize{15pt}{15pt}
+			\selectfont
+			\draw (\paperwidth, 10pt) node[anchor=east] {\color{upbblue}\insertframenumber};
+		\end{scope}		
+	\end{tikzpicture}
+}
+
+\defbeamertemplate*{sidebar right}{upb theme} 
+{ 
+	% just insert the logo at the upper right corner
+	\vskip5pt% 
+	\llap{%
+		\insertlogo%
+		\hskip5pt%
+	}% 
+	\vfill%
+}
+
+\mode<all>

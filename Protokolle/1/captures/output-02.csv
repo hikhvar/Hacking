@@ -1,0 +1,7 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+64:70:02:1A:B1:81, 2013-11-11 16:03:35, 2013-11-11 16:13:08,  2,  54, WEP , WEP,   , -14,     5133,    95549,   0.  0.  0.  0,   5, Bernd, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+00:C0:CA:55:54:5F, 2013-11-11 16:06:15, 2013-11-11 16:11:40,   0,   297275, 64:70:02:1A:B1:81,
+

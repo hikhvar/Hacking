@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE detection-run SYSTEM "http://kismetwireless.net/kismet-3.1.0.dtd">
+
+<detection-run kismet-version="airodump-ng-1.0" start-time="Mon Nov 11 15:56:09 2013">
+
+	<wireless-network number="1" type="infrastructure" first-time="Mon Nov 11 15:56:09 2013" last-time="Mon Nov 11 15:56:49 2013">
+		<SSID first-time="Mon Nov 11 15:56:09 2013" last-time="Mon Nov 11 15:56:49 2013">
+			<type>Beacon</type>
+			<max-rate>54.000000</max-rate>
+			<packets>375</packets>
+			<beaconrate>10</beaconrate>
+			<encryption>WEP </encryption>
+			<essid cloaked="false">Bernd</essid>
+		</SSID>
+		<BSSID>64:70:02:1A:B1:81</BSSID>
+		<manuf>TP-LINK TECHNOLOGIES CO., LTD.</manuf>
+		<channel>2</channel>
+		<freqmhz>2417 443</freqmhz>
+		<maxseenrate>54000</maxseenrate>
+		<packets>
+			<LLC>375</LLC>
+			<data>0</data>
+			<crypt>0</crypt>
+			<total>443</total>
+			<fragments>0</fragments>
+			<retries>0</retries>
+		</packets>
+		<datasize>0</datasize>
+		<snr-info>
+			<last_signal_dbm>-16</last_signal_dbm>
+			<last_noise_dbm>0</last_noise_dbm>
+			<last_signal_rssi>-16</last_signal_rssi>
+			<last_noise_rssi>0</last_noise_rssi>
+			<min_signal_dbm>-16</min_signal_dbm>
+			<min_noise_dbm>0</min_noise_dbm>
+			<min_signal_rssi>1024</min_signal_rssi>
+			<min_noise_rssi>1024</min_noise_rssi>
+			<max_signal_dbm>-16</max_signal_dbm>
+			<max_noise_dbm>0</max_noise_dbm>
+			<max_signal_rssi>-16</max_signal_rssi>
+			<max_noise_rssi>0</max_noise_rssi>
+		</snr-info>
+		<bsstimestamp>0</bsstimestamp>
+		<cdp-device></cdp-device>
+		<cdp-portid></cdp-portid>
+	</wireless-network>
+</detection-run>

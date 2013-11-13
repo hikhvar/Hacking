@@ -1,0 +1,7 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+64:70:02:1C:4F:13, 2013-11-13 15:39:14, 2013-11-13 15:45:10,  3,  54, WPA2, CCMP,PSK, -31,     3005,        0,   0.  0.  0.  0,  11, SecureBernd, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+00:C0:CA:55:54:5E, 2013-11-13 15:39:36, 2013-11-13 15:44:42,  -4,       18, 64:70:02:1C:4F:13, SecureBernd
+

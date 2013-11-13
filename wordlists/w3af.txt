@@ -1,0 +1,1 @@
+/usr/share/w3af/core/controllers/bruteforce/passwords.txt

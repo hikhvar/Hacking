@@ -95,7 +95,17 @@ Danach starteten wir einen BruteForce Angriff auf den mitgeschnittenen Handshake
 \begin{verbatim}
 aircrack-ng -w password.lst -b 64:70:02:1C:4F:13 psk*.cap
 \end{verbatim}
-Dabei war password.lst die in aircrack mitgelieferte Passwortliste. Leider fanden wir keinen Treffer.
+Dabei war password.lst die in aircrack mitgelieferte Passwortliste. Leider fanden wir keinen Treffer. Auch die in KaliLinux mitgelieferte Passwortliste \texttt{rock-you} fand keinen Treffer. Erst die Passwortliste \texttt{darkc0de} brachte \texttt{zygosaccharomyces} als Passwort hervor.
+
+
+\subsection{Ergebnisse:}
+\begin{itemize}
+	\item Zugriff auf das WLAN \texttt{OpenBernd} bekommt man indem man seine MAC Adresse auf \texttt{00:C0:CA:55:54:5C} ändert.
+	\item Das WLAN \texttt{Bernd} ist mit dem WEP Passwort \texttt{q2VNKz1GsRqYA} gesichert.
+	\item Das WLAN \texttt{SecureBernd} ist mit dem WPA2 Passwort \texttt{zygosaccharomyces} abgesichert.
+\end{itemize}
+
+
 
 \section{Aufgabe 2}
 

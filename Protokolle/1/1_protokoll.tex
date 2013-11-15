@@ -109,6 +109,121 @@ Dabei war password.lst die in aircrack mitgelieferte Passwortliste. Leider fande
 
 \section{Aufgabe 2}
 
+Für diese Aufgabe haben wir ein C-Programm geschrieben, welches die durchgeführten Schritte simuliert und die entsprechenden Zwischenergebnisse ausgibt. Die verwendeten Algorithmen für RC4 und CRC32 waren bereits implementiert und wurden von uns aus dem Internet bezogen. Die Ausgabe unseres Programmes war folgende:
+
+\begin{small}
+\begin{tabular}{ll}
+Cleartext: & l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  u  s  e  r [crc]\\
+Before: & 6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 75 73 65 72 F1 22 93 62 \\
+Encrypted message: & FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 67 D7 52 D5 4B 33 BC B5 \\
+\multicolumn{2}{c}{\#\#\# Changing encrypted message from user to root, recalculating the crc code! \#\#\#}\\
+Encrypted message: & FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 60 CB 58 D3 D0 54 93 A7 \\
+Decrypted message: & 6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 72 6F 6F 74 6A 45 BC 70 \\
+Cleartext: & l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  r  o  o  t [crc]\\
+\multicolumn{2}{c}{Received Correct CRC codes: received = 6A45BC70 calculated = 6A45BC70}
+\end{tabular}
+\begin{verbatim}
+Cleartext:
+ l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  u  s  e  r [crc]
+6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 75 73 65 72 F1 22 93 62 
+Encrypted message:
+FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 67 D7 52 D5 4B 33 BC B5 
+### Changing encrypted message from user to root, recalculating the crc code! ###
+FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 60 CB 58 D3 D0 54 93 A7 
+Decrypted message:
+6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 72 6F 6F 74 6A 45 BC 70 
+Cleartext:
+ l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  r  o  o  t [crc]
+Received Correct CRC codes: received = 6A45BC70 calculated = 6A45BC70
+\end{verbatim}
+\end{small}
+
+Was im Einzelnen in unserem Programm passiert ist in a) - c) beschrieben.
+
+\subsection*{a)}
+
+Mit den Angaben:
+
+\begin{verbatim}
+IV: 54 D5 FE
+WEP-Schlüssel: 00 6E F8 C0 DE
+Nutzdaten: login;authentication=user
+\end{verbatim}
+
+ergibt sich als Input für den RC4 Algorithmus folgender Key:
+
+\begin{verbatim}
+IV|WEP-key: 54 D5 FE 00 6E F8 C0 DE
+\end{verbatim}
+
+Durch ausführen des CRC32 Algorithmus über die Nutzdaten bekommen wir folgende Checksumme:
+
+\begin{verbatim}
+CRC: F1 22 93 62
+\end{verbatim}
+
+Diese Checksumme wird hinten an die Nutzdaten gehangen. Insgesamt sieht es somit folgendermaßen aus:
+
+\begin{verbatim}
+ l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  u  s  e  r [crc]
+6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 75 73 65 72 F1 22 93 62 
+\end{verbatim}
+
+Der aus dem RC4 resultierende Schlüsselstrom wird per XOR mit den Nutzdaten verknüpft, und wir bekommen folgendes Ergebnis:
+
+\begin{verbatim}
+FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 67 D7 52 D5 4B 33 BC B5 
+\end{verbatim}
+
+Zusammen mit dem IV im Klartext wird diese verschlüsselte Nachricht jetzt übertragen.
+
+\subsection*{b)}
+
+Wir können den Inhalt des Paketes unbemerkt verändern, wenn wir die Nachricht, die übermittelt wird, kennen. Dies liegt an dem CRC32 Algorithmus, der benutzt wird, um die Integrität der Nachricht zu überprüfen. Dieser, sowie auch der RC4 Algorithmus sind nämlich linear, dh. Änderungen an einem Bit in der verschlüsselten Nachricht wirken sich auch direkt auf das gleiche Bit in der unverschlüsselten Nachricht aus. Dazu ist die Checksumme zu einer Nachricht ganz einfach zu berechnen. Durch XOR Verknüpfung mit der verschlüsselten Nachricht kann so der Inhalt umgeändert werden und die Checksumme entsprechend angepasst werden.
+
+Als erstes berechnen wir als Angreifer die Änderungen an der verschlüsselten Nachricht. In diesem Fall möchten wir "`user"' zu "`root"' ändern. Da gilt:
+
+\begin{verbatim}
+keystream XOR fakeMessage = keystream XOR message XOR message XOR fakeMessage
+\end{verbatim}
+
+erstellen wir einfach die Nachricht:
+
+\begin{verbatim}
+user XOR root
+\end{verbatim}
+
+und verknüpfen sie per XOR mit der verschlüsselten Nachricht (an der Stelle von user).
+Dadurch ergibt sich:
+
+\begin{verbatim}
+keystream XOR user XOR user XOR root = keystream XOR root
+\end{verbatim}
+
+was eine korrekt verschlüsselte Nachricht ergibt. Jetzt gilt es noch die Checksumme für den Integritätscheck so umzuformen, dass dieser Check nicht fehl schlägt. Hierbei gilt das gleiche Prinzip, so dass wir nur die Checksummen der originalen Nachricht per XOR mit der Checksumme der veränderten Nachricht (also "`login;authentication=root"') verknüpfen müssen. Das Ergebnis wird dann wieder mit der verschlüsselten Nachricht verbunden:
+
+\begin{verbatim}
+keystream XOR originalCRC XOR originalCRC XOR changedCRC = keystream XOR changedCRC
+\end{verbatim}
+
+Das Ergebnis dieser Änderung ist:
+
+\begin{verbatim}
+FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 60 CB 58 D3 D0 54 93 A7
+\end{verbatim}
+
+\subsection*{c)}
+
+Als letztes entschlüsseln wir die Nachricht wieder mit dem RC4 Algorithmus (mit gleichem input, also der Verknüpfung von IV und WEP-Schlüssel). Das Ergebnis sind die unverschlüsselte veränderte Nachricht "`login;authentication=root"' und die dazu generierte Checksumme. Wir haben dann über die Nachricht eine eigene Checksumme gebildet und mit dem übermittelten CRC-Code verglichen: Es kam das selbe Ergebnis dabei heraus:
+
+\begin{verbatim}
+6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 72 6F 6F 74 6A 45 BC 70 
+ l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  r  o  o  t [crc]
+CRC codes: received = 6A45BC70 calculated = 6A45BC70
+\end{verbatim}
+
+
+
 \section{Aufgabe 3}
 
 \subsection*{a)}

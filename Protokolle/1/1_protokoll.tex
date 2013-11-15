@@ -112,16 +112,6 @@ Dabei war password.lst die in aircrack mitgelieferte Passwortliste. Leider fande
 Für diese Aufgabe haben wir ein C-Programm geschrieben, welches die durchgeführten Schritte simuliert und die entsprechenden Zwischenergebnisse ausgibt. Die verwendeten Algorithmen für RC4 und CRC32 waren bereits implementiert und wurden von uns aus dem Internet bezogen. Die Ausgabe unseres Programmes war folgende:
 
 \begin{small}
-\begin{tabular}{ll}
-Cleartext: & l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  u  s  e  r [crc]\\
-Before: & 6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 75 73 65 72 F1 22 93 62 \\
-Encrypted message: & FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 67 D7 52 D5 4B 33 BC B5 \\
-\multicolumn{2}{c}{\#\#\# Changing encrypted message from user to root, recalculating the crc code! \#\#\#}\\
-Encrypted message: & FD B2 26 26 F0 6B 02 6E 4C EB 8C 14 44 D3 95 CD 08 BA 73 D8 24 60 CB 58 D3 D0 54 93 A7 \\
-Decrypted message: & 6C 6F 67 69 6E 3B 61 75 74 68 65 6E 74 69 63 61 74 69 6F 6E 3D 72 6F 6F 74 6A 45 BC 70 \\
-Cleartext: & l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  r  o  o  t [crc]\\
-\multicolumn{2}{c}{Received Correct CRC codes: received = 6A45BC70 calculated = 6A45BC70}
-\end{tabular}
 \begin{verbatim}
 Cleartext:
  l  o  g  i  n  ;  a  u  t  h  e  n  t  i  c  a  t  i  o  n  =  u  s  e  r [crc]

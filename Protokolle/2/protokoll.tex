@@ -279,5 +279,5 @@ Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachri
 
 \section*{Aufgabe 3}
 
-Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. 
+Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herrausfinden. Leider ist es uns nicht gelungen einen Exploit für diese Sicherheitslücke zuschreiben, der uns den Inhalt der Datei \texttt{secret.php} liefert. Uns viel auf, dass wir in unserem PHP Payload weder Anführungszeichen noch einen Punkt verwenden konnten ohne einen Serverfehler zu verursachen.
 \end{document}

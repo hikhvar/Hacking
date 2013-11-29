@@ -279,5 +279,21 @@ Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachri
 
 \section*{Aufgabe 3}
 
-Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herrausfinden. Leider ist es uns nicht gelungen einen Exploit für diese Sicherheitslücke zuschreiben, der uns den Inhalt der Datei \texttt{secret.php} liefert. Uns viel auf, dass wir in unserem PHP Payload weder Anführungszeichen noch einen Punkt verwenden konnten ohne einen Serverfehler zu verursachen.
+Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir \texttt{curl} und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herausfinden. Nach etwas herumprobieren fanden wir heraus, dass der String 
+\begin{verbatim}
+[bold]{${print(file_get_contents(secret.chr(46).php))}}[/bold] 
+\end{verbatim}
+den Dateiinhalt der \texttt{secret.php} ausgibt. Dabei nutzen wir aus, dass PHP nicht definierte Konstanten als Strings gleichen Inhaltes interpretiert (secret und php) und kodieren den Punkt mittels \texttt{chr(46)}. Die Funktion \texttt{chr()} wandelt einen gegeben ASCII Code in ein Zeichen um. Mit dem \texttt{print} Statement sorgen wir dafür, dass der mittels \texttt{file\_get\_contents} gelesene Dateiinhalt auch ausgegeben wird.
+Dieser lautet:
+\begin{verbatim}
+<?php
+
+
+$secret_pw = "Y0u_0wn3d_Th3_1337_g3n3r4t0r!";
+
+
+
+?>
+\end{verbatim}
+Damit lautet das Passwort \texttt{Y0u\_0wn3d\_Th3\_1337\_g3n3r4t0r!}. 
 \end{document}

@@ -185,7 +185,9 @@ password
 
 \subsection*{a)}
 
-Versand: Do.28 November 15.54 von peter\_bernd1@hell.sex nach peter\_bernd2@hell.sex
+Versand: Do.28 November 15.54 von peter\_bernd1@hell.sex nach peter\_bernd2@hell.sex.
+
+
 Das Listing \ref{berndbookworm} zeigt unsere Version des Berndbookworm. Dabei enthält das Listing die initiale Nachricht. Wir benutzen ein iFrame um die Website \texttt{http://berndbook.seclab.uni-paderborn.de/send.php} mit den Anmeldedaten vom aktuellen Benutzer aufzurufen. Damit dies nicht auffällt verstecken wir den iFrame per CSS Befehlen. Danach laden wir jQuery nach um uns die Arbeit mit den Website Elementen zu vereinfachen. In Zeile 8 fängt unser eigentliches Angriffskript an. Die Funktion \texttt{reproduction} führt die eigentliche Reproduktion aus. Es setzt die selbe Nachricht noch einmal zusammen. Dabei wird der aktuelle Parameter n um eins verringert. Dies sorgt dafür, dass sich das Skript nur \textit{b} mal verbreitet. Anschließend setzt das Skript diese Nachricht in das Formular auf der Unterseite \texttt{send.php} ein. Dann werden alle Checkboxen, die die Freunde repräsentiert ausgefüllt und das Formular abgeschickt. Damit die leere Nachricht den Benutzern nicht sofort auffällt haben wir einen Text ("CHello my freend!") und ein Bild in die Nachricht eingefügt.
 
 \begin{lstlisting}[caption=Berndbookworm, label=berndbookworm]
@@ -218,9 +220,9 @@ $('body').attr('onload','reproduction(2);');
 \end{lstlisting}
 
 \subsection*{b)}
-
-
+Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachricht beim sehen nur mit einer gewissen Wahrscheinlichkeit weiterzusenden. Über diese Wahrscheinlichkeit lässt sich dann die Geschwindigkeit regulieren. Um sicherzustellen, dass jeder User die Nachricht auch bekommt/weiterschickt, muss man dafür sorgen, dass der User die Nachricht nicht löscht bevor sie weitergeschickt wurde. Dies kann man erreichen, indem man die Nachricht vor dem User versteckt. Dafür könnte man per JavaScript die Website so anpassen, dass die Nachricht nicht angezeigt wird bis sie weitergeschickt wurde.
 
 \section*{Aufgabe 3}
 
+Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg_replace, die in Zeile 16 mit dem Modifikator "\textit{e}" aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir einen RESTClient und bauten die Anfrage an die 1337.php nach. 
 \end{document}

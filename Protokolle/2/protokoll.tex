@@ -65,6 +65,10 @@ Durch Umsortierung der zurückgegebenen Tabelle kann man so beliebige Einträge 
 \end{itemize}
 
 \subsection*{b)}
+Diese Aufgabe haben wir auf zwei Wegen gelöst. Einmal über das Tool SQLMap und einmal haben wir die entsprechenden SQLInjections per Hand zusammengebaut.
+
+
+\subsubsection*{Angriff mittels SQLMap}
 Wir sind zunächst mal im Browser mal auf den Shop gegangen und haben geschaut, was er überhaupt macht. Man musste unten Nmap oder Wireshark auswählen und dann auf "`Details ansehen"' klicken. Hierdurch wurde man auf die Seite "`details\_tools.php"' weitergeleitet und bekommt ein paar Daten über das ausgewählte Tool.
 
 Durch das Firefox-plugin "`Tamper Data"' konnten wir herausfinden, dass als Post beim Wechsel auf die "'details\_tools.php"' der wert tool=1 (für Nmap) bzw tool=2 (für Wireshark) übergeben werden. Dies können wir ausnutzen, um mit sqlmap die Datenbank(en) anzuschauen. Hierfür benutzen wir zunächst folgenden Befehl:
@@ -175,7 +179,8 @@ secureuserdata -T accessdata -U jack
 Das Ergebnis war der Eintrag "`jack"' mit der id 3 und dem Passwort "`london"'. Demnach wurde das Passwort wohl unverschlüsselt in der Tabelle abgelegt.
 
 
-Alternative: direkt über die Internetseite Query's abschicken (da wir SQL-Statements angeben sollten).
+\subsubsection*{Manuelle Erstellung der SQL Injections}
+%Alternative: direkt über die Internetseite Query's abschicken (da wir SQL-Statements angeben sollten).
 
 Zunächst galt es herauszufinden, wie viele Spalten der Tabelle die ursprüngliche Anfrage aus der Datenbank abfragt, damit wir unseren UNION Befehl einbauen können. Durch einfaches Testen von UNION Injections mit verschiedener Spaltenanzahl bekamen wir Fehlermeldungen:
 
@@ -243,7 +248,7 @@ In diesem Szenario wird allerdings auch einzig und allein der Wert 1 bzw. 2 für
 Versand: Do.28 November 15.54 von peter\_bernd1@hell.sex nach peter\_bernd2@hell.sex.
 
 
-Das Listing \ref{berndbookworm} zeigt unsere Version des Berndbookworm. Dabei enthält das Listing die initiale Nachricht. Wir benutzen ein iFrame um die Website \texttt{http://berndbook.seclab.uni-paderborn.de/send.php} mit den Anmeldedaten vom aktuellen Benutzer aufzurufen. Damit dies nicht auffällt verstecken wir den iFrame per CSS Befehlen. Danach laden wir jQuery nach um uns die Arbeit mit den Website Elementen zu vereinfachen. In Zeile 8 fängt unser eigentliches Angriffskript an. Die Funktion \texttt{reproduction} führt die eigentliche Reproduktion aus. Es setzt die selbe Nachricht noch einmal zusammen. Dabei wird der aktuelle Parameter n um eins verringert. Dies sorgt dafür, dass sich das Skript nur \textit{b} mal verbreitet. Anschließend setzt das Skript diese Nachricht in das Formular auf der Unterseite \texttt{send.php} ein. Dann werden alle Checkboxen, die die Freunde repräsentiert ausgefüllt und das Formular abgeschickt. Damit die leere Nachricht den Benutzern nicht sofort auffällt haben wir einen Text ("CHello my freend!") und ein Bild in die Nachricht eingefügt.
+Das Listing \ref{berndbookworm} zeigt unsere Version des Berndbookworm. Dabei enthält das Listing die initiale Nachricht. Wir benutzen ein iFrame um die Website \texttt{http://berndbook.seclab.uni-paderborn.de/send.php} mit den Anmeldedaten vom aktuellen Benutzer aufzurufen. Damit dies nicht auffällt verstecken wir den iFrame per CSS Befehlen. Danach laden wir jQuery nach um uns die Arbeit mit den Website Elementen zu vereinfachen. In Zeile 8 fängt unser eigentliches Angriffskript an. Die Funktion \texttt{reproduction} führt die eigentliche Reproduktion aus. Es setzt die selbe Nachricht noch einmal zusammen. Dabei wird der aktuelle Parameter n um eins verringert. Dies sorgt dafür, dass sich das Skript nur \textit{n} mal weiterverbreitet. Anschließend setzt das Skript diese Nachricht in das Formular auf der Unterseite \texttt{send.php} ein. Dann werden alle Checkboxen, die die Freunde repräsentiert ausgefüllt und das Formular abgeschickt. Damit die leere Nachricht den Benutzern nicht sofort auffällt haben wir einen Text ("CHello my freend!") und ein Bild in die Nachricht eingefügt.
 
 \begin{lstlisting}[caption=Berndbookworm, label=berndbookworm]
 CHello my freend!
@@ -275,11 +280,13 @@ $('body').attr('onload','reproduction(2);');
 \end{lstlisting}
 
 \subsection*{b)}
-Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachricht beim sehen nur mit einer gewissen Wahrscheinlichkeit weiterzusenden. Über diese Wahrscheinlichkeit lässt sich dann die Geschwindigkeit regulieren. Um sicherzustellen, dass jeder User die Nachricht auch bekommt/weiterschickt, muss man dafür sorgen, dass der User die Nachricht nicht löscht bevor sie weitergeschickt wurde. Dies kann man erreichen, indem man die Nachricht vor dem User versteckt. Dafür könnte man per JavaScript die Website so anpassen, dass die Nachricht nicht angezeigt wird bis sie weitergeschickt wurde.
+Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachricht beim Sehen nur mit einer gewissen Wahrscheinlichkeit weiterzusenden. Über diese Wahrscheinlichkeit lässt sich dann die Geschwindigkeit regulieren. Um sicherzustellen, dass jeder User die Nachricht auch bekommt/weiterschickt, muss man dafür sorgen, dass der User die Nachricht nicht löscht bevor sie weitergeschickt wurde. Dies kann man erreichen, indem man die Nachricht vor dem User versteckt. Dafür könnte man per JavaScript die Website so anpassen, dass die Nachricht nicht angezeigt wird bis sie weitergeschickt wurde.
 
 \section*{Aufgabe 3}
 
-Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann dazu ausgenutzt werden. Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir \texttt{curl} und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herausfinden. Nach etwas herumprobieren fanden wir heraus, dass der String 
+Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann ausgenutzt werden. Der Modifikator "`\textit{e}"' sorgt dafür, dass Rückreferenzen beim ersetzen als PHP Code ausgeführt werden. Diese Lücke wollen wir ausnutzen um damit unseren eigenen PHP Code auf dem Server auszuführen.
+
+ Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir \texttt{curl} und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herausfinden.(PHP Version: PHP Version 5.3.10-1ubuntu3.6) Nach etwas herumprobieren fanden wir heraus, dass der String 
 \begin{verbatim}
 [bold]{${print(file_get_contents(secret.chr(46).php))}}[/bold] 
 \end{verbatim}
@@ -288,10 +295,7 @@ Dieser lautet:
 \begin{verbatim}
 <?php
 
-
 $secret_pw = "Y0u_0wn3d_Th3_1337_g3n3r4t0r!";
-
-
 
 ?>
 \end{verbatim}

@@ -169,7 +169,7 @@ sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --p
 -D secureuserdata -T accessdata
 \end{verbatim}
 
-Es gab einige Ergebnisse, allerdings keins mit dem Namen "`jack"' (sondern nur so etwas wie "`root"', "`phpmyadmin"' usw.). Da alle auf diese weise gefundenen Passwörter gehashed waren haben wir die Tabelle für weitere Hinweise einfach mal so via -\,-dump Befehl ausgeben lassen. Dabei haben wir den Benutzer "`jack"' angegeben:
+Es gab einige Ergebnisse, allerdings keins mit dem Namen "`jack"' (sondern nur so etwas wie "`root"', "`phpmyadmin"' usw.). Da alle auf diese Weise gefundenen Passwörter gehashed waren haben wir die Tabelle für weitere Hinweise einfach mal so via -\,-dump Befehl ausgeben lassen. Dabei haben wir den Benutzer "`jack"' angegeben:
 
 \begin{verbatim}
 sqlmap -u hackshop.seclab.uni-paderrborn.de/details\_tools.php --data=tool=1 --dump -D
@@ -237,9 +237,9 @@ das Ergebnis für den Benutzer "`paul"' gewesen wäre.
 
 \subsection*{c)}
 
-Maßnahmen für die Sicherung des Shops gegen solche Angriffe wie in Teil b) wären einfach gewesen, wenn man die Werte, die über POST an die "`details\_tools.php"' Seite gegeben wurden, überprüft hätte. So hätte man z.B. alle ' Zeichen (oder für andere Angriffe auch weitere Sonderzeichen) escapen können. Hierfür gibt es in php bereits vorgefertigte Befehle, falls man das nicht per Hand machen will (wäre aber auch sicherer, um nichts zu vergessen).
+Maßnahmen für die Sicherung des Shops gegen solche Angriffe wie in Teil b) wären einfach gewesen, wenn man die Werte, die über POST an die "`details\_tools.php"' Seite gegeben wurden, überprüft hätte. So hätte man z.B. alle ' Zeichen (oder für andere Angriffe auch weitere Sonderzeichen) escapen können. Hierfür gibt es in php bereits vorgefertigte Befehle, falls man das nicht per Hand machen will (davon wäre sowieso abzuraten, da man sonst Läuft einige sicherheitskritische Lücken nicht zu schließen).
 
-In diesem Szenario wird allerdings auch einzig und allein der Wert 1 bzw. 2 für den Parameter "`tool"' übergeben. Selbst bei mehr als nur den 2 Tools wäre in diesem Parameter nur eine Zahl erlaubt, so dass man alle ungültigen Zeichen, also alles, was keine Zahl ist, hätte entfernen können, oder dann die gesamte Abfrage verworfen worden sein könnte, bevor sie als wirkliche SQL-Anfrage an die Datenbank gegangen wäre.
+In diesem Szenario werden allerdings auch einzig und allein die Werte 1 bzw. 2 für den Parameter "`tool"' übergeben. Selbst bei mehr als nur den 2 Tools wäre in diesem Parameter nur eine Zahl erlaubt, so dass man alle ungültigen Zeichen, also alles, was keine Zahl ist, hätte entfernen können. Auch die gesamte Abfrage zu verwerfen, bevor sie als wirkliche SQL-Anfrage an die Datenbank gegangen wäre, wäre denkbar.
 
 \section*{Aufgabe 2}
 
@@ -248,7 +248,7 @@ In diesem Szenario wird allerdings auch einzig und allein der Wert 1 bzw. 2 für
 Versand: Do.28 November 15.54 von peter\_bernd1@hell.sex nach peter\_bernd2@hell.sex.
 
 
-Das Listing \ref{berndbookworm} zeigt unsere Version des Berndbookworm. Dabei enthält das Listing die initiale Nachricht. Wir benutzen ein iFrame um die Website \texttt{http://berndbook.seclab.uni-paderborn.de/send.php} mit den Anmeldedaten vom aktuellen Benutzer aufzurufen. Damit dies nicht auffällt verstecken wir den iFrame per CSS Befehlen. Danach laden wir jQuery nach um uns die Arbeit mit den Website Elementen zu vereinfachen. In Zeile 8 fängt unser eigentliches Angriffskript an. Die Funktion \texttt{reproduction} führt die eigentliche Reproduktion aus. Es setzt die selbe Nachricht noch einmal zusammen. Dabei wird der aktuelle Parameter n um eins verringert. Dies sorgt dafür, dass sich das Skript nur \textit{n} mal weiterverbreitet. Anschließend setzt das Skript diese Nachricht in das Formular auf der Unterseite \texttt{send.php} ein. Dann werden alle Checkboxen, die die Freunde repräsentiert ausgefüllt und das Formular abgeschickt. Damit die leere Nachricht den Benutzern nicht sofort auffällt haben wir einen Text ("CHello my freend!") und ein Bild in die Nachricht eingefügt.
+Das Listing \ref{berndbookworm} zeigt unsere Version des Berndbookworm. Dabei enthält das Listing die initiale Nachricht. Wir benutzen ein iFrame um die Website \texttt{http://berndbook.seclab.uni-paderborn.de/send.php} mit den Anmeldedaten vom aktuellen Benutzer aufzurufen. Damit dies nicht auffällt verstecken wir den iFrame per CSS Befehlen. Danach laden wir jQuery nach um uns die Arbeit mit den Website Elementen zu vereinfachen. In Zeile 8 fängt unser eigentliches Angriffskript an. Die Funktion \texttt{reproduction} führt die eigentliche Reproduktion aus. Es setzt die selbe Nachricht noch einmal zusammen. Dabei wird der aktuelle Parameter n um eins verringert. Dies sorgt dafür, dass sich das Skript nur \textit{n} mal weiterverbreitet. Anschließend setzt das Skript diese Nachricht in das Formular auf der Unterseite \texttt{send.php} ein. Dann werden alle Checkboxen, die die Freunde repräsentieren, ausgefüllt und das Formular abgeschickt. Damit die leere Nachricht den Benutzern nicht sofort auffällt haben wir einen Text ("CHello my freend!") und ein Bild in die Nachricht eingefügt.
 
 \begin{lstlisting}[caption=Berndbookworm, label=berndbookworm]
 CHello my freend!
@@ -280,13 +280,13 @@ $('body').attr('onload','reproduction(2);');
 \end{lstlisting}
 
 \subsection*{b)}
-Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachricht beim Sehen nur mit einer gewissen Wahrscheinlichkeit weiterzusenden. Über diese Wahrscheinlichkeit lässt sich dann die Geschwindigkeit regulieren. Um sicherzustellen, dass jeder User die Nachricht auch bekommt/weiterschickt, muss man dafür sorgen, dass der User die Nachricht nicht löscht bevor sie weitergeschickt wurde. Dies kann man erreichen, indem man die Nachricht vor dem User versteckt. Dafür könnte man per JavaScript die Website so anpassen, dass die Nachricht nicht angezeigt wird bis sie weitergeschickt wurde.
+Eine Möglichkeit die Ausbreitungsgeschwindigkeit zu reduzieren wäre die Nachricht beim Sehen nur mit einer gewissen Wahrscheinlichkeit weiterzusenden. Über diese Wahrscheinlichkeit lässt sich dann die Geschwindigkeit regulieren. Um sicherzustellen, dass jeder User die Nachricht auch bekommt/weiterschickt, muss man dafür sorgen, dass der User die Nachricht nicht löscht bevor sie weitergeschickt wurde. Dies kann man erreichen, indem man die Nachricht vor dem User versteckt. Dafür könnte man per JavaScript die Website so anpassen, dass die Nachricht nicht angezeigt wird, bis sie weitergeschickt wurde.
 
 \section*{Aufgabe 3}
 
 Der Leetspeakgenerator enthält eine Sicherheitslücke in der 1337.php. Die verwendete Funktion preg\_replace, die in Zeile 16 mit dem Modifikator "`\textit{e}"' aufgerufen wird, kann ausgenutzt werden. Der Modifikator "`\textit{e}"' sorgt dafür, dass Rückreferenzen beim ersetzen als PHP Code ausgeführt werden. Diese Lücke wollen wir ausnutzen um damit unseren eigenen PHP Code auf dem Server auszuführen.
 
- Damit wir einfacher auf 1337.php Datei zugreifen konnten, benutzten wir \texttt{curl} und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herausfinden.(PHP Version: PHP Version 5.3.10-1ubuntu3.6) Nach etwas herumprobieren fanden wir heraus, dass der String 
+ Damit wir einfacher auf die 1337.php Datei zugreifen konnten, benutzten wir \texttt{curl} und bauten die Anfrage an die 1337.php nach. Wir konnten mittels \texttt{[bold]\{\$\{phpinfo()\}\}[/bold]} die verwendete PHP Version und Konfiguration herausfinden.(PHP Version: PHP Version 5.3.10-1ubuntu3.6) Nach etwas herumprobieren fanden wir heraus, dass der String 
 \begin{verbatim}
 [bold]{${print(file_get_contents(secret.chr(46).php))}}[/bold] 
 \end{verbatim}

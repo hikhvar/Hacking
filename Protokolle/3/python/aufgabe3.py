@@ -11,7 +11,7 @@ def read_file(file_name):
         f = open(file_name, "r")
         words = f.readlines()
         for word in words:
-            result_words.append(word.strip())
+            result_words.append(word.strip().decode("utf-8").encode("utf-8"))
     except Exception, e:
         print "Could not read file", e
     return result_words
@@ -25,14 +25,17 @@ def test_all(first_words, second_words, third_words, target_hash):
     """
     for word1 in first_words:
         m = hashlib.sha256()
+        m.update(word1)
         for word2 in second_words:
-            print word1, word2
+            #print word1, word2
+            m1 = m.copy()
+            m1.update(word2)
             for word3 in third_words:
-                #print word1, word2, word3, "Hash:"
+                #print word1, word2, word3
                 #print m2.hexdigest()
-                m = hashlib.sha256()
-                m.update(word1+word2+word3)
-                if m.hexdigest() == target_hash:
+                m2 = m1.copy()
+                m2.update(word3)
+                if m2.hexdigest() == target_hash:
                     return word1, word2, word3
 
 
@@ -40,9 +43,9 @@ def main():
     words = read_file("/home/christoph/GIT/Hacking/Protokolle/3/input/worte-de_all.txt")
     target_hash1 = u"efe1c5a3b960b39ce5a57d4cdda63ba9f75571eb8e2e21cef3aab710c7ca6523"
     target_hash2 = u"e7d7f36656ba468f5c59124f9e94bac3091a8927b839f0634c12d4dec092150c"
-    #print test_all([r"Boss"], words, words, target_hash)
-    print isinstance(words[0], str) 
-    #print test_all(words, ["Kombattant"], words, target_hash2)
+    print "Erstes Passwort: ", "".join(test_all([u"Boss"], words, words, target_hash1))
+    #print isinstance(words[0], str) 
+    print "Zweites Passwort: ", "".join(test_all([u"Kombattant"], words, words, target_hash2))
 
 if __name__ == "__main__":
     main()

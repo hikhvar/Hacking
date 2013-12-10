@@ -1,4 +1,3 @@
-
 import hashlib
 
 def read_file(file_name):
@@ -40,7 +39,7 @@ def test_all(first_words, second_words, third_words, target_hash):
 
 
 def main():
-    words = read_file("/home/christoph/GIT/Hacking/Protokolle/3/input/worte-de_all.txt")
+    words = read_file("../input/worte-de_all.txt")
     target_hash1 = u"efe1c5a3b960b39ce5a57d4cdda63ba9f75571eb8e2e21cef3aab710c7ca6523"
     target_hash2 = u"e7d7f36656ba468f5c59124f9e94bac3091a8927b839f0634c12d4dec092150c"
     print "Erstes Passwort: ", "".join(test_all([u"Boss"], words, words, target_hash1))

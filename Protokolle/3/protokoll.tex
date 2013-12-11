@@ -1,0 +1,86 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{todo}
+\usepackage[ngerman]{babel}
+\usepackage[left=2cm]{geometry}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false,           % 
+numbers=left
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[1]{{
+\pythonstyle
+\lstinputlisting{#1}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\author{Christoph Robbert 6577945, Peter Stilow 6500440}
+\title{Protokoll 3}
+\begin{document}
+\maketitle
+ 
+\section*{Aufgabe 1}
+
+\section*{Aufgabe 2}
+
+\section*{Aufgabe 3}
+
+Diese Aufgabe haben wir mittels der Programmiersprache Python gelöst. In der Standardlibrary von Python ist eine Implementierung der Hashfunktion SHA256 enthalten. Wir nutzen diese um die Hashes zu berechnen. 
+
+Im Folgenden beschreiben wir die wesentlichen Eigenschaften des in Abbildung \ref{pyaufgabe3} abgebildeten Sourcecodes. Die Funktion \texttt{read\_file} liest die Datei ein, sorgt dabei dafür, dass die Strings in UTF-8 codiert bleiben und gibt das Ergebnis als Liste von Worten zurück. Die UTF-8 Codierung ist wichtig, da ein berechnen der Hashes auf der ASCII Codierung der Strings zu einem anderen Hashwert führt. Die Funktion \texttt{test\_all} führt dann einen Brute-Force Angriff auf den gegeben Hashwert mittels der gegeben Wortlisten durch. Die drei \texttt{for}-Schleifen erzeugen alle Kombinationen aus den Wortlisten und in Zeile 34 wird dann geschaut, ob die aktuelle Kombination den gesuchten Hash ergeben. Um die Berechnung effizienter zu gestalten wird der aktuelle Hashwert \texttt{m,m1,m2} immer nur mit dem neu hinzugekommen Wort geupdated. 
+
+Ein handelsüblicher Laptop berechnet mit diesem Programm die folgende Ausgabe innerhalb von 2 Minuten:
+\begin{verbatim}
+Erstes Passwort:  BossBasketballKonfigurierbarkeit
+Zweites Passwort:  KombattantCoupeBereifen
+\end{verbatim} 
+
+\begin{figure}
+\center
+\caption{Python Sourcecode für die Aufgabe 3}
+\label{pyaufgabe3}
+\pythonexternal{python/aufgabe3.py}
+\end{figure}
+
+
+
+\end{document}

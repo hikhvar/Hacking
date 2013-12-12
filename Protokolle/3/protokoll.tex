@@ -59,6 +59,101 @@ numbers=left
 \maketitle
  
 \section*{Aufgabe 1}
+\subsection*{a)}
+
+Um das Passwort von bernd (bzw des root users) des Systems zu ändern muss man sich nur über eine live-Version von linux auf den rechner einloggen und hat komplette Kontrolle. Hier kann man z.B. das Passwort des ursprünglichen Systems ändern. In unserem Fall haben wir Arch-Linux benutzt:
+
+Zunächst laden wir die Arch-Linux installations iso herunter. Diese legen wir in VirtualBox als CD ein (bei einem realen pc hätte man das natürlich per USB-Stick lösen können). Von dieser ISO booten wir also den PC von Bernd Power. Wir kommen in die normale Arch-Linux Konsole für die Installation. Anstatt zu installieren mounten wir die Festplatten (/dev/sda*), wobei sda3 die gewünschte root Partition und sda4 bernds home Verzeichnis ist (bzw alle home Verzeichnisse). Wir mounten also via:
+
+mount /dev/sda3 /mnt
+mount /dev/sda4 /mnt/homes
+
+Jetzt wechseln wir den root in das gemountete Verzeichnis (von Arch-Linux in eine Arch-Linux installation wechseln können wir den arch-chroot Befehl benutzen):
+
+arch-chroot /mnt
+
+Um das root Passwort zu wechseln reicht jetzt ein passwd befehl mit 2-maliger Bestätigung des neuen Passwortes. Für den user bernd benutzen wir:
+
+passwd bernd
+
+und setzen in unserem falle das Passwort auf bernd. Um Bernd Administratorrechte zu geben (wir könnten natürlich alternativ auch direkt per root alles machen in Bernds System) entscheiden wir uns für den Eintrag in die Gruppe "`wheel"', damit Bernd per sudo Befehle als admin durchführen kann:
+
+usermod -aG wheel bernd
+
+Danach musste noch die wheel-Gruppe freigeschaltet werden:
+
+visudo
+
+In dem erscheinenden Editor musste folgende Zeile einkommentiert werden:
+
+\# %wheel ALL=(ALL) NOPASSWD:ALL
+
+Durch Neustarten des Systems und booten der original-Installation können wir uns jetzt einfach als root oder bernd mit dem passwort bernd anmelden.
+
+\subsection*{b)}
+
+Zum finden der versteckten Passwörter benutzen wir in der Hauptsache den find Befehl verknüpft mit grep, wie z.B. im home Verzeichnis von Bernd:
+
+find . | xargs grep "[0-9]\{32\}" -sl
+
+Durch die ausgegebenen Dateien und weitere manuelle Suche stoßen wir auf folgende Passwörter/Flags:
+
+\begin{verbatim}
+~/.purple/logs/jabber/berndbernd@jabber.ccc.de/berndberndbernd@jabme.de/
+2013-05-09.204357+0200CEST.html
+[...] das neue passwort für den dienst ist
+928c625b8ded159423369a116ac28f79
+\end{verbatim}
+
+\begin{verbatim}
+~/.filezilla/sitemanager.xml
+<Pass>
+8103c4097fecbb013b3243658efb7c0e
+</Pass>
+\end{verbatim}
+
+\begin{verbatim}
+~/.irssi/.logs/freenode/#hacksem/messages.log
+Zur Info das vorläufige Passwort:
+6c790e02a808602886b32b7151dac514
+\end{verbatim}
+
+\begin{verbatim}
+~/.subversion/auth/svn.simple/62891e6589fd019e0ca49c76607c64c4
+password V 32
+d63036cfba56a6c3cd75ab14b33fe67g
+\end{verbatim}
+
+\begin{verbatim}
+~/.mozilla/thunderbird/bcx3c2rl.default/ImapMail/imap.bernd.bernd/INBOX
+hier ist das Passwort, das du neulich so dringend haben wolltest.
+4b6917426d1481d401g42faa7e67acf4
+\end{verbatim}
+
+Auch in dieser verdächtigen Datei wird sich vermutlich ein Passwort befinden!
+
+\begin{verbatim}
+~/bernds_pw.pl
+?!?
+\end{verbatim}
+
+Weitere Funde des Flag-formats (jedoch ohne Hinweise auf Passwörter) waren unter anderem (in):
+\begin{verbatim}
+dateiname
+~/.suberversion/auth.svn.ssl.server/574aef086c4a5beafd1e16043de3a508
+\end{verbatim}
+
+\begin{verbatim}
+~/.dbus/session-bus/772ccb2f8e93d8bae40f7a9e0000012b-1
+guid=
+3b590b86735ccb66e0d982400000015f
+\end{verbatim}
+
+\begin{verbatim}
+~/.dbus/session-bus/772ccb2f8e93d8bae40f7a9e0000012b-1
+guid=
+4996f8c8ba8c1bf505c1cccc00000009
+\end{verbatim}
 
 \section*{Aufgabe 2}
 
@@ -74,12 +169,12 @@ Erstes Passwort:  BossBasketballKonfigurierbarkeit
 Zweites Passwort:  KombattantCoupeBereifen
 \end{verbatim} 
 
-\begin{figure}
-\center
-\caption{Python Sourcecode für die Aufgabe 3}
-\label{pyaufgabe3}
-\pythonexternal{python/aufgabe3.py}
-\end{figure}
+%\begin{figure}
+%\center
+%\caption{Python Sourcecode für die Aufgabe 3}
+%\label{pyaufgabe3}
+%\pythonexternal{python/aufgabe3.py}
+%\end{figure}
 
 
 

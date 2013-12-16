@@ -44,6 +44,10 @@ numbers=left
 }
 {}
 
+\lstnewenvironment{bash}
+{\lstset{numbers=left,language=bash,keywordstyle={\color{blue}}}}
+{}
+
 % Python for external files
 \newcommand\pythonexternal[1]{{
 \pythonstyle
@@ -92,7 +96,7 @@ Durch Neustarten des Systems und booten der original-Installation können wir un
 
 \subsection*{b)}
 
-Zum finden der versteckten Passwörter benutzen wir in der Hauptsache den find Befehl verknüpft mit grep, wie z.B. im home Verzeichnis von Bernd:
+Zum Finden der versteckten Passwörter benutzen wir in der Hauptsache den find Befehl verknüpft mit grep, wie z.B. im home Verzeichnis von Bernd:
 
 find . | xargs grep "[0-9]\{32\}" -sl
 
@@ -157,6 +161,27 @@ guid=
 
 \section*{Aufgabe 2}
 
+Gegen die in Zip eingesetzte PkZip Verschlüsselung gibt es einen \textit{known plaintext} Angriff. Das Tool \texttt{pkcrack} führt diese Attacke automatisch auf Zipdateien aus, wenn man eine der enthaltenen Dateien im Klartext vorliegen hat. Da man die Zipdatei öffnen kann und sich die enthaltenen Dateinamen anschauen kann, fanden wir die folgenden Dateien.
+\begin{verbatim}
+Brace-yourself-Winter.jpg
+642dfff0ebcf31b55400bd205bfdfa06bfb1768c.jpg
+\end{verbatim}
+
+Da wir für den Angriff eine Datei im Klartext brauchten führten wir eine Google Bildersuche durch. Für das Bild \texttt{Brace-yourself-Winter.jpg} fanden wir ein Bild, dass genauso groß war wie das verschlüsselte. Da \texttt{pkcrack} eine komprimierte Variante des Klartextes benötigt, erstellten wir ein komprimiertes Zipfile \texttt{brace.zip} mit dem Linuxkommandozeilentool \texttt{zip.} Dies riefen wir wie folgt auf:
+\begin{verbatim}
+zip brace.zip Brace-yourself-Winter.jpg
+\end{verbatim}
+
+Nun hatten wir alle benötigten Eingaben für \texttt{pkcrack} zusammen. Wir starteten \texttt{pkcrack} also mit den Parametern:
+\begin{small}
+\begin{verbatim}
+pkcrack -C packed.zip -c Brace-yourself-Winter.jpg -P brace.zip -p Brace-yourself-Winter.jpg -d solution.zip -a
+\end{verbatim}
+\end{small}
+
+Dieser Aufruf wandte den Angriff automatisch auf das Archiv \texttt{packet.zip} an und schrieb eine Entschlüsselte Variante des Archivs in die Datei \texttt{solution.zip}. Die brisanten Informationen sind ein Bild, dass diverse Bücher von George R.R. Martin zeigt und den String \texttt{84a940b74b33ac6e040ab0462fb9a6f9} als Text im Bild enthält.
+
+
 \section*{Aufgabe 3}
 
 Diese Aufgabe haben wir mittels der Programmiersprache Python gelöst. In der Standardlibrary von Python ist eine Implementierung der Hashfunktion SHA256 enthalten. Wir nutzen diese um die Hashes zu berechnen. 
@@ -176,6 +201,39 @@ Zweites Passwort:  KombattantCoupeBereifen
 \pythonexternal{python/aufgabe3.py}
 \end{figure}
 
+\section*{Aufgabe 4}
 
+Wir haben zunächst das Tool "`CrypTool"' benutzt, um Analysen auf der verschlüsselten Datei durchzuführen. Durch einiges herumprobieren haben wir ein vielversprechendes Ergebnis mit der XOR-Verschlüsselung herausbekommen. Hierfür mussten wir bei dem Tool nur unter dem Analyse-Reiter das XOR / Vernam Analyse-Verfahren wählen. Dieses suchte im ersten Schritt zunächst die Länge des Schlüssels, welche laut Programm 26 beträgt. Dazu musste das häufigste Zeichen in der Datei angegeben werden. Da es sich um eine Textdatei handelt entschieden wir uns für das Zeichen 'e', was sowohl im Deutschen als auch im Englischen als das häufigste Zeichen in Texten gilt. Der übergebene Wert als Hexadezimal war hierfür 0x65.
+
+Durch Angabe des Parameters wurde die Datei direkt entschlüsselt. Der resultierende Text war zum größten Teil lesbar, hatte jedoch noch einige nicht lesbare Zeichen dazwischen. Um weitere Tests durchzuführen haben wir das "`xortool"' heruntergeladen, was über die Konsole zu steuern ist, sonst aber das selbe wie CrypTool für das XOR-Verfahren macht. Hiermit konnten wir verschiedene Schlüssellängen sowie dazugehörige Werte für die häufigsten Zeichen per Skript angeben:
+
+\begin{verbatim}
+for ((i=32; i<=126; i+=1)); do printf -v hex "%.2x" "$i"; xortool.py text.crypt
+-l 13 -c $hex; cp xortool_out/0.out decrypted/13_$i.out; done;
+\end{verbatim}
+
+Das angegebene Befehl verändert dabei das häufigste Zeichen, um für eine gegebene Schlüssellänge alle Zeichen durchzuprobieren. In diesem Fall war die Schlüssellänge 13, wir haben sie allerdings in 13er Schritten erhöht. Dies entschieden wir, da uns das xortool folgende Informationen anbot:
+
+\begin{verbatim}
+The most probable key lengths:
+   1:   23.0%
+  13:   25.4%
+  26:   20.7%
+  39:   9.4%
+  52:   9.3%
+  54:   3.4%
+  58:   3.0%
+  60:   2.9%
+  62:   2.8%
+  Key-length can be 13*n
+\end{verbatim}
+
+Das beste Ergebnis war auch hier das gleiche, wie beim CrypTool: Das Passwort mit Länge 26 und der Zeichenfolge:
+
+\begin{verbatim}
+\x1cou know nothing,eJon S\x8b\xdd\xf7
+\end{verbatim}
+
+Aus diesem Satz kann man erkennen, dass das original Passwort vermutlich "`You know nothing, Jon Snow"' war. Dieses setzten wir (in hexadezimal) in das CrypTool ein und entschlüsselten den Text manuell. Jetzt konnte man ihn fast komplett lesen. Leider gibt es immer noch ein paar einzelne Zeichen, die nicht korrekt entschlüsselt wurden. Man kann aber jetzt deutlich sehen, dass es sich um den Text "`Träume im Hexenhaus"' handelt, zu finden als erstes PDF in Google.
 
 \end{document}

@@ -96,7 +96,7 @@ Durch Neustarten des Systems und booten der original-Installation können wir un
 
 \subsection*{b)}
 
-Zum finden der versteckten Passwörter benutzen wir in der Hauptsache den find Befehl verknüpft mit grep, wie z.B. im home Verzeichnis von Bernd:
+Zum Finden der versteckten Passwörter benutzen wir in der Hauptsache den find Befehl verknüpft mit grep, wie z.B. im home Verzeichnis von Bernd:
 
 find . | xargs grep "[0-9]\{32\}" -sl
 
@@ -109,6 +109,8 @@ Durch die ausgegebenen Dateien und weitere manuelle Suche stoßen wir auf folgen
 928c625b8ded159423369a116ac28f79
 \end{verbatim}
 
+Diesen Fund hätte man verhindern können, indem die Logs vom Chat Client Jabber (bzw Pidgin) deaktiviert worden oder gelöscht worden wären. Zumindest die Zeile des Passworts hätte gelöscht werden sollen.
+
 \begin{verbatim}
 ~/.filezilla/sitemanager.xml
 <Pass>
@@ -116,11 +118,15 @@ Durch die ausgegebenen Dateien und weitere manuelle Suche stoßen wir auf folgen
 </Pass>
 \end{verbatim}
 
+Auch hier handelt es sich scheinbar um ein gecachetes Passwort, was abgespeichert wurde.
+
 \begin{verbatim}
 ~/.irssi/.logs/freenode/#hacksem/messages.log
 Zur Info das vorläufige Passwort:
 6c790e02a808602886b32b7151dac514
 \end{verbatim}
+
+Dies ist scheinbar ein log eines IRC Chats. Auch dieser hätte geleert/deaktiviert werden können.
 
 \begin{verbatim}
 ~/.subversion/auth/svn.simple/62891e6589fd019e0ca49c76607c64c4
@@ -128,17 +134,39 @@ password V 32
 d63036cfba56a6c3cd75ab14b33fe67g
 \end{verbatim}
 
+Dieses Passwort wurde von svn gespeichert. Man hätte es lieber jedes mal neu eingeben sollen.
+
 \begin{verbatim}
 ~/.mozilla/thunderbird/bcx3c2rl.default/ImapMail/imap.bernd.bernd/INBOX
 hier ist das Passwort, das du neulich so dringend haben wolltest.
 4b6917426d1481d401g42faa7e67acf4
 \end{verbatim}
 
-Auch in dieser verdächtigen Datei wird sich vermutlich ein Passwort befinden!
+Auch mails mit Passwörtern sollte man lieber löschen, anstatt sie auf dem Rechner liegen zu lassen!
+
+\begin{verbatim}
+/etc/samba/private/smbpasswd
+bernd:0:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+46D22A7D676AD032CABDG165598E5794
+root:0:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+0CB6948805F797BF2A8H807973B89537
+\end{verbatim}
+
+Und auch hier sehen wir wieder ein gecachetes Passwort, diesmal für das Netzwerk mittels samba.
+
+\begin{verbatim}
+Im firefox -> preferences -> security -> saved passwords -> show passwords
+http://192.168.1.102			bernd
+bd2f1b10478abf43ae30be3bac8ad9f5
+\end{verbatim}
+
+Dieses Passwort wurde direkt in Firefox abgespeichert und konnte deshalb leicht herausgeholt werden. Ich glaube, man kann die Passwörter auch so abspeichern, dass man nicht wieder an sie ran kommt. Dann wäre das nicht so einfach möglich gewesen. Aber generell hätte man auch hier das Passwort vielleicht lieber in keepass oder ähnlichen Tools aufbewahren sollen.
+
+Auch in der folgenden verdächtigen Datei wird sich vermutlich ein Passwort befinden! Leider haben wir es nicht genau herausbekommen, allerdings scheint es in 8 Teile aufgeteilt worden zu sein, die jeweils aus 4 chars bestehen. Die letzten 4 characters konnten wir vermutlich herauslesen und heißen (unseres wissens nach) 120b, somit ist das Passwort irgendwie:
 
 \begin{verbatim}
 ~/bernds_pw.pl
-?!?
+**** **** **** **** **** **** **** 120b
 \end{verbatim}
 
 Weitere Funde des Flag-formats (jedoch ohne Hinweise auf Passwörter) waren unter anderem (in):
@@ -147,17 +175,7 @@ dateiname
 ~/.suberversion/auth.svn.ssl.server/574aef086c4a5beafd1e16043de3a508
 \end{verbatim}
 
-\begin{verbatim}
-~/.dbus/session-bus/772ccb2f8e93d8bae40f7a9e0000012b-1
-guid=
-3b590b86735ccb66e0d982400000015f
-\end{verbatim}
-
-\begin{verbatim}
-~/.dbus/session-bus/772ccb2f8e93d8bae40f7a9e0000012b-1
-guid=
-4996f8c8ba8c1bf505c1cccc00000009
-\end{verbatim}
+Generell ist also zu sagen, dass das chaching von Passwörtern in einzelnen Programmen, sowie das logging von Chats und ähnlichem abgestellt werden sollte, um die Passwörter nicht auf dem PC in Klartext herumliegen zu lassen.
 
 \section*{Aufgabe 2}
 
@@ -201,6 +219,39 @@ Zweites Passwort:  KombattantCoupeBereifen
 \pythonexternal{python/aufgabe3.py}
 \end{figure}
 
+\section*{Aufgabe 4}
 
+Wir haben zunächst das Tool "`CrypTool"' benutzt, um Analysen auf der verschlüsselten Datei durchzuführen. Durch einiges herumprobieren haben wir ein vielversprechendes Ergebnis mit der XOR-Verschlüsselung herausbekommen. Hierfür mussten wir bei dem Tool nur unter dem Analyse-Reiter das XOR / Vernam Analyse-Verfahren wählen. Dieses suchte im ersten Schritt zunächst die Länge des Schlüssels, welche laut Programm 26 beträgt. Dazu musste das häufigste Zeichen in der Datei angegeben werden. Da es sich um eine Textdatei handelt entschieden wir uns für das Zeichen 'e', was sowohl im Deutschen als auch im Englischen als das häufigste Zeichen in Texten gilt. Der übergebene Wert als Hexadezimal war hierfür 0x65.
+
+Durch Angabe des Parameters wurde die Datei direkt entschlüsselt. Der resultierende Text war zum größten Teil lesbar, hatte jedoch noch einige nicht lesbare Zeichen dazwischen. Um weitere Tests durchzuführen haben wir das "`xortool"' heruntergeladen, was über die Konsole zu steuern ist, sonst aber das selbe wie CrypTool für das XOR-Verfahren macht. Hiermit konnten wir verschiedene Schlüssellängen sowie dazugehörige Werte für die häufigsten Zeichen per Skript angeben:
+
+\begin{verbatim}
+for ((i=32; i<=126; i+=1)); do printf -v hex "%.2x" "$i"; xortool.py text.crypt
+-l 13 -c $hex; cp xortool_out/0.out decrypted/13_$i.out; done;
+\end{verbatim}
+
+Das angegebene Befehl verändert dabei das häufigste Zeichen, um für eine gegebene Schlüssellänge alle Zeichen durchzuprobieren. In diesem Fall war die Schlüssellänge 13, wir haben sie allerdings in 13er Schritten erhöht. Dies entschieden wir, da uns das xortool folgende Informationen anbot:
+
+\begin{verbatim}
+The most probable key lengths:
+   1:   23.0%
+  13:   25.4%
+  26:   20.7%
+  39:   9.4%
+  52:   9.3%
+  54:   3.4%
+  58:   3.0%
+  60:   2.9%
+  62:   2.8%
+  Key-length can be 13*n
+\end{verbatim}
+
+Das beste Ergebnis war auch hier das gleiche, wie beim CrypTool: Das Passwort mit Länge 26 und der Zeichenfolge:
+
+\begin{verbatim}
+\x1cou know nothing,eJon S\x8b\xdd\xf7
+\end{verbatim}
+
+Aus diesem Satz kann man erkennen, dass das original Passwort vermutlich "`You know nothing, Jon Snow"' war. Dieses setzten wir (in hexadezimal) in das CrypTool ein und entschlüsselten den Text manuell. Jetzt konnte man ihn fast komplett lesen. Leider gibt es immer noch ein paar einzelne Zeichen, die nicht korrekt entschlüsselt wurden. Man kann aber jetzt deutlich sehen, dass es sich um den Text "`Träume im Hexenhaus"' handelt, zu finden als erstes PDF in Google.
 
 \end{document}

@@ -65,6 +65,14 @@ numbers=left
 \maketitle
  
 \section*{Aufgabe 1}
+Nachdem wir eine Virtuelle Maschine mit der Livelinuxdistribution C.A.IN.E und einem 1 GB großem Arbeitslaufwerk und dem Image des Laptops gestartet hatten legten wir mittels \texttt{Guymager} ein Image des Images des Laptops an. Dieses Image speicherten wir im \texttt{Expert Witness Format}. Danach erstellten wir in Autopsy einen neuen Fall und benutzten dazu das mit \texttt{Guymager} erstellte Image als Image in unserem Fall. 
+
+Nach einem ersten Blick mittels der \textit{File Analysis} Funktion in das Dateisystem des Images, fanden wir her raus, dass sich im Ordner \texttt{C:/\$RECYCLE.BIN/S-1-5-21-1799391407-34945392703861017217-1003} eine SQLite Datenbank namens \texttt{\$RVLNSU2.db} befand. Nachdem wir sie mittels der \textit{Export}funktion in das Homeverzeichnis kopiert hatten, öffneten sie mit dem mitgelieferten \texttt{SQLite database browser}. In der Datenbank befand sich eine Tabelle namens \texttt{passwords} mit den Spalten \texttt{id} und \texttt{flags}. In dieser Tabelle befanden sich dreißig Flags die dem Format [0-9a-z]{40} entsprachen. Der erste Flag lautet: \texttt{0b6589fc6ab0dc82cf12099c1c2d40ab994e8410c}.
+
+In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f4se8f48sef66sefsef.jpg}. Nachdem wir das Bild geöffnet hatten, sahen wir einen QR-Code. Leider ließ er sich auf Anhieb nicht öffnen, da zwei der zur Ausrichtung benötigten Quadrate weiß statt schwarz waren. Nachdem wir sie per GIMP wieder hergerichtet hatten, las der QR-Code Reader auf unserem Handy folgenden String aus dem Code aus:
+\texttt{6c5db859acd48b6be44d02bd48773a2146809629}.
+
+Außerdem befand sich in dem selben Ordner das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels dem Programm \texttt{outguess} etwas in der Datei versteckt wurde.  
 
 \section*{Aufgabe 2}
 

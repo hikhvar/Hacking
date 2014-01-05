@@ -1,0 +1,140 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{todo}
+\usepackage[ngerman]{babel}
+\usepackage[left=2cm]{geometry}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false,           % 
+numbers=left
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+\lstnewenvironment{bash}
+{\lstset{numbers=left,language=bash,keywordstyle={\color{blue}}}}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[1]{{
+\pythonstyle
+\lstinputlisting{#1}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+\lstset{breaklines=true} 
+\lstset{basicstyle=\small\ttfamily}
+\lstset{framesep=4pt} 
+
+\author{Christoph Robbert 6577945, Peter Stilow 6500440}
+\title{Protokoll 4}
+\begin{document}
+\maketitle
+ 
+\section*{Aufgabe 1}
+Nachdem wir eine Virtuelle Maschine mit der Livelinuxdistribution C.A.IN.E und einem 1 GB großem Arbeitslaufwerk und dem Image des Laptops gestartet hatten legten wir mittels \texttt{Guymager} ein Image des Images des Laptops an. Dieses Image speicherten wir im \texttt{Expert Witness Format}. Danach erstellten wir in Autopsy einen neuen Fall und benutzten dazu das mit \texttt{Guymager} erstellte Image als Image in unserem Fall. 
+
+Nach einem ersten Blick mittels der \textit{File Analysis} Funktion in das Dateisystem des Images, fanden wir her raus, dass sich im Ordner \texttt{C:/\$RECYCLE.BIN/S-1-5-21-1799391407-34945392703861017217-1003} eine SQLite Datenbank namens \texttt{\$RVLNSU2.db} befand. Nachdem wir sie mittels der \textit{Export}funktion in das Homeverzeichnis kopiert hatten, öffneten sie mit dem mitgelieferten \texttt{SQLite database browser}. In der Datenbank befand sich eine Tabelle namens \texttt{passwords} mit den Spalten \texttt{id} und \texttt{flags}. In dieser Tabelle befanden sich dreißig Flags die dem Format [0-9a-z]{40} entsprachen. Der erste Flag lautet: \texttt{0b6589fc6ab0dc82cf12099c1c2d40ab994e8410c}.
+
+In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f4se8f48sef66sefsef.jpg}. Nachdem wir das Bild geöffnet hatten, sahen wir einen QR-Code. Leider ließ er sich auf Anhieb nicht öffnen, da zwei der zur Ausrichtung benötigten Quadrate weiß statt schwarz waren. Nachdem wir sie per GIMP wieder hergerichtet hatten, las der QR-Code Reader auf unserem Handy folgenden String aus dem Code aus:
+\texttt{6c5db859acd48b6be44d02bd48773a2146809629}.
+
+Außerdem befand sich in dem selben Ordner das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels dem Programm \texttt{outguess} etwas in der Datei versteckt wurde.  
+
+\section*{Aufgabe 2}
+
+Um das Tool \texttt{volatility} zu verwenden muss man wissen von welcher Windowsversion das Speicherabbild stammt. Da dieses nicht gegeben ist, versuchen wir es mittels des \texttt{volatility} Kommandos \texttt{imageinfo} herrauszufinden um was für ein Speicherabbild es sich handelt.
+\begin{verbatim}
+python vol.py imageinfo -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec
+Volatility Foundation Volatility Framework 2.3.1
+Determining profile based on KDBG search...
+
+          Suggested Profile(s) : Win7SP0x86, Win7SP1x86
+                     AS Layer1 : IA32PagedMemoryPae (Kernel AS)
+                     AS Layer2 : VirtualBoxCoreDumpElf64 (Unnamed AS)
+                     AS Layer3 : FileAddressSpace (/home/christoph/Downloads/93f5c9434cd3b29ffdfb986d993ba469f96ff6ec)
+                      PAE type : PAE
+                           DTB : 0x185000L
+                          KDBG : 0x82930c28
+          Number of Processors : 4
+     Image Type (Service Pack) : 1
+                KPCR for CPU 0 : 0x82931c00
+                KPCR for CPU 1 : 0x807c1000
+                KPCR for CPU 2 : 0x88840000
+                KPCR for CPU 3 : 0x88876000
+             KUSER_SHARED_DATA : 0xffdf0000
+           Image date and time : 2013-12-16 17:04:54 UTC+0000
+     Image local date and time : 2013-12-16 18:04:54 +0100
+\end{verbatim}
+Die Ausgabe legt nahe, dass es sich um ein 32-Bit Windows 7 mit entweder Servicepack 1 oder 2 handelt. Da die Kommandos
+\begin{verbatim}
+python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP1x86 kdbgscan
+\end{verbatim}
+und 
+\begin{verbatim}
+python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP0x86 kdbgscan
+\end{verbatim}
+keine Unterscheidbare Ausgabe lieferten, gingen wir davon aus, dass es sich um ein Windows 7 mit SP1 handelt.
+
+Um einen groben Überblick zu erlangen zeigten wir uns mit 
+\begin{verbatim}
+python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP0x86 psscan
+\end{verbatim}
+alle laufenden und beendeten Prozesse an. Dabei vielen die Prozesse
+\begin{verbatim}
+Offset(P)  Name                PID   PPID PDB        Time created                   
+---------- ---------------- ------ ------ ---------- ------------------------------
+..
+0x1eaecd40 notepad.exe        2628   1536 0x1f73e420 2013-12-16 16:49:32 UTC+0000
+..
+0x1f7b53f0 WUDFHost.exe       2864    876 0x1f73e480 2013-12-16 16:57:56 UTC+0000
+..
+\end{verbatim}
+im Hinblick auf die nächsten beiden Aufgabenteile auf. 
+
+\subsection*{a)}
+Der schon aufgefallene Prozess \texttt{WUDFHost.exe} ist ein Userspace Treiber Prozess. Da USB Sticks häufig per Userspace Treiber angesprochen werden, schauten wir uns die offenen Handles dieses Prozesses per 
+\begin{verbatim}
+python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP1x86 handles --pid=2864
+\end{verbatim}
+an. Dabei vielen vor allem die Handles auf die dieser Registrykey auf.
+\begin{lstlisting}
+0xa55584b8   2864      0x1e4    0x20019 Key              MACHINE\SYSTEM\CONTROLSET001\ENUM\WPDBUSENUMROOT\UMB\2&37C186B&0&STORAGE#VOLUME#_??_USBSTOR#DISK&VEN_KINGSTON&PROD_DATATRAVELER_G3&REV_PMAP#001CC0EC345CBA9175C40135&0#\DEVICE PARAMETERS
+\end{lstlisting}
+Dabei fallen die drei Substrings  \texttt{STORAGE}, \texttt{USBSTOR}, \texttt{VEN\_KINGSTON} auf. Besonders der letzte String lässt auf den Hersteller (Vendor) Kingston schließen. Direkt hinter dem Substring \texttt{VEN\_KINGSTON} fällt der Substring \texttt{PROD\_DATATRAVELER\_G3} auf. Eine Googlesuche nach \texttt{DATATRAVELER\_G3} fördert einen Kingston USB Stick mit dem Namen \texttt{Kingston Datatraveler G3} hervor. Es handelt sich also sehr wahrscheinlich um diesen USB Stick, den Bernd verwendet hat.
+
+\subsection*{b)}
+\end{document}

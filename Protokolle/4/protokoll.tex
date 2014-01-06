@@ -154,6 +154,47 @@ erzeugten wir ein Memorydump des Prozesses notepad.exe. Nachdem wir diesen Dump 
 \end{verbatim}
 und weitere Hinweise darauf, das der zuvor mittels \texttt{notepad.exe} die Datei \\\texttt{C:\textbackslash Users\textbackslash Bernd\textbackslash Documents\textbackslash secret\_pw.txt.txt} bearbeitet wurde.
 
+
+\subsection*{c)}
+Um das Volatility Plugin \texttt{cryptoscan} zu benutzen luden wir uns die Volatility Version 1.3 herunter. Anschließend starteten wir mit diesem Modul ein Scan nach dem Passwort.
+\begin{verbatim}
+python volatility cryptoscan -f crash_dump
+\end{verbatim}
+Als Ausgabe erhielten wir folgendes:
+\begin{verbatim}
+2106632:uint64
+26956940:HELPDIR
+29181068:TypeLib
+80299140:v!6.1.7601.18027
+83534988:00000009
+87614596:7000000008525
+88153652:D 
+154371212:Indexes
+184935564:6.1
+215250052:v!6.1.7601.17750
+268936324:InprocServer32
+297604236:00000000
+324158604:24D
+331007116:00000000
+332280940:{0000061D-0000-0010-8000-00AA006D2EA4}
+337179756:{071D41B6-8806-4EB0-B661-6CB67BE6E86E}
+342893708:00000000
+350016652:Indexes
+376972412:f256!acxtrnal.dll
+379982964:Microsoft.DirectMusicScript.1
+412510104:InvalidFlag
+413942192:normalized
+429233260:{05AF94D8-7174-4CD2-BE4A-4124B80EE4B8}
+434017412:Properties
+440579204:v!6.1.7600.16385
+446350476:Dhcp
+470616396:D 
+489993464:7h15_p455w0rd_15_54f3!?
+\end{verbatim}
+Wir schlossen aus der in Leetspeak formatierten letzten Zeile, dass dies das Passwort ist.
+Das Truecryptpasswort lautet also:
+\texttt{7h15\_p455w0rd\_15\_54f3!?}.
+
 \subsection*{d)}
 Wie oben schon zu sehen war ein \texttt{ftp} Prozess geöffnet. Mittels \texttt{strings} und
 \begin{verbatim}

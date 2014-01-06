@@ -170,7 +170,12 @@ Nachdem wir mittels
 \begin{verbatim}
 python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=2628 --dump-dir=output
 \end{verbatim}
-erzeugten wir ein Memorydump des Prozesses notepad.exe. Nachdem wir diesen Dump mittels des Programms \texttt{strings} nach enthaltenden Strings durchsuchten, fanden wir die folgende Zeile:
+erzeugten wir ein Memorydump des Prozesses notepad.exe. 
+Danach erzeugten wir eine String Repräsentation des Dumpes mittels
+\begin{verbatim}
+strings output/2628.dmp > output/2628.txt
+\end{verbatim}
+Diese Datei \texttt{2628.txt} durchsuchten wir nach auffälligen Strings. Wir fanden folgenden String, der nach einem Programmaufruf des Notepads aussah 
 \begin{verbatim}
 "C:\Windows\system32\NOTEPAD.EXE" C:\Users\Bernd\Documents\secret_pw.txt.txt
 \end{verbatim}
@@ -218,11 +223,12 @@ Das Truecryptpasswort lautet also:
 \texttt{7h15\_p455w0rd\_15\_54f3!?}.
 
 \subsection*{d)}
-Wie oben schon zu sehen war ein \texttt{ftp} Prozess geöffnet. Mittels \texttt{strings} und
+Wie oben schon zu sehen war ein \texttt{ftp} Prozess geöffnet. Mittels
 \begin{verbatim}
 python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=124 --dump-dir=output
 \end{verbatim}
-schauten wir uns auch seinen Memorydump an. Dabei fielen uns diese Zeilen auf.
+und \texttt{strings}
+schauten wir uns auch diesen Memorydump als Strings an. Dabei fielen uns diese Zeilen auf.
 \begin{verbatim}
 password.
 3GonELQR

@@ -78,7 +78,7 @@ eine SQLite Datenbank namens \texttt{\$RVLNSU2.db} auf. Diese kopierten wir mitt
 \texttt{b6589fc6ab0dc82cf12099c1c2d40ab994e8410c}.
 
 In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f4se8f48sef66sefsef.jpg}. Nachdem wir das Bild geöffnet hatten, sahen wir einen QR-Code. Leider ließ er sich auf Anhieb nicht öffnen, da zwei der zur Ausrichtung benötigten Quadrate weiß statt schwarz waren. Nachdem wir sie per GIMP wieder hergerichtet hatten, las der QR-Code Reader auf unserem Handy folgenden String aus dem Code aus:
-\texttt{6c5db859acd48b6be44d02bd48773a2146809629}.
+\\\texttt{6c5db859acd48b6be44d02bd48773a2146809629}.
 
 Im selben Ordner befand sich das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg, einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels des Programmes \texttt{outguess} etwas in der Datei versteckt wurde. Für weitere Infos zu der Datei benutzten wir das dazugehörige Konsolen-Tool \texttt{steghide} und schauten mit
 \begin{verbatim}
@@ -100,14 +100,14 @@ Als letztes durchsuchten wir den Ordner \texttt{Music}. Uns fiel eine mit secret
 Wir benannten als erstes die Datei \texttt{93f5c9434cd3b29ffdfb986d993ba469f96ff6ec} in \texttt{crash\_dump} um.
 Um das Tool \texttt{volatility} zu verwenden muss man wissen von welcher Windowsversion das Speicherabbild stammt. Da dieses nicht gegeben ist, versuchen wir es mittels des \texttt{volatility} Kommandos \texttt{imageinfo} herrauszufinden um was für ein Speicherabbild es sich handelt.
 \begin{verbatim}
-python vol.py imageinfo -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec
+python vol.py imageinfo -f crash_dump
 Volatility Foundation Volatility Framework 2.3.1
 Determining profile based on KDBG search...
 
           Suggested Profile(s) : Win7SP0x86, Win7SP1x86
                      AS Layer1 : IA32PagedMemoryPae (Kernel AS)
                      AS Layer2 : VirtualBoxCoreDumpElf64 (Unnamed AS)
-                     AS Layer3 : FileAddressSpace (/home/christoph/Downloads/93f5c9434cd3b29ffdfb986d993ba469f96ff6ec)
+                     AS Layer3 : FileAddressSpace (/home/christoph/Downloads/crash_dump)
                       PAE type : PAE
                            DTB : 0x185000L
                           KDBG : 0x82930c28

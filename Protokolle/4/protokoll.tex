@@ -75,7 +75,7 @@ In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f
 Außerdem befand sich in dem selben Ordner das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels dem Programm \texttt{outguess} etwas in der Datei versteckt wurde.  
 
 \section*{Aufgabe 2}
-
+Wir benannten als erstes die Datei \texttt{93f5c9434cd3b29ffdfb986d993ba469f96ff6ec} in \texttt{crash_dump} um.
 Um das Tool \texttt{volatility} zu verwenden muss man wissen von welcher Windowsversion das Speicherabbild stammt. Da dieses nicht gegeben ist, versuchen wir es mittels des \texttt{volatility} Kommandos \texttt{imageinfo} herrauszufinden um was für ein Speicherabbild es sich handelt.
 \begin{verbatim}
 python vol.py imageinfo -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec
@@ -101,17 +101,17 @@ Determining profile based on KDBG search...
 \end{verbatim}
 Die Ausgabe legt nahe, dass es sich um ein 32-Bit Windows 7 mit entweder Servicepack 1 oder 2 handelt. Da die Kommandos
 \begin{verbatim}
-python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP1x86 kdbgscan
+python vol.py -f crash_dump --profile=Win7SP1x86 kdbgscan
 \end{verbatim}
 und 
 \begin{verbatim}
-python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP0x86 kdbgscan
+python vol.py -f crash_dump --profile=Win7SP0x86 kdbgscan
 \end{verbatim}
 keine Unterscheidbare Ausgabe lieferten, gingen wir davon aus, dass es sich um ein Windows 7 mit SP1 handelt.
 
 Um einen groben Überblick zu erlangen zeigten wir uns mit 
 \begin{verbatim}
-python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP0x86 psscan
+python vol.py -f crash_dump --profile=Win7SP0x86 psscan
 \end{verbatim}
 alle laufenden und beendeten Prozesse an. Dabei vielen die Prozesse
 \begin{verbatim}
@@ -128,7 +128,7 @@ im Hinblick auf die nächsten beiden Aufgabenteile auf.
 \subsection*{a)}
 Der schon aufgefallene Prozess \texttt{WUDFHost.exe} ist ein Userspace Treiber Prozess. Da USB Sticks häufig per Userspace Treiber angesprochen werden, schauten wir uns die offenen Handles dieses Prozesses per 
 \begin{verbatim}
-python vol.py -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec --profile=Win7SP1x86 handles --pid=2864
+python vol.py -f crash_dump --profile=Win7SP1x86 handles --pid=2864
 \end{verbatim}
 an. Dabei vielen vor allem die Handles auf die dieser Registrykey auf.
 \begin{lstlisting}
@@ -137,4 +137,19 @@ an. Dabei vielen vor allem die Handles auf die dieser Registrykey auf.
 Dabei fallen die drei Substrings  \texttt{STORAGE}, \texttt{USBSTOR}, \texttt{VEN\_KINGSTON} auf. Besonders der letzte String lässt auf den Hersteller (Vendor) Kingston schließen. Direkt hinter dem Substring \texttt{VEN\_KINGSTON} fällt der Substring \texttt{PROD\_DATATRAVELER\_G3} auf. Eine Googlesuche nach \texttt{DATATRAVELER\_G3} fördert einen Kingston USB Stick mit dem Namen \texttt{Kingston Datatraveler G3} hervor. Es handelt sich also sehr wahrscheinlich um diesen USB Stick, den Bernd verwendet hat.
 
 \subsection*{b)}
+
+Der Aufruf
+\begin{verbatim}
+python vol.py -f crash_dump --profile=Win7SP1x86 handles --pid=2628
+\end{verbatim}
+zeigte keinen offenen Filehandles für den gestarteten notepad.exe Prozess.
+Nachdem wir mittels
+\begin{verbatim}
+python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=2628
+\end{verbatim}
+erzeugten wir ein Memorydump des Prozesses notepad.exe. Nachdem wir diesen Dump mittels des Programms \texttt{strings} nach enthaltenden Strings durchsuchten, fanden wir die folgende Zeile:
+\begin{verbatim}
+"C:\Windows\system32\NOTEPAD.EXE" C:\Users\Bernd\Documents\secret_pw.txt.txt
+\end{verbatim}
+und weitere Hinweise darauf, das der zuvor mittels \texttt{notepad.exe} die Datei \\\texttt{C:\textbackslash Users\textbackslash Bernd\textbackslash Documents\textbackslash secret\_pw.txt.txt} bearbeitet wurde.
 \end{document}

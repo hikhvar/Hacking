@@ -168,7 +168,7 @@ python vol.py -f crash_dump --profile=Win7SP1x86 handles --pid=2628
 zeigte keinen offenen Filehandles für den gestarteten notepad.exe Prozess.
 Nachdem wir mittels
 \begin{verbatim}
-python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=2628
+python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=2628 --dump-dir=output
 \end{verbatim}
 erzeugten wir ein Memorydump des Prozesses notepad.exe. Nachdem wir diesen Dump mittels des Programms \texttt{strings} nach enthaltenden Strings durchsuchten, fanden wir die folgende Zeile:
 \begin{verbatim}
@@ -220,7 +220,7 @@ Das Truecryptpasswort lautet also:
 \subsection*{d)}
 Wie oben schon zu sehen war ein \texttt{ftp} Prozess geöffnet. Mittels \texttt{strings} und
 \begin{verbatim}
-python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=124
+python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=124 --dump-dir=output
 \end{verbatim}
 schauten wir uns auch seinen Memorydump an. Dabei fielen uns diese Zeilen auf.
 \begin{verbatim}

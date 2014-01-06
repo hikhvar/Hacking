@@ -65,14 +65,36 @@ numbers=left
 \maketitle
  
 \section*{Aufgabe 1}
-Nachdem wir eine Virtuelle Maschine mit der Livelinuxdistribution C.A.IN.E und einem 1 GB großem Arbeitslaufwerk und dem Image des Laptops gestartet hatten legten wir mittels \texttt{Guymager} ein Image des Images des Laptops an. Dieses Image speicherten wir im \texttt{Expert Witness Format}. Danach erstellten wir in Autopsy einen neuen Fall und benutzten dazu das mit \texttt{Guymager} erstellte Image als Image in unserem Fall. 
 
-Nach einem ersten Blick mittels der \textit{File Analysis} Funktion in das Dateisystem des Images, fanden wir her raus, dass sich im Ordner \texttt{C:/\$RECYCLE.BIN/S-1-5-21-1799391407-34945392703861017217-1003} eine SQLite Datenbank namens \texttt{\$RVLNSU2.db} befand. Nachdem wir sie mittels der \textit{Export}funktion in das Homeverzeichnis kopiert hatten, öffneten sie mit dem mitgelieferten \texttt{SQLite database browser}. In der Datenbank befand sich eine Tabelle namens \texttt{passwords} mit den Spalten \texttt{id} und \texttt{flags}. In dieser Tabelle befanden sich dreißig Flags die dem Format [0-9a-z]{40} entsprachen. Der erste Flag lautet: \texttt{0b6589fc6ab0dc82cf12099c1c2d40ab994e8410c}.
+\subsection*{a)}
+
+Nachdem wir eine Virtuelle Maschine mit der Livelinuxdistribution C.A.IN.E und einem 1 GB großem Arbeitslaufwerk und dem Image des Laptops gestartet hatten legten wir mittels \texttt{Guymager} ein Image des Images des Laptops an. Dieses Image speicherten wir im \texttt{Expert Witness Format}. Danach erstellten wir in Autopsy einen neuen Fall und benutzten dazu das mit \texttt{Guymager} erstellte Image als Image in unserem Fall.
+
+\subsection*{b)}
+
+Es wurde ein Laufwerk C gefunden, auf dem wir zunächst mit der \textit{File Type} Funktion alle Dateien des Systems kategorisieren ließen. Zuerst fiel uns im Ordner\\
+\texttt{C:/\$RECYCLE.BIN/S-1-5-21-1799391407-34945392703861017217-1003}\\
+eine SQLite Datenbank namens \texttt{\$RVLNSU2.db} auf. Diese kopierten wir mittels der \textit{Export}-Funktion in das Home-Verzeichnis und öffneten sie mit dem mitgelieferten \texttt{SQLite database browser}. In der Datenbank befand sich eine Tabelle namens \texttt{passwords} mit den Spalten \texttt{id} und \texttt{flags}. In dieser Tabelle befanden sich dreißig Flags die dem Format [0-9a-z]{40} entsprachen. Der erste Flag lautet:
+\texttt{b6589fc6ab0dc82cf12099c1c2d40ab994e8410c}.
 
 In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f4se8f48sef66sefsef.jpg}. Nachdem wir das Bild geöffnet hatten, sahen wir einen QR-Code. Leider ließ er sich auf Anhieb nicht öffnen, da zwei der zur Ausrichtung benötigten Quadrate weiß statt schwarz waren. Nachdem wir sie per GIMP wieder hergerichtet hatten, las der QR-Code Reader auf unserem Handy folgenden String aus dem Code aus:
 \texttt{6c5db859acd48b6be44d02bd48773a2146809629}.
 
-Außerdem befand sich in dem selben Ordner das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels dem Programm \texttt{outguess} etwas in der Datei versteckt wurde.  
+Im selben Ordner befand sich das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg, einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels des Programmes \texttt{outguess} etwas in der Datei versteckt wurde. Für weitere Infos zu der Datei benutzten wir das dazugehörige Konsolen-Tool \texttt{steghide} und schauten mit
+\begin{verbatim}
+steghide info Autumn.jpg
+\end{verbatim}
+die Datei genauer an. Hiermit fanden wir eine eingebaute Datei \texttt{002\_2.jpg}, die wir mit einem weiteren Befehl
+\begin{verbatim}
+steghide extract -sf Autumn.jpg
+\end{verbatim}
+extrahierten. Leider stand dort aber nur \texttt{nice try} drin stand. Wir wiederholten den Vorgang dann sicherheitshalber noch einmal für die gefundene Datei, und siehe da eine weitere Datei \texttt{003\_1.jpg} befand sich darin. In dieser fanden wir dann auch einen passenden flag: \texttt{7e1037f7e2be528d16a0aa657ffb6bc1cd57a26b}.
+
+Auch im Ordner \texttt{Documents/Literature} wurden wir fündig. In einem pdf als Anmerkung versteckt (unten auf Seite 16) fanden wir das folgende flag:
+\texttt{044d52b80dc3b1d952ca95f14a96c46c005ab9cc}
+
+Als letztes durchsuchten wir den Ordner \texttt{Music}. Uns fiel eine mit secret benannte Datei (\texttt{CANYON.MID:secret}) auf, in der eine Zeichenkette im ASCII Format vorlag, allerdings nicht passend zu unserem flag Format. Durch viel herumprobieren und umkonvertieren kamen wir zu dem Ergebnis, dass eine Base64 Codierung vorliegt. Also decodierten wir die Zeichenkette zu UTF-8 und bekamen das flag:\\
+\texttt{8f8780bdc9d31ba2cae506f2a629978b915bddff}
 
 \section*{Aufgabe 2}
 Wir benannten als erstes die Datei \texttt{93f5c9434cd3b29ffdfb986d993ba469f96ff6ec} in \texttt{crash\_dump} um.

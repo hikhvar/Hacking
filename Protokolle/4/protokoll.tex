@@ -75,7 +75,7 @@ In dem Unterordner \texttt{C:/Pictures} befand sich das Bild \texttt{14fs6f8e46f
 Außerdem befand sich in dem selben Ordner das Bild \texttt{Autumn.jpg}. Der recht auffordernde Satz \textit{Can you find the secret?} in dem Bild lässt vermuten, dass sich in der Datei eine Information im Format \texttt{[0-9a-z]\{40\}} versteckt. Mittels XSteg einem Tool um verschiedene Steganographie Verfahren aufzuspüren, fanden wir heraus, dass mittels dem Programm \texttt{outguess} etwas in der Datei versteckt wurde.  
 
 \section*{Aufgabe 2}
-Wir benannten als erstes die Datei \texttt{93f5c9434cd3b29ffdfb986d993ba469f96ff6ec} in \texttt{crash_dump} um.
+Wir benannten als erstes die Datei \texttt{93f5c9434cd3b29ffdfb986d993ba469f96ff6ec} in \texttt{crash\_dump} um.
 Um das Tool \texttt{volatility} zu verwenden muss man wissen von welcher Windowsversion das Speicherabbild stammt. Da dieses nicht gegeben ist, versuchen wir es mittels des \texttt{volatility} Kommandos \texttt{imageinfo} herrauszufinden um was für ein Speicherabbild es sich handelt.
 \begin{verbatim}
 python vol.py imageinfo -f ../93f5c9434cd3b29ffdfb986d993ba469f96ff6ec
@@ -122,8 +122,9 @@ Offset(P)  Name                PID   PPID PDB        Time created
 ..
 0x1f7b53f0 WUDFHost.exe       2864    876 0x1f73e480 2013-12-16 16:57:56 UTC+0000
 ..
+0x1fd79758 ftp.exe             124    328 0x1f73e560 2013-12-16 17:02:59 UTC+0000
 \end{verbatim}
-im Hinblick auf die nächsten beiden Aufgabenteile auf. 
+im Hinblick auf die nächsten Aufgabenteile auf. 
 
 \subsection*{a)}
 Der schon aufgefallene Prozess \texttt{WUDFHost.exe} ist ein Userspace Treiber Prozess. Da USB Sticks häufig per Userspace Treiber angesprochen werden, schauten wir uns die offenen Handles dieses Prozesses per 
@@ -152,4 +153,22 @@ erzeugten wir ein Memorydump des Prozesses notepad.exe. Nachdem wir diesen Dump 
 "C:\Windows\system32\NOTEPAD.EXE" C:\Users\Bernd\Documents\secret_pw.txt.txt
 \end{verbatim}
 und weitere Hinweise darauf, das der zuvor mittels \texttt{notepad.exe} die Datei \\\texttt{C:\textbackslash Users\textbackslash Bernd\textbackslash Documents\textbackslash secret\_pw.txt.txt} bearbeitet wurde.
+
+\subsection*{d)}
+Wie oben schon zu sehen war ein \texttt{ftp} Prozess geöffnet. Mittels \texttt{strings} und
+\begin{verbatim}
+python vol.py -f crash_dump --profile=Win7SP1x86 memdump --pid=124
+\end{verbatim}
+schauten wir uns auch seinen Memorydump an. Dabei vielen uns diese Zeilen auf.
+\begin{verbatim}
+password.
+3GonELQR
+open
+192.26.175.74
+[..]
+USER wernerb
+[..]
+PASS 3GonELQR
+\end{verbatim}
+Mittels dem Benutzer \texttt{wernerb} und dem Passwort \texttt{3GonELQR} konnten wir uns dann tatsächlich auf dem Host \texttt{192.26.175.74} per FTP einloggen. Dies sind also sehr wahrscheinlich die gesuchten Credentials.
 \end{document}

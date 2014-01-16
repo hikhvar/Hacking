@@ -300,9 +300,21 @@ pos: ffffe7c8 val: 004005f4 vali: 4195828
 pos: ffffe7cc val: 00000000 vali: 0
 pos: ffffe7d0 val: ffffffff vali: -1
 \end{verbatim}
-
 Diese kann man durch eine Eingabe in gets aber nicht überschreiben, da sie auf der anderen Seite des Speichers liegt. Hier kommen wir also ohne Modifikation (würde ich sagen) des Programms selbst nicht weiter.
 
 \subsection*{c)}
+\section*{Aufgabe 3}
+Um diese Aufgabe zu lösen haben wir das Binary \texttt{break\_it} mittels der radare GUI Bokken disassembliert. Nach etwas Code studieren fiel uns auf, dass der String "Access Denied!" nach der Sprunganweisung 
+\begin{verbatim}
+test eax, eax
+jnz loc.0040062c
+\end{verbatim}  
+steht. Da eax immer eax ist, wird dieser Sprung nie ausgeführt. Würde der Sprung ausgeführt werden gelangt man zu einem String der "Got it, move on" enthält. Wir wandelten die Sprunganweisung \texttt{jnz hex:750c}(jump non zero) in \texttt{jz hex:740c} um, damit dieser Sprung immer ausgeführt wird.
+Nach dieser Änderung machte die Binary folgende Ausgabe:
+\begin{verbatim}
+Got it, move on!: dbv28%82hr!37v6!2
+\end{verbatim}
+Das Passwort für stage2 lautete also \texttt{dbv28\%82hr!37v6!2}
 
+\subsection*{a)}
 \end{document}

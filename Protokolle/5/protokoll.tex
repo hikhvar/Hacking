@@ -4,60 +4,9 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{todo}
 \usepackage[ngerman]{babel}
 \usepackage[left=2cm]{geometry}
 
-% Default fixed font does not support bold face
-\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
-\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}  % for normal
-
-% Custom colors
-\usepackage{color}
-\definecolor{deepblue}{rgb}{0,0,0.5}
-\definecolor{deepred}{rgb}{0.6,0,0}
-\definecolor{deepgreen}{rgb}{0,0.5,0}
-
-
-\usepackage{listings}
-
-% Python style for highlighting
-\newcommand\pythonstyle{\lstset{
-language=Python,
-basicstyle=\ttm,
-otherkeywords={self},             % Add keywords here
-keywordstyle=\ttb\color{deepblue},
-emph={MyClass,__init__},          % Custom highlighting
-emphstyle=\ttb\color{deepred},    % Custom highlighting style
-stringstyle=\color{deepgreen},
-frame=tb,                         % Any extra options here
-showstringspaces=false,           % 
-numbers=left
-}}
-
-
-% Python environment
-\lstnewenvironment{python}[1][]
-{
-\pythonstyle
-\lstset{#1}
-}
-{}
-
-\lstnewenvironment{bash}
-{\lstset{numbers=left,language=bash,keywordstyle={\color{blue}}}}
-{}
-
-% Python for external files
-\newcommand\pythonexternal[1]{{
-\pythonstyle
-\lstinputlisting{#1}}}
-
-% Python for inline
-\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
-\lstset{breaklines=true} 
-\lstset{basicstyle=\small\ttfamily}
-\lstset{framesep=4pt} 
 
 \author{Christoph Robbert 6577945, Peter Stilow 6500440}
 \title{Protokoll 5}
@@ -67,12 +16,104 @@ numbers=left
 \section*{Aufgabe 1}
 
 \subsection*{a)}
+Unsere Vulnerabel VM hat die IP \texttt{192.168.122.235}. Ob ein Exploit bekannt ist, untersuchten wir mittels der CVE Datenbank \texttt{http://www.cvedetails.com/}. Falls ein Exploit bekannt ist setzten wir ein \texttt{x} in das Feld.
+\begin{tabular}{|c|c|c|}
+\hline 
+Port & Dienst & Exploit bekannt \\ 
+\hline 
+21 & vfstpd 2.4 & x \\ 
+\hline 
+22 & ssh 4.7p1 & x \\ 
+\hline 
+23 & telnet &  \\ 
+\hline 
+25 & smtpd &  \\ 
+\hline 
+53 & bind & x \\ 
+\hline 
+80 & Apache httpd 2.2.8 & x \\ 
+\hline 
+111 & 2 RPC \#100000 &  \\ 
+\hline 
+139 & smbd 3.X & x \\ 
+\hline 
+445 & smbd 3.x & x \\ 
+\hline 
+512 & exec & \\
+\hline
+513 & login & \\
+\hline
+514 & shell & \\
+\hline
+1099 & java-rmi & \\
+\hline & 
+2121 & ProFTPD 1.3.1 & x \\
+\hline
+3306 & MySQL 5.0.51a-3ubuntu5 & x\\
+\hline
+5432 & PostgreSQL DB 8.3.0 &  x \\
+\hline
+5900 & VNC & \\
+\hline
+6000 & x11 & \\
+\hline
+6667 & inreal ircd & x\\
+\hline
+8009 & Apache Jserv Protocol v1.3 & \\
+\hline
 
+
+\end{tabular} 
 
 
 \subsection*{b)}
 
+Um uns die Benutzung des Metasploitframeworks zu vereinfachen, benutzten wir die GUI Armitage. In einem ersten Schritt benutzten wir die Funktion \texttt{Attacks $\rightarrow$ Hail Mary} aus, die automatisch aus Exploits aus einer lokalen Datenbank startet. Diese Funktion schaffte es mehre Shells zu öffnen. 
+Die erste war eine Rootshell mittels des Exploits:
+\begin{verbatim}
+exploit/unix/irc/unreal_ircd_3281_backdoor
+\end{verbatim}
+eine Rootshell zu öffnen. Der Screenshot befindet sich in Abbildung \ref{ircd_root}.
+\begin{figure}
+\includegraphics[scale=0.5]{figures/ircd_rootshell.png}
+\caption{Root shell via ircd}
+\label{ircd_root}
+\end{figure}
 
+Die zweite Rootshell brachte der Exploit:
+\begin{verbatim}
+exploit/multi/misc/java_rmi_server
+\end{verbatim}
+Der Screenshot befindet sich in Abbildung \ref{java_rmi}.
+\begin{figure}
+\includegraphics[scale=0.5]{figures/java_rmi.png}
+\caption{Root shell via java\_rmi}
+\label{java_rmi}
+\end{figure}
+
+Der dritte Rootshell brachte der Exploit:
+\begin{verbatim}
+exploit/unix/ftp/vsftpd_234_backdoor
+\end{verbatim}
+Der Screenshot befindet in Abbildung \ref{vsftp_234}.
+\begin{figure}
+\includegraphics[scale=0.5]{figures/vfstp.png}
+\caption{Root shell via vsftp}
+\label{vfstp_234}
+\end{figure}
+
+Die vierte Backdoor brachte der Exploit:
+\begin{verbatim}
+exploit/multi/samba/usermap_script
+\end{verbatim}
+Der Screenshot befindet sich in Abbildung \ref{samba}.
+\begin{figure}
+\includegraphics[scale=0.5]{figures/samba.png}
+\caption{Root shell via samba}
+\label{samba}
+\end{figure}
+
+So long, lets say: All hail to Mary!
 
 \section*{Aufgabe 2}
 
@@ -151,7 +192,7 @@ Aus diesen Daten kann man lesen, dass bei Adresse 0x4005be die if-Abfrage umgese
 
 Input Gen compilieren wir mit:
 \begin{verbatim}
-gcc -o inputGet inputGen.c
+gcc -o inputGen inputGen.c
 \end{verbatim}
 
 \begin{verbatim}
@@ -178,6 +219,7 @@ int main() {
    return 0;
 }
 \end{verbatim}
+
 
 Durch Modifikation des gegebenen Programms lassen wir uns erstmal den Speicher ausgaben, der um das Array und die Variable herum liegen. Das Programm sieht nun so aus:
 \begin{verbatim}

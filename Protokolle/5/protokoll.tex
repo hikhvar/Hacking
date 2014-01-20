@@ -243,6 +243,7 @@ Der Speicherzugriffsfehler kommt von der weiteren Ausführung des Programms, da 
 
 
 \section*{Aufgabe 3}
+\subsection*{a)}
 Um diese Aufgabe zu lösen haben wir das Binary \texttt{break\_it} mittels der radare GUI Bokken disassembliert. Nach etwas Code studieren fiel uns auf, dass der String "Access Denied!" nach der Sprunganweisung 
 \begin{verbatim}
 test eax, eax
@@ -255,5 +256,30 @@ Got it, move on!: dbv28%82hr!37v6!2
 \end{verbatim}
 Das Passwort für stage2 lautete also \texttt{dbv28\%82hr!37v6!2}
 
-\subsection*{a)}
+\subsection*{b)}
+Ein \texttt{ls -lisah} zeigte, dass die sumgen Binary dem Benutzer stage3 gehört und da das SUID Bit gesetzt wird auch mit seinen Rechten ausgeführt wird.
+\begin{verbatim}
+# ls -lisah
+[..]
+ 43322  12K -r-sr-sr-x 1 stage3 stage3  11K Jun 20  2013 sumgen
+[..]
+\end{verbatim}
+Nachdem wir etwas mit der \texttt{sumgen} Binary experimentiert hatten und verschiedene Eingaben ausprobiert hatten, fanden wir heraus, dass die Eingabe mittels einer Pipe in das Programm \texttt{md5sum} geleitet wird.
+Sumgen ruft also ungefähr folgende Kommandline auf:
+\begin{verbatim}
+echo -n 'EINGABE' | md5sum 
+\end{verbatim}
+Wir schafften es mittels der folgenden Eingabe eine Shell mit den Rechten von stage3 zu öffnen:
+\begin{verbatim}
+./sumgen md5 "';sh;echo -n'"
+\end{verbatim}
+Wir wechselten mittels 
+\begin{verbatim}
+cd ../stage3
+\end{verbatim}
+in das Homeverzeichnis von stage3 und fanden eine Datei mit dem Namen \texttt{pass.txt} die das Passwort \texttt{i76v!IRi\$vBi38} enthielt. Damit loggten wir uns dann via SSH auf den Benutzer stage3 ein.
+Passwort für stage3 lautet also: \texttt{i76v!IRi\$vBi38}
+
+\subsection*{c)}
+
 \end{document}

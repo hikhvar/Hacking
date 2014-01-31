@@ -38,11 +38,20 @@ Nach kurzer Zeit fanden wir die folgenden Zeilen in der Logdatei \texttt{sslsnif
 \begin{verbatim}
 Hallo bernd!
 Hier ist deine Flagge: 1107174691af9ff3681d2b5bdb5740b1589bae53
+
+Neue Zugangsdaten
+Benutzer: bernd
+Passwort: SicheresPasswort
 \end{verbatim}
 Die Flagge lautet also \texttt{1107174691af9ff3681d2b5bdb5740b1589bae53}
 
 
 \subsection*{b)}
+Im Netzwerk fällt außerdem eine Active Discovery Offer für ein PPPoED Netzwerk auf.
+\begin{verbatim}
+CadmusCo_48:ae:eb	RealtekU_12:23:11	PPPoED	60	Active Discovery Offer (PADO) AC-Name='BerndCom'
+\end{verbatim}
+Mit den Zugangsdaten aus der Aufgabe a) kann man eine PPPoE Verbindung aufbauen. Leider passiert in diesem Netzwerk nichts.
 
 \section*{Aufgabe 2}
 Da das EAP Protokoll nicht verschlüsselt ist, kann man aus den vier mitgeschnittenen

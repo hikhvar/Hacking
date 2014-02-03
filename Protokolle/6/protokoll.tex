@@ -51,9 +51,36 @@ Im Netzwerk fällt außerdem eine Active Discovery Offer für ein PPPoED Netzwer
 \begin{verbatim}
 CadmusCo_48:ae:eb	RealtekU_12:23:11	PPPoED	60	Active Discovery Offer (PADO) AC-Name='BerndCom'
 \end{verbatim}
-Mit den Zugangsdaten aus der Aufgabe a) kann man eine PPPoE Verbindung aufbauen. Leider passiert in diesem Netzwerk nichts.
+Mit den Zugangsdaten aus der Aufgabe a) kann man eine PPPoE Verbindung aufbauen. 
+Es zeigte sich per \texttt{nmap}, dass in dem Subnetz \texttt{192.168.42.0/26} nur noch der Rechner \texttt{192.168.42.1} online ist. Ein vollständiger Portscan mittels
+\begin{verbatim}
+nmap -p - 192.168.42.1
+\end{verbatim} 
+zeigte folgende offenen Port:
+\begin{verbatim}
+22/tcp    open  ssh
+80/tcp    open  http
+443/tcp   open  https
+54321/tcp open  unkown 
+\end{verbatim}
+Verband man sich mittels \texttt{nc 192.168.42.1 54321} auf den auffälligen Port \texttt{54321} erhielt man nachdem man eine nicht leere Eingabe getätigt hat die Flagge \texttt{9a855525712ce3cd42de2e600cecfb8b5c65b6fc}.
 
 \section*{Aufgabe 2}
-Da das EAP Protokoll nicht verschlüsselt ist, kann man aus den vier mitgeschnittenen
+Da sich Bernd für EAPMD5 entschieden hat in einem WLAN, kann man den Benutzernamen und das Passwort mittels eines Wörterbuchangriff aus dem mitgeschnittenen Handshake errechnen. EAPMD5 ist nur für abhörsichere Verbindungen ausgelegt, was in einem WLAN  nicht der Fall ist. Daher hat Bernd sich falsch entschieden. 
+
+Der Benutzername ist in den abgefangenen Paketen im Klartext enthalten. Das Passwort aber nicht. Jedoch wird eine MD5 Challenge (\texttt{ba:63:76:d0:738e:a7:2b:ef:e6:6b:11:c1:f0:2e:33}) im zweiten Paket geschickt. Der Client antwortet mit der Antwort auf diese Challenge (\texttt{a3:dc:28:81:e3:be:88:1c:72:2f:52:6d:1c:ac:db:8d}). Aus diesen beiden Hashes und der EAPID(die auch im Klartext mitgeschickt wird), dem Benutzer und eines Wörterbuch kann man mittels des folgenden Befehls das Passwort berechnen lassen.
+\begin{verbatim}
+eapmd5pass  -U bernd -E 7 -C ba:63:76:d0:738e:a7:2b:ef:e6:6b:11:c1:f0:2e:33 
+-R a3:dc:28:81:e3:be:88:1c:72:2f:52:6d:1c:ac:db:8d -w rockyou.txt
+\end{verbatim}
+Die Ausgabe lautet:
+\begin{verbatim}
+eapmd5pass - Dictionary attack against EAP-MD5
+User password is "existance".
+513775 passwords in 0.16 seconds: 3217246.75 passwords/second.
+\end{verbatim}
+
+Damit ist das Passwort von Bernd: \texttt{existance}
+
 
 \end{document}

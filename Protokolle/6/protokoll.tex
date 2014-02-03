@@ -20,7 +20,7 @@ Ein Mitschnitt mittels Wireshark auf den Workstations zeigte, dass sich auf den 
 \begin{verbatim}
 arp -s 192.26.175.15 52:54:00:2c:4f:ec
 \end{verbatim}
-Den ARP Eintrag für die IP \texttt{192.26.175.15} auf die MAC Adresse der Kali VM auf derselben Workstation.
+den ARP Eintrag für die IP \texttt{192.26.175.15} auf die MAC Adresse der Kali VM auf derselben Workstation.
 In der Kali VM starten wir das Tool sslsniff.
 Um dieses Tool verwenden zu können, mussten wir in der Kali VM mittels
 \begin{verbatim}
@@ -66,9 +66,9 @@ zeigte folgende offenen Port:
 Verband man sich mittels \texttt{nc 192.168.42.1 54321} auf den auffälligen Port \texttt{54321} erhielt man nachdem man eine nicht leere Eingabe getätigt hat die Flagge \texttt{9a855525712ce3cd42de2e600cecfb8b5c65b6fc}.
 
 \section*{Aufgabe 2}
-Da sich Bernd für EAPMD5 entschieden hat in einem WLAN, kann man den Benutzernamen und das Passwort mittels eines Wörterbuchangriff aus dem mitgeschnittenen Handshake errechnen. EAPMD5 ist nur für abhörsichere Verbindungen ausgelegt, was in einem WLAN  nicht der Fall ist. Daher hat Bernd sich falsch entschieden. 
+Als erstes haben wir uns den Mitschnitt "`wlan.pcap"' angeschaut und bemerkten, dass sich darin ein EAP-MD5-Challenge befindet. EAPMD5 ist nur für abhörsichere Verbindungen ausgelegt, jedoch hat sich Bernd dafür in einem WLAN entschieden, was eine schlechte Idee war und wir deshalb den Mitschnitt bekommen konnten. Dank dem mitgeschnittenen Handshake kann man den Benutzernamen und das Passwort mittels eines Wörterbuchangriffs errechnen.
 
-Der Benutzername ist in den abgefangenen Paketen im Klartext enthalten. Das Passwort aber nicht. Jedoch wird eine MD5 Challenge (\texttt{ba:63:76:d0:738e:a7:2b:ef:e6:6b:11:c1:f0:2e:33}) im zweiten Paket geschickt. Der Client antwortet mit der Antwort auf diese Challenge (\texttt{a3:dc:28:81:e3:be:88:1c:72:2f:52:6d:1c:ac:db:8d}). Aus diesen beiden Hashes und der EAPID(die auch im Klartext mitgeschickt wird), dem Benutzer und eines Wörterbuch kann man mittels des folgenden Befehls das Passwort berechnen lassen.
+Der Benutzername ist in den abgefangenen Paketen im Klartext enthalten. Das Passwort aber nicht. Jedoch wird eine MD5 Challenge (\texttt{ba:63:76:d0:738e:a7:2b:ef:e6:6b:11:c1:f0:2e:33}) im zweiten Paket geschickt. Der Client antwortet auf diese Challenge (\texttt{a3:dc:28:81:e3:be:88:1c:72:2f:52:6d:1c:ac:db:8d}). Aus diesen beiden Hashes und der EAPID (die auch im Klartext mitgeschickt wird), dem Benutzer und eines Wörterbuchs kann man mit dem Programm eapmd5pass und folgendem Befehl das Passwort berechnen lassen:
 \begin{verbatim}
 eapmd5pass  -U bernd -E 7 -C ba:63:76:d0:738e:a7:2b:ef:e6:6b:11:c1:f0:2e:33 
 -R a3:dc:28:81:e3:be:88:1c:72:2f:52:6d:1c:ac:db:8d -w rockyou.txt
